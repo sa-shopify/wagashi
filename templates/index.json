@@ -1,42 +1,54 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
+    "cfa198a9-5a4c-4986-b9d0-b8a90e627f73": {
+      "type": "ss-fv",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "template--21458671599922__cfa198a9-5a4c-4986-b9d0-b8a90e627f73-blockset-1": {
+          "type": "blockset",
           "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
+            "main-title": "創業明治二〇年",
+            "sub-title": "京都からのお届けもの",
+            "banner": "shopify:\/\/shop_images\/top___1_a9f9a370-f057-4977-9f97-756a10e062d9.jpg",
+            "url": "shopify:\/\/collections\/all"
           }
         },
-        "button": {
-          "type": "buttons",
+        "cece7938-1323-4954-9dac-33057527c4b5": {
+          "type": "blockset",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "main-title": "創業明治二〇年",
+            "sub-title": "京都からのお届けもの",
+            "banner": "shopify:\/\/shop_images\/top___2_97ac7bde-7738-4c28-b31f-391a7dfca758.jpg",
+            "url": "shopify:\/\/collections\/all"
+          }
+        },
+        "0d4b7eb8-369c-4018-831f-5bad5736045f": {
+          "type": "blockset",
+          "settings": {
+            "main-title": "創業明治二〇年",
+            "sub-title": "京都からのお届けもの",
+            "banner": "shopify:\/\/shop_images\/top___3_1859e185-2c58-4b2a-867b-9fb43a11b2ef.jpg",
+            "url": "shopify:\/\/collections\/all"
+          }
+        },
+        "2c69c583-a555-43de-a834-68308d54c8eb": {
+          "type": "blockset",
+          "settings": {
+            "main-title": "創業明治二〇年",
+            "sub-title": "京都からのお届けもの",
+            "banner": "shopify:\/\/shop_images\/top___4.jpg",
+            "url": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
-        "heading",
-        "button"
+        "template--21458671599922__cfa198a9-5a4c-4986-b9d0-b8a90e627f73-blockset-1",
+        "cece7938-1323-4954-9dac-33057527c4b5",
+        "0d4b7eb8-369c-4018-831f-5bad5736045f",
+        "2c69c583-a555-43de-a834-68308d54c8eb"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "inverse",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "overlay": 0.2,
+        "overlay-color": "#000000"
       }
     },
     "featured_collection": {
@@ -69,7 +81,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "cfa198a9-5a4c-4986-b9d0-b8a90e627f73",
     "featured_collection"
   ]
 }
