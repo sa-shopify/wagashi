@@ -192,8 +192,8 @@
   }
 
   .ssSlide__swipernav {
-    right: 90px;
-    bottom: 24px;
+    right: 7.03125vw;
+    bottom: 1.875vw;
   }
 
   .ssSlide__prev, .ssSlide__next {
@@ -211,10 +211,10 @@
   }
 
   .ssSlide__label{
-    font-size: 16px;
-    left: 90px;
+    font-size: 1.25vw;
+    left: 7.03125vw;
     letter-spacing: 0.6rem;
-    padding: 16px 24px;
+    padding: 1.25vw 1.875vw;
   }
 }
 
@@ -225,7 +225,8 @@
 
 
 <section class="ssSlide">
-  <div class="swiper">
+  <div class="page-width">
+    <div class="swiper">
       <ul class="ssSlide__lists swiper-wrapper">
 
 
@@ -244,6 +245,9 @@
                     {{ block.settings.main-title }}
                   </p>
                 </div>
+                <span class="ssSlide__label">
+                  商品一覧をみる
+                </span>
             </a>
         </li>
       {% endfor %}
@@ -254,9 +258,8 @@
         <div class="ssSlide__pagination"></div>
         <div class="ssSlide__next"></div>
       </div>
-      <span class="ssSlide__label">
-        商品一覧をみる
-      </span>
+      
+    </div>
   </div>
 </section>
 
