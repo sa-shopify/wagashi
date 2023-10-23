@@ -234,8 +234,8 @@
         <li class="ssSlide__list swiper-slide">
             <a href="{{ block.settings.url }}" class="ssSlide__link">
                 <picture class="ssSlide__image">
-                    <source srcset="{{ block.settings.banner | image_url: width: 2000 }}" media="(min-width: 1126px)" alt="{{ block.settings.banner.alt }}">
-                    <img src="{{ block.settings.banner | image_url: width: 1200 }}" alt="{{ block.settings.banner.alt }}">
+                    <source srcset="{{ block.settings.banner_pc | image_url: width: 2000 }}" media="(min-width: 1126px)" alt="{{ block.settings.banner_pc.alt }}">
+                    <img src="{{ block.settings.banner_sp | image_url: width: 1200 }}" alt="{{ block.settings.banner_sp.alt }}">
                 </picture>
                 <div class="ssSlide__messages">
                   <p class="ssSlide__submessage">
@@ -290,8 +290,13 @@
             },
            {
                "type": "image_picker",
-               "id": "banner",
-               "label": "バナー"
+               "id": "banner_pc",
+               "label": "バナー(PC)"
+           },
+           {
+               "type": "image_picker",
+               "id": "banner_sp",
+               "label": "バナー(SP)"
            },
            {
                 "id": "url",

@@ -8,7 +8,8 @@
           "settings": {
             "main-title": "創業明治二〇年",
             "sub-title": "京都からのお届けもの",
-            "banner": "shopify:\/\/shop_images\/top___1_a9f9a370-f057-4977-9f97-756a10e062d9.jpg",
+            "banner_pc": "shopify:\/\/shop_images\/top___1_a9f9a370-f057-4977-9f97-756a10e062d9.jpg",
+            "banner_sp": "shopify:\/\/shop_images\/top___1_sp.jpg",
             "url": "shopify:\/\/collections\/all"
           }
         },
@@ -17,7 +18,8 @@
           "settings": {
             "main-title": "創業明治二〇年",
             "sub-title": "京都からのお届けもの",
-            "banner": "shopify:\/\/shop_images\/top___2_97ac7bde-7738-4c28-b31f-391a7dfca758.jpg",
+            "banner_pc": "shopify:\/\/shop_images\/top___2_97ac7bde-7738-4c28-b31f-391a7dfca758.jpg",
+            "banner_sp": "shopify:\/\/shop_images\/top___2_sp.jpg",
             "url": "shopify:\/\/collections\/all"
           }
         },
@@ -26,7 +28,8 @@
           "settings": {
             "main-title": "創業明治二〇年",
             "sub-title": "京都からのお届けもの",
-            "banner": "shopify:\/\/shop_images\/top___3_1859e185-2c58-4b2a-867b-9fb43a11b2ef.jpg",
+            "banner_pc": "shopify:\/\/shop_images\/top___3_1859e185-2c58-4b2a-867b-9fb43a11b2ef.jpg",
+            "banner_sp": "shopify:\/\/shop_images\/top___3_sp.jpg",
             "url": "shopify:\/\/collections\/all"
           }
         },
@@ -35,7 +38,8 @@
           "settings": {
             "main-title": "創業明治二〇年",
             "sub-title": "京都からのお届けもの",
-            "banner": "shopify:\/\/shop_images\/top___4.jpg",
+            "banner_pc": "shopify:\/\/shop_images\/top___4.jpg",
+            "banner_sp": "shopify:\/\/shop_images\/top___4_sp.jpg",
             "url": "shopify:\/\/collections\/all"
           }
         }
@@ -47,7 +51,7 @@
         "2c69c583-a555-43de-a834-68308d54c8eb"
       ],
       "settings": {
-        "overlay": 0.2,
+        "overlay": 0.4,
         "overlay-color": "#000000"
       }
     },
