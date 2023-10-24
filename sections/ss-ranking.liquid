@@ -1,0 +1,338 @@
+
+{% style %}
+
+
+
+
+
+.ssCard {
+  background-color: {{ section.settings.background-color }};
+  padding-top: 10.666vw;
+  padding-bottom: 10.666vw;
+}
+
+
+
+.ssCard__title{
+  padding: 0 15px 25px 15px;
+}
+
+.ssCard__maintitle{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: min(5.3333vw, 24px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 15px;
+}
+
+.ssCard__capture{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: min(4vw, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 25.8px */
+  letter-spacing: 0.6px;
+}
+
+.ssRank_items {
+  margin: 0;
+  padding: 0;
+}
+
+.ssCard__itemsinner{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.ssCard__item{
+  margin: 0;
+  padding: 0;
+  width: calc(50% - 2px);
+  display: block;
+  position: relative;
+  list-style: none;
+}
+
+.ssCard__link{
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+}
+
+.ssCard__image{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100%;
+
+  height: auto;
+  padding-top: 45.466vw;
+}
+
+.ssCard__image img{
+  width: 100%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+
+.ssCard__number{
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  width: min(12.8vw, 48px);
+  height: min(12.8vw, 48px);
+  line-height: min(12.8vw, 48px);
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  vertical-align: middle;
+  font-size: min(5.3333vw, 24px);
+  color: #FEFFFF;
+}
+
+.ssCard__number-1{
+  background-color: #C79B33;
+}
+
+.ssCard__number-2{
+  background-color: #9A9A9A;
+}
+
+.ssCard__number-3{
+  background-color: #977C54;
+}
+
+.ssCard__number-4, 
+.ssCard__number-5{
+  background-color: #DA9B8A;
+}
+
+
+
+.ssCard__iteminfo{
+  height: 21.333vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 20.64px */
+  justify-content: center;
+  gap:7px;
+}
+
+.ssCard__itemname{
+  margin: 0;
+  padding: 0;
+  color: #020202;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 20.64px */
+  letter-spacing: 0.48px;
+}
+
+.ssCard__price{
+  margin: 0;
+  padding: 0;
+  color: #020202;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 25.8px */
+  letter-spacing: 0.6px;
+}
+
+.ssCard__button{
+  padding: 0;
+  margin: 0;
+  display: inline-block;
+  background: #779547;
+  color: #FEFFFF;
+  height: 47px;
+  padding-right:30px;
+  padding-left:30px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 47px; /* 93.75% */
+  letter-spacing: 0.64px;
+  margin-top: 10px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ssCard__buttonlayout{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+@media screen and (min-width: 750px) {
+  .ssCard {
+    padding-top: {{ section.settings.padding }}px;
+    padding-bottom: {{ section.settings.padding }}px;
+  }
+
+  .ssCard__number{
+    width: min(3.75vw, 48px);
+    height: min(3.75vw, 48px);
+    line-height: min(3.75vw, 48px);
+    font-size: min(6.4vw, 24px);
+  }
+
+
+  .ssCard__title{
+    padding: 0 3.90625vw 3.125vw 3.90625vw;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ssCard__maintitle{
+    margin-bottom: 10px;
+  }
+
+  .ssCard__itemsinner{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 8px;
+    padding-left: 3.90625vw;
+    padding-right: 3.90625vw;
+  }
+
+  .ssCard__item{
+    width: calc(20% - 6.4px);
+  }
+
+  .ssCard__iteminfo{
+    height: 97px;
+  }
+
+  .ssCard__image{
+    padding-top: min(16.6875vw, 213.6px);
+  }
+
+  .ssCard__itemname{
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
+
+  .ssCard__price{
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
+}
+
+{% endstyle %}
+
+
+
+<section class="ssCard">
+  <div class="ssCard__title">
+    <h2 class="ssCard__maintitle">
+      月間ランキング
+    </h2>
+    <p class="ssCard__capture">
+      選ばれた和菓子をご堪能ください。
+    </p>
+  </div>
+  <div class="ssCard__items">
+    <ul class="ssCard__itemsinner">
+      {%- for item in section.settings.rank-collection.products limit: 5 -%}
+          <li class="ssCard__item">
+            <a href="{{ item.url }}" class="ssCard__link">
+              <div class="ssCard__image">
+                <picture>
+                  <source srcset="{{ item.featured_image | image_url: width: 2000 }}" media="(min-width: 1126px)" alt="{{ item.featured_image.alt }}">
+                  <img src="{{ item.featured_image | image_url: width: 1200 }}" alt="{{ item.featured_image.alt }}">
+                </picture>
+                {% if section.settings.rank-number %}
+                  <span class="ssCard__number ssCard__number-{{forloop.index}}">{{ forloop.index | replace: '1' ,'一' | replace: '2' ,'二' | replace: '3' ,'三' | replace: '4' ,'四' | replace: '5' ,'五' }}</span>
+                {% endif %}
+              </div>
+              <div class="ssCard__iteminfo">
+                <p class="ssCard__itemname">
+                  {{ item.title }}
+                </p>
+                <p class="ssCard__price">
+                  {{ item.price | money }}
+                </p>
+              </div>
+            </a>
+          </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+  <div class="ssCard__buttonlayout">
+    <a href="#" class="ssCard__button">もっとみる</a>
+  </div>
+</section>
+
+
+
+
+
+{% schema %}
+    {
+    "name": "ssランキング",
+     "blocks": [
+     ],
+     "settings": [
+          {
+            "type": "range",
+            "id": "padding",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "上下余白",
+            "default": 0
+          },
+          {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#F0F1ED"
+          },
+          {
+            "type": "checkbox",
+            "id": "rank-number",
+            "label": "ランキング順位の表示をする",
+            "default": true
+          },
+          {
+            "type": "collection",
+            "id": "rank-collection",
+            "label": "ランキング表示対象"
+          }
+      ],
+     "presets": [
+        {
+          "name": "ssランキング"
+        }
+      ]
+    }
+  {% endschema %}
