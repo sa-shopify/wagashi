@@ -3,8 +3,8 @@
 
 .ssRankCard-{{ section.id }} {
   background-color: {{ section.settings.background-color }};
-  padding-top: {{ section.settings.padding |  times: 0.5 }}px;
-  padding-bottom: {{ section.settings.padding |  times: 0.5 }}px;
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
 }
 
 .ssRank_items {
@@ -47,8 +47,8 @@
 
 @media screen and (min-width: 750px) {
   .ssRankCard-{{ section.id }} {
-    padding-top: {{ section.settings.padding }}px;
-    padding-bottom: {{ section.settings.padding }}px;
+    padding-top: {{ section.settings.padding-top }}px;
+    padding-bottom: {{ section.settings.padding-bottom }}px;
   }
 
   .ssRankCard__number{
@@ -117,11 +117,20 @@
      "settings": [
           {
             "type": "range",
-            "id": "padding",
+            "id": "padding-top",
             "min": 0,
             "max": 200,
             "step": 10,
-            "label": "上下余白",
+            "label": "上の余白",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding-bottom",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "下の余白",
             "default": 0
           },
           {
