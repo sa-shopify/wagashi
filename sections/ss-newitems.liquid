@@ -1,7 +1,6 @@
-
 {% style %}
 
-.ssRankCard-{{ section.id }} {
+.ssNewItemsCard-{{ section.id }} {
   background-color: {{ section.settings.background-color }};
   padding-top: {{ section.settings.padding |  times: 0.5 }}px;
   padding-bottom: {{ section.settings.padding |  times: 0.5 }}px;
@@ -12,7 +11,7 @@
   padding: 0;
 }
 
-.ssRankCard__number{
+.ssNewItemsCard__number{
   margin: 0;
   padding: 0;
   display: inline-block;
@@ -28,64 +27,69 @@
   color: #FEFFFF;
 }
 
-.ssRankCard__number-1{
+.ssNewItemsCard__number-1{
   background-color: #C79B33;
 }
 
-.ssRankCard__number-2{
+.ssNewItemsCard__number-2{
   background-color: #9A9A9A;
 }
 
-.ssRankCard__number-3{
+.ssNewItemsCard__number-3{
   background-color: #977C54;
 }
 
-.ssRankCard__number-4, 
-.ssRankCard__number-5{
+.ssNewItemsCard__number-4, 
+.ssNewItemsCard__number-5{
   background-color: #DA9B8A;
 }
 
 @media screen and (min-width: 750px) {
-  .ssRankCard-{{ section.id }} {
+
+  .ssNewCard__item{
+        width: calc(25% - 6px);
+  }
+
+  .ssNewItemsCard-{{ section.id }} {
     padding-top: {{ section.settings.padding }}px;
     padding-bottom: {{ section.settings.padding }}px;
   }
 
-  .ssRankCard__number{
+  .ssNewItemsCard__number{
     width: min(3.75vw, 48px);
     height: min(3.75vw, 48px);
     line-height: min(3.75vw, 48px);
     font-size: min(6.4vw, 24px);
   }
 
+  .ssNewCard__image{
+        padding-top: min(21.015625vw, 269px);
+  }
 }
 
 {% endstyle %}
 
 
 
-<section class="ssRankCard-{{ section.id }}">
+<section class="ssNewItemsCard-{{ section.id }}">
   <div class="ssCard__title">
     <h2 class="ssCard__maintitle">
-      月間ランキング
+      新着
     </h2>
     <p class="ssCard__capture">
-      選ばれた和菓子をご堪能ください。
+      和菓子屋では日々新しい和菓子に挑戦しています。ぜひご堪能あれ。
     </p>
   </div>
   <div class="ssCard__items">
     <ul class="ssCard__itemsinner">
-      {%- for item in section.settings.item-collection.products limit: 5 -%}
-          <li class="ssCard__item">
+      {%- for item in section.settings.item-collection.products limit: 4 -%}
+          <li class="ssCard__item ssNewCard__item">
             <a href="{{ item.url }}" class="ssCard__link">
-              <div class="ssCard__image">
+              <div class="ssCard__image ssNewCard__image">
                 <picture>
                   <source srcset="{{ item.featured_image | image_url: width: 2000 }}" media="(min-width: 1126px)" alt="{{ item.featured_image.alt }}">
                   <img src="{{ item.featured_image | image_url: width: 1200 }}" alt="{{ item.featured_image.alt }}">
                 </picture>
-                {% if section.settings.rank-number %}
-                  <span class="ssRankCard__number ssRankCard__number-{{forloop.index}}">{{ forloop.index | replace: '1' ,'一' | replace: '2' ,'二' | replace: '3' ,'三' | replace: '4' ,'四' | replace: '5' ,'五' }}</span>
-                {% endif %}
               </div>
               <div class="ssCard__iteminfo">
                 <p class="ssCard__itemname">
@@ -111,7 +115,7 @@
 
 {% schema %}
     {
-    "name": "ssランキング",
+    "name": "ss新商品リスト",
      "blocks": [
      ],
      "settings": [
@@ -131,12 +135,6 @@
             "default": "#F0F1ED"
           },
           {
-            "type": "checkbox",
-            "id": "rank-number",
-            "label": "ランキング順位の表示をする",
-            "default": true
-          },
-          {
             "type": "collection",
             "id": "item-collection",
             "label": "表示対象のコレクション"
@@ -144,7 +142,7 @@
       ],
      "presets": [
         {
-          "name": "ssランキング"
+          "name": "ss新商品リスト"
         }
       ]
     }

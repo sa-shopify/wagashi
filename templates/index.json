@@ -61,12 +61,21 @@
         "padding": 80,
         "background-color": "#f0f1ed",
         "rank-number": true,
-        "rank-collection": "ranking"
+        "item-collection": "ranking"
+      }
+    },
+    "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89": {
+      "type": "ss-newitems",
+      "settings": {
+        "padding": 80,
+        "background-color": "#f0f1ed",
+        "item-collection": "全ての商品"
       }
     }
   },
   "order": [
     "cfa198a9-5a4c-4986-b9d0-b8a90e627f73",
-    "2e74b8bc-3d23-43a1-b536-7ed95933221e"
+    "2e74b8bc-3d23-43a1-b536-7ed95933221e",
+    "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89"
   ]
 }
