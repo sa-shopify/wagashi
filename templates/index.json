@@ -58,7 +58,8 @@
     "2e74b8bc-3d23-43a1-b536-7ed95933221e": {
       "type": "ss-ranking",
       "settings": {
-        "padding": 80,
+        "padding-top": 80,
+        "padding-bottom": 80,
         "background-color": "#f0f1ed",
         "rank-number": true,
         "item-collection": "ranking"
@@ -67,15 +68,30 @@
     "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89": {
       "type": "ss-newitems",
       "settings": {
-        "padding": 80,
+        "padding-top": 80,
+        "padding-bottom": 80,
         "background-color": "#f0f1ed",
-        "item-collection": "全ての商品"
+        "item-collection": "new"
+      }
+    },
+    "5794dbc2-6d9c-454e-b7c4-265dbe801070": {
+      "type": "ss-photographs",
+      "settings": {
+        "padding-top": 80,
+        "padding-bottom": 80,
+        "background-color": "#FEFFFF",
+        "image-left": "shopify:\/\/shop_images\/top___2_cb3d6334-4028-47b5-89f7-06369d4a470a.jpg",
+        "image-right": "shopify:\/\/shop_images\/product_5a71188e-62c1-49c1-a20a-3470f1e77578.jpg",
+        "title": "夏にピッタリ",
+        "description": "<p>桃の栗まんじゅうが新発売です。<\/p><p>冷えた麦茶との相性がとても良く、インスタ映えもします。<\/p><p>お写真を撮ってぜひ、楽しんでお食事ください。<\/p>",
+        "link": "shopify:\/\/products\/momono-kurimanju"
       }
     }
   },
   "order": [
     "cfa198a9-5a4c-4986-b9d0-b8a90e627f73",
     "2e74b8bc-3d23-43a1-b536-7ed95933221e",
-    "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89"
+    "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89",
+    "5794dbc2-6d9c-454e-b7c4-265dbe801070"
   ]
 }

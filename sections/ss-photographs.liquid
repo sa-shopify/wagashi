@@ -1,0 +1,233 @@
+{% style %}
+
+.ssPhotographsCard {
+  background-color: {{ section.settings.background-color }};
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+}
+
+.ssPhotographsCard__imagearea{
+  padding: 0;
+  margin: 0;
+  width: calc(100% - 30px);
+  max-width: 550px;
+  height: min(72.8vw, 416px);
+  position: relative;
+  margin: 0 auto;
+}
+
+
+
+.ssPhotographsCard__image1{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: min(55.2vw, 275px);
+  height: auto;
+  padding-top: 61.8666vw;
+  z-index: 1;
+}
+
+.ssPhotographsCard__image1 img{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 275 / 309;
+  object-fit: cover;
+}
+
+.ssPhotographsCard__image2{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: min(55.2vw, 330px);
+  height: auto;
+  padding-top: 51.4666vw;
+  z-index: 2;
+}
+
+.ssPhotographsCard__image2 img{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  aspect-ratio: 330 / 309;
+  object-fit: cover;
+}
+
+.ssPhotographsCard__textarea{
+  margin: 0;
+  padding: 40px;
+  color: var(--unnamed, #020202);
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.ssPhotographsCard__title{
+  padding: 0;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 20px;
+}
+
+.ssPhotographsCard__description{
+  margin-bottom: 30px;
+}
+
+.ssPhotographsCard__description p{
+  padding: 0;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 172%;
+  letter-spacing: 0.6px;
+}
+
+.ssPhotographsCard__description p:not(:first-child) {
+  padding-top: 10px;
+}
+
+
+
+@media screen and (min-width: 750px) {
+  .ssPhotographsCard{
+    display: flex;
+    padding: 80px 50px;
+    width:cal(100% - 80px);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ssPhotographsCard__imagearea{
+    max-height: 45vw;
+  }
+
+  .ssPhotographsCard__image1{
+    width: min(21.484375vw, 275px);
+  }
+  .ssPhotographsCard__image2{
+    width: min(25.78125vw, 330px);
+  }
+  .ssPhotographsCard__textarea{
+    padding: 60px 70px;
+  }
+
+  .ssPhotographsCard__title{
+    font-size: 40px;
+  }
+  .ssPhotographsCard__description p{
+    font-size: 16px;
+    line-height: 172%; /* 27.52px */
+  letter-spacing: 0.64px;
+  }
+
+}
+
+{% endstyle %}
+
+
+
+<section class="ssPhotographsCard">
+  <div class="ssPhotographsCard__imagearea">
+    <div class="ssPhotographsCard__image1">
+      <img src="{{ section.settings.image-left |  image_url: width:400  }}">
+    </div>
+    <div class="ssPhotographsCard__image2">
+      <img src="{{ section.settings.image-right |  image_url: width:400  }}">
+    </div>
+  </div>
+  <div class="ssPhotographsCard__textarea">
+    <h2 class="ssPhotographsCard__title">
+      {{ section.settings.title }}
+    </h2>
+    <div class="ssPhotographsCard__description">
+      {{ section.settings.description }}
+    </div>
+    <div class="ssPhotographsCard__buttonlayout">
+      <a href="{{ section.settings.link }}" class="ssCard__button">商品詳細をみる</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+{% schema %}
+    {
+    "name": "ssイメージwithテキスト",
+     "blocks": [
+     ],
+     "settings": [
+      {
+            "type": "range",
+            "id": "padding-top",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "上の余白",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding-bottom",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "下の余白",
+            "default": 0
+          },
+          {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#FEFFFF"
+          },
+          {
+               "type": "image_picker",
+               "id": "image-left",
+               "label": "左画像"
+           },
+           {
+               "type": "image_picker",
+               "id": "image-right",
+               "label": "右画像"
+           },
+           {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "夏にピッタリ"
+            },
+            {
+              "type": "richtext",
+              "id": "description",
+              "label": "テキスト",
+              "default": "<p>桃の栗まんじゅうが新発売です。</p><p>冷えた麦茶との相性がとても良く、インスタ映えもします。</p><p>お写真を撮ってぜひ、楽しんでお食事ください。</p>"
+            },
+            {
+              "type": "url",
+              "id": "link",
+              "label": "リンク先"
+            }
+
+      ],
+     "presets": [
+        {
+          "name": "ssイメージwithテキスト"
+        }
+      ]
+    }
+  {% endschema %}
