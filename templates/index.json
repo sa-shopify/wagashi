@@ -126,9 +126,43 @@
       "settings": {
         "padding-top": 80,
         "padding-bottom": 80,
-        "background-color": "#FEFFFF",
+        "background-color": "#feffff",
         "title": "配送までの流れ",
-        "description": "和菓子屋では丁寧な調理と配送により、お客様のお手元へとお届けしています。"
+        "description": "和菓子屋では丁寧な調理と配送により、お客様のお手元へとお届けしています。",
+        "number-color": "#779547"
+      }
+    },
+    "6633294a-cdf3-41bf-af1b-70782c39cfd5": {
+      "type": "ss-faq",
+      "blocks": {
+        "ecc27a2d-03a9-4cc3-aef1-1c955a07433d": {
+          "type": "blockset",
+          "settings": {
+            "block-question": "質問文を入力してください",
+            "block-answer": "回答文を入力してください"
+          }
+        },
+        "fc1b4994-5c2f-4c26-bb26-751ad7e1562c": {
+          "type": "blockset",
+          "settings": {
+            "block-question": "質問文を入力してください",
+            "block-answer": "回答文を入力してください"
+          }
+        }
+      },
+      "block_order": [
+        "ecc27a2d-03a9-4cc3-aef1-1c955a07433d",
+        "fc1b4994-5c2f-4c26-bb26-751ad7e1562c"
+      ],
+      "settings": {
+        "padding-top": 0,
+        "padding-bottom": 0,
+        "background-color": "#FEFFFF",
+        "title": "和菓子のFAQ",
+        "description": "皆さんからよくいただく和菓子に関する質問に答えております。",
+        "quiestion-close-bgcolor": "#F0F1ED",
+        "quiestion-open-bgcolor": "#779547",
+        "quiestion-open-fontcolor": "#FEFFFF"
       }
     }
   },
@@ -137,6 +171,7 @@
     "2e74b8bc-3d23-43a1-b536-7ed95933221e",
     "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89",
     "5794dbc2-6d9c-454e-b7c4-265dbe801070",
-    "ae262904-3326-4120-b7c8-13028df1cb9b"
+    "ae262904-3326-4120-b7c8-13028df1cb9b",
+    "6633294a-cdf3-41bf-af1b-70782c39cfd5"
   ]
 }

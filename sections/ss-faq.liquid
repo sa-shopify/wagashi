@@ -1,0 +1,219 @@
+{% assign number_color = section.settings.number-color %}
+
+{% style %}
+
+.ssFaq {
+  background-color: {{ section.settings.background-color }};
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+}
+
+.ssFaq__items{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.ssFaq__item{
+  background-color: #F0F1ED;
+  margin-bottom: 16px;
+}
+
+.ssFaq__question::before{
+  display: inline-block;
+  content: 'Q';
+  color: #779547;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 172%; /* 27.52px */
+  letter-spacing: 0.64px;
+  margin-right: 16px;
+}
+
+.ssFaq__question{
+  padding: 16px;
+  color: #020202;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 172%; /* 25.8px */
+  letter-spacing: 0.6px;
+  position: relative;
+}
+
+.ssFaq__mark{
+  display: inline-block;
+  background: #779547;
+  width: 20px;
+  height: 1px;
+  transform: translateY(-50%);
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  right: 16px;
+}
+
+.ssFaq__mark::after{
+  display: inline-block;
+  content: '';
+  background: #779547;
+  width: 20px;
+  height: 1px;
+  transform:translateX(50%)  rotate(90deg);
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+}
+
+.ssFaq__item[open] .ssFaq__question{
+  background-color: #779547;
+  color: #FEFFFF;
+}
+
+.ssFaq__item[open] .ssFaq__question::before{
+  color: #FEFFFF;
+}
+
+.ssFaq__item[open] .ssFaq__mark {
+  background-color: #FEFFFF;
+}
+
+.ssFaq__item[open] .ssFaq__mark::after{
+  opacity: 0;
+}
+
+.ssFaq__answer{
+  padding: 16px 56px 16px 46px;
+  color: #020202;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 172%; /* 25.8px */
+  letter-spacing: 0.6px;
+}
+
+@media screen and (min-width: 750px) {
+  .ssFaq__items{
+    padding-right: 50px;
+    padding-left: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* .ssFaq__answer{
+  font-size: 15px !important;
+  } */
+}
+{% endstyle %}
+
+<section class="ssFaq">
+  <div class="ssFaq__inner">
+    <div class="ssCard__title">
+      <h2 class="ssCard__maintitle">
+        {{ section.settings.title }}
+      </h2>
+      <p class="ssCard__capture">
+        {{ section.settings.description }}
+      </p>
+    </div>
+    <div class="ssFaq__items">
+      {%- for block in section.blocks -%}
+        <details class="ssFaq__item">
+            <summary class="ssFaq__question">{{ block.settings.block-question }}<span class="ssFaq__mark"></span></summary>
+            <p class="ssFaq__answer">{{ block.settings.block-answer }}</p>
+        </details>
+      {%-  endfor -%%}
+
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+    {
+    "name": "ss質問＆回答",
+     "blocks": [
+        {
+         "type": "blockset",
+         "name": "ブロックセット",
+           "settings": [
+           {
+              "type": "text",
+              "id": "block-question",
+              "label": "質問文",
+              "default": "質問文を入力してください"
+            },
+            {
+              "type": "textarea",
+              "id": "block-answer",
+              "label": "回答文",
+              "default": "回答文を入力してください"
+            }
+         ]
+       }
+     ],
+     "settings": [
+      {
+            "type": "range",
+            "id": "padding-top",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "上の余白",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding-bottom",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "下の余白",
+            "default": 0
+          },
+          {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#FEFFFF"
+          },
+          {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "和菓子のFAQ"
+            },
+            {
+              "type": "textarea",
+              "id": "description",
+              "label": "テキスト",
+              "default": "皆さんからよくいただく和菓子に関する質問に答えております。"
+            },
+          {
+            "type": "color",
+            "id": "quiestion-close-bgcolor",
+            "label": "未展開時の質問項目の背景色",
+            "default": "#F0F1ED"
+          },
+          {
+            "type": "color",
+            "id": "quiestion-open-bgcolor",
+            "label": "展開時の質問項目の背景色",
+            "default": "#779547"
+          },
+          {
+            "type": "color",
+            "id": "quiestion-open-fontcolor",
+            "label": "展開時の質問項目の文字色",
+            "default": "#FEFFFF"
+          }
+      ],
+     "presets": [
+        {
+          "name": "ss質問＆回答"
+        }
+      ]
+    }
+  {% endschema %}
