@@ -1,0 +1,279 @@
+{% assign number_color = section.settings.number-color %}
+
+{% style %}
+
+.ssFlowWithPhoto {
+  background-color: {{ section.settings.background-color }};
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+}
+
+.ssFlowWithPhoto__itemsinner{
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ssFlowWithPhoto__items{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.ssFlowWithPhoto__list{
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ssFlowWithPhoto__number{
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 156px;
+  height: 32px;
+  font-size: 17px;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 8px;
+  order: -5;
+  color: {{ number_color }};
+}
+
+.ssFlowWithPhoto__number::after{
+  padding: 0;
+  margin: 0;
+  content: '';
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 156px;
+  height: 1px;
+  background: linear-gradient(to right, {{ number_color }}, {{ number_color }} 4px, transparent 5px, transparent 8px);
+	background-size: 8px 1px;
+}
+
+.ssFlowWithPhoto__image{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding-top: 51.7333vw;
+  position: relative;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.ssFlowWithPhoto__image img{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ssFlowWithPhoto__text{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: contents;
+}
+
+.ssFlowWithPhoto__title{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+
+.ssFlowWithPhoto__discription{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 172%;
+  letter-spacing: 0.6px;
+}
+
+@media screen and (min-width: 750px) {
+
+
+
+  .ssFlowWithPhoto__items{
+    padding-right: 50px;
+    padding-left: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ssFlowWithPhoto__list{
+    flex-direction: row;
+  }
+
+  .ssFlowWithPhoto__image{
+    width: 320px;
+    padding-top: 14.0625vw;
+    margin-right: 32px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    flex-shrink: 0;
+  }
+
+  .ssFlowWithPhoto__image img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 320 / 180;
+  }
+
+  .ssFlowWithPhoto__number{
+    order: 0;
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 116%;
+  }
+
+  .ssFlowWithPhoto__text{
+    display: block;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1 0 0;
+  }
+
+  .ssFlowWithPhoto__title{
+    font-size: 24px;
+  }
+
+  .ssFlowWithPhoto__discription{
+    font-size: 16px;
+    line-height: 172%;
+  }
+
+}
+{% endstyle %}
+
+
+
+<section class="ssFlowWithPhoto">
+  <div class="ssFlowWithPhoto__inner">
+    <div class="ssCard__title">
+      <h2 class="ssCard__maintitle">
+        {{ section.settings.title }}
+      </h2>
+      <p class="ssCard__capture">
+        {{ section.settings.description }}
+      </p>
+    </div>
+    <div class="ssFlowWithPhoto__items">
+      <ul class="ssFlowWithPhoto__itemsinner">
+      {%- for block in section.blocks -%}
+        <li class="ssFlowWithPhoto__list">
+          <div class="ssFlowWithPhoto__image">
+            <img src="{{ block.settings.image |  image_url: width:400  }}" alt="{{ block.settings.alt }}">
+          </div>
+          <div class="ssFlowWithPhoto__text">
+            <span class="ssFlowWithPhoto__number">其の{{ forloop.index | replace: '1' ,'一' | replace: '2' ,'二' | replace: '3' ,'三' | replace: '4' ,'四' | replace: '5' ,'五' }}</span>
+            <h3 class="ssFlowWithPhoto__title">{{ block.settings.block-title }}</h3>
+            <p class="ssFlowWithPhoto__discription">{{ block.settings.block-description }}</p>
+          </div>
+        </li>
+      {%- endfor -%}
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+{% schema %}
+    {
+    "name": "ssフローwithフォト",
+     "blocks": [
+      {
+         "type": "blockset",
+         "name": "ブロックセット",
+         "limit": 5,
+           "settings": [
+            {
+               "type": "image_picker",
+               "id": "image",
+               "label": "画像"
+           },
+           {
+              "type": "text",
+              "id": "block-title",
+              "label": "タイトル",
+              "default": "調理"
+            },
+            {
+              "type": "textarea",
+              "id": "block-description",
+              "label": "テキスト",
+              "default": "お客様ご注文後に、ご注文の和菓子は職人の手によって一つ一つ丁寧に調理されます。当店では、伝統的な製法や秘伝のレシピを守りながら、最高品質の和菓子を提供するために努めています。"
+            },
+            {
+              "type": "url",
+              "id": "link",
+              "label": "リンク先"
+            }
+         ]
+       }
+     ],
+     "settings": [
+      {
+            "type": "range",
+            "id": "padding-top",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "上の余白",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding-bottom",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "下の余白",
+            "default": 0
+          },
+          {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#FEFFFF"
+          },
+          {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "配送までの流れ"
+            },
+            {
+              "type": "textarea",
+              "id": "description",
+              "label": "テキスト",
+              "default": "和菓子屋では丁寧な調理と配送により、お客様のお手元へとお届けしています。"
+            },
+            {
+            "type": "color",
+            "id": "number-color",
+            "label": "装飾の色",
+            "default": "#779547"
+          }
+      ],
+     "presets": [
+        {
+          "name": "ssフローwithフォト"
+        }
+      ]
+    }
+  {% endschema %}

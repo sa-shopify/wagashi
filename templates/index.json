@@ -79,12 +79,56 @@
       "settings": {
         "padding-top": 80,
         "padding-bottom": 80,
-        "background-color": "#FEFFFF",
+        "background-color": "#feffff",
         "image-left": "shopify:\/\/shop_images\/top___2_cb3d6334-4028-47b5-89f7-06369d4a470a.jpg",
         "image-right": "shopify:\/\/shop_images\/product_5a71188e-62c1-49c1-a20a-3470f1e77578.jpg",
         "title": "夏にピッタリ",
         "description": "<p>桃の栗まんじゅうが新発売です。<\/p><p>冷えた麦茶との相性がとても良く、インスタ映えもします。<\/p><p>お写真を撮ってぜひ、楽しんでお食事ください。<\/p>",
         "link": "shopify:\/\/products\/momono-kurimanju"
+      }
+    },
+    "ae262904-3326-4120-b7c8-13028df1cb9b": {
+      "type": "ss-flow-with-photo",
+      "blocks": {
+        "ce17faaf-7e65-4f1d-bc32-4ced3be29ac7": {
+          "type": "blockset",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/top___1_62ca6244-3052-4ebf-b71b-516f08b72c59.jpg",
+            "block-title": "調理",
+            "block-description": "お客様ご注文後に、ご注文の和菓子は職人の手によって一つ一つ丁寧に調理されます。当店では、伝統的な製法や秘伝のレシピを守りながら、最高品質の和菓子を提供するために努めています。",
+            "link": ""
+          }
+        },
+        "d2ccdd65-b686-4290-9e94-631c32d4c92f": {
+          "type": "blockset",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/top___2.jpg",
+            "block-title": "検品",
+            "block-description": "調理が完了した和菓子は、品質管理チームによって厳しい検品が行われます。お菓子の見た目や味わい、鮮度など、細部にわたるチェックが行われます。品質基準に適合しない場合は、再調理や再検品が行われることもあります。",
+            "link": ""
+          }
+        },
+        "d011eafe-291c-410e-85cc-faa19078c798": {
+          "type": "blockset",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/top___3.jpg",
+            "block-title": "配達",
+            "block-description": "検品を通過した和菓子は、丁寧な梱包作業の後、迅速かつ安全な配送が行われます。当店では、信頼できる配送パートナーと協力しており、お客様がご注文された商品が安全にお手元に届くよう努めています。",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "ce17faaf-7e65-4f1d-bc32-4ced3be29ac7",
+        "d2ccdd65-b686-4290-9e94-631c32d4c92f",
+        "d011eafe-291c-410e-85cc-faa19078c798"
+      ],
+      "settings": {
+        "padding-top": 80,
+        "padding-bottom": 80,
+        "background-color": "#FEFFFF",
+        "title": "配送までの流れ",
+        "description": "和菓子屋では丁寧な調理と配送により、お客様のお手元へとお届けしています。"
       }
     }
   },
@@ -92,6 +136,7 @@
     "cfa198a9-5a4c-4986-b9d0-b8a90e627f73",
     "2e74b8bc-3d23-43a1-b536-7ed95933221e",
     "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89",
-    "5794dbc2-6d9c-454e-b7c4-265dbe801070"
+    "5794dbc2-6d9c-454e-b7c4-265dbe801070",
+    "ae262904-3326-4120-b7c8-13028df1cb9b"
   ]
 }

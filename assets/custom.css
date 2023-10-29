@@ -12,9 +12,7 @@ body {
     margin: 0;
     color: #020202;
     font-size: 20px;
-    font-style: normal;
     font-weight: 300;
-    line-height: normal;
     margin-bottom: 15px;
 }
 
@@ -144,7 +142,7 @@ body {
 
 
     .ssCard__title{
-        padding: 0 3.90625vw 3.125vw 3.90625vw;
+        padding: 0 50px 3.125vw 50px;
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
@@ -152,6 +150,14 @@ body {
 
     .ssCard__maintitle{
         margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .ssCard__capture{
+        font-family: Noto Serif JP;
+        font-size: 16px;
+        line-height: 172%; /* 27.52px */
+        letter-spacing: 0.64px;
     }
 
     .ssCard__itemsinner{
@@ -159,8 +165,8 @@ body {
         max-width: 1200px;
         margin: 0 auto;
         gap: 8px;
-        padding-left: 3.90625vw;
-        padding-right: 3.90625vw;
+        padding-left: 50px;
+        padding-right: 50px;
     }
 
     .ssCard__item{
