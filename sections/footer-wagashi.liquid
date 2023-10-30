@@ -1,0 +1,340 @@
+{% comment %}theme-check-disable UndefinedObject{% endcomment %}
+{{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'component-newsletter.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-menu.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
+{{ 'component-list-social.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+
+.ssFooter {
+  background-color: {{ section.settings.background-color }};
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+}
+
+.ssFooter__inner{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.ssFooter__infomations{
+  padding: 0;
+  margin: 0;
+  padding: 40px 0px 24px 0px;
+
+}
+
+.ssFooter__logo{
+  padding: 0;
+  margin: 0;
+  width: 103px;
+}
+
+
+.ssFooter__logo img{
+  padding: 0;
+  margin: 0;
+  display: block;
+  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+}
+
+
+
+
+.ssFooter__sns{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ssFooter__sns li a{
+  padding: 0;
+  margin: 0;
+  padding: 13px;
+}
+
+.ssFooter__sns li a:first-child{
+  padding-left: 0;
+}
+
+.footer__list-social{
+  justify-content: flex-start !important;
+}
+
+
+.ssFooter__menu{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  }
+
+  .ssFooter__right{
+    display: contents;
+  }
+  .ssFooter__left{
+    display: contents;
+  }
+
+  .ssFooter__infomations{
+    order: 1;
+    padding-left: 20px;
+  }
+
+  .ssFooter__mailmagazin{
+    order: 3;
+  }
+
+  .ssFooter__menus{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    order: 2;
+  }
+
+
+  .ssFooter__mailmagazin h3{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+    color: #020202;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 116%;
+  }
+
+  .ssFooter__mailinput{
+    background: #F0F1ED;
+  }
+
+  .ssFooter__field:after{
+    box-shadow: 0 0 0 1px #7D7D7D;
+  }
+
+  @media screen and (min-width: 750px) {
+
+      .ssFooter__inner{
+        display: flex;
+        flex-direction: row;
+        align-items: space-between;
+        width: calc(100% - 80px);
+        margin-right: 40px;
+        margin-left: 40px;
+      }
+
+      .ssFooter__left{
+        width: 50%;
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ssFooter__right{
+        width: 50%;
+        padding-left: 50px;
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .ssFooter__infomations{
+        padding-left: 0px;
+      }
+
+      .ssFooter__menus{
+        text-align: right;
+        margin-bottom: 0px;
+      }
+
+      .ssFooter__menu{
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        gap: 5px;
+      }
+
+      .ssFooter__mailmagazin{
+        width: 358px;
+      }
+  }
+{%- endstyle -%}
+
+<footer class="ssFooter">
+  {%- liquid
+    assign has_social_icons = true
+    if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
+      assign has_social_icons = false
+    endif
+
+    if settings.brand_image == blank and settings.brand_headline == blank and settings.brand_description == blank
+      assign brand_empty = true
+    endif
+
+    if section.blocks.size == 1 and section.blocks[0].type == 'brand_information' and brand_empty and has_social_icons == false and section.settings.newsletter_enable == false and section.settings.enable_follow_on_shop == false
+      assign only_empty_brand = true
+    endif
+  -%}
+  <div class="ssFooter__inner">
+    <div class="ssFooter__left">
+      <div class="ssFooter__infomations">
+        <div class="ssFooter__logo">
+          <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/logo.png?v=1697613369">
+        </div>
+        {%- if section.settings.show_social and has_social_icons -%}
+          {%- render 'social-icons2', class: 'footer__list-social ssFooter__sns' -%}
+        {%- endif -%}
+      </div>
+      <div class="ssFooter__mailmagazin">
+        <h3>メール登録はこちら</h3>
+        {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-form__field-wrapper">
+            <div class="field ssFooter__field">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                class="field__input ssFooter__mailinput"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="ContactFooter-error"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="ContactFooter-success"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+              <label class="field__label" for="NewsletterForm--{{ section.id }}">
+                {{ 'newsletter.label' | t }}
+              </label>
+              <button
+                type="submit"
+                class="newsletter-form__button field__button"
+                name="commit"
+                id="Subscribe"
+                aria-label="{{ 'newsletter.button_label' | t }}"
+              >
+                {% render 'icon-arrow' %}
+              </button>
+            </div>
+            {%- if form.errors -%}
+              <small class="newsletter-form__message form__message" id="ContactFooter-error">
+                {%- render 'icon-error' -%}
+                {{- form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email -}}
+              </small>
+            {%- endif -%}
+          </div>
+          {%- if form.posted_successfully? -%}
+            <h3
+              class="newsletter-form__message newsletter-form__message--success form__message"
+              id="ContactFooter-success"
+              tabindex="-1"
+              autofocus
+            >
+              {% render 'icon-success' -%}
+              {{- 'newsletter.success' | t }}
+            </h3>
+          {%- endif -%}
+        {%- endform -%}
+      </div>
+    </div>
+    
+    <div class="ssFooter__right">
+      {%- if section.settings.menu != blank -%}
+        <ul class="ssFooter__menus">
+          {%- for link in section.settings.menu.links -%}
+            <li>
+              <a
+                href="{{ link.url }}"
+                class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %} ssFooter__menu"
+              >
+                {{ link.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+    </div>
+    
+  </div>
+
+</footer>
+
+{% schema %}
+{
+  "name": "ss和菓子用フッター",
+  "blocks": [
+  ],
+  "settings": [
+    {
+            "type": "range",
+            "id": "padding-top",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "上の余白",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding-bottom",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "下の余白",
+            "default": 0
+          },
+          {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#F0F1ED"
+          },
+          {
+          "type": "checkbox",
+          "id": "show_social",
+          "default": true,
+          "label": "t:sections.footer.blocks.brand_information.settings.show_social.label",
+          "info": "t:sections.footer.blocks.brand_information.settings.show_social.info"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "default": "main-menu",
+          "label": "メニューリスト"
+        },
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "ロゴ"
+        }
+
+  ]
+}
+{% endschema %}

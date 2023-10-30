@@ -71,7 +71,8 @@
         "padding-top": 80,
         "padding-bottom": 80,
         "background-color": "#f0f1ed",
-        "item-collection": "new"
+        "item-collection": "new",
+        "url": ""
       }
     },
     "5794dbc2-6d9c-454e-b7c4-265dbe801070": {
@@ -138,31 +139,81 @@
         "ecc27a2d-03a9-4cc3-aef1-1c955a07433d": {
           "type": "blockset",
           "settings": {
-            "block-question": "質問文を入力してください",
-            "block-answer": "回答文を入力してください"
+            "block-question": "羊羹の種類について教えてください",
+            "block-answer": "3種類ご用意しています。それぞれ色や食感、甘さが異なりますので、ぜひご賞味ください。"
           }
         },
         "fc1b4994-5c2f-4c26-bb26-751ad7e1562c": {
           "type": "blockset",
           "settings": {
-            "block-question": "質問文を入力してください",
-            "block-answer": "回答文を入力してください"
+            "block-question": "ぼた餅とおはぎの違いは？",
+            "block-answer": "基本的には同じものです。地域によって違ったりするので一概には言えませんが、春のお彼岸では春の花の牡丹に見立てて「ぼた餅」、秋のお彼岸では秋の花の萩に見立てて「おはぎ」と呼びます。花の大きさに合わせて、ぼた餅のほうが大きくおはぎの方が小さいです。"
+          }
+        },
+        "fde3711b-57d6-416d-8e6e-7b6fc0c31ed5": {
+          "type": "blockset",
+          "settings": {
+            "block-question": "和菓子の賞味期限はどのくらい？",
+            "block-answer": "特殊技術を使用しており、28日以上のものをお送りしています。"
+          }
+        },
+        "7a36f66f-0cc3-4cf5-8b40-fdd6e4cd3eaa": {
+          "type": "blockset",
+          "settings": {
+            "block-question": "和菓子はどのように保存したらいいのか？",
+            "block-answer": "直射日光を避け、常温で保存してください。"
           }
         }
       },
       "block_order": [
         "ecc27a2d-03a9-4cc3-aef1-1c955a07433d",
-        "fc1b4994-5c2f-4c26-bb26-751ad7e1562c"
+        "fc1b4994-5c2f-4c26-bb26-751ad7e1562c",
+        "fde3711b-57d6-416d-8e6e-7b6fc0c31ed5",
+        "7a36f66f-0cc3-4cf5-8b40-fdd6e4cd3eaa"
       ],
       "settings": {
         "padding-top": 0,
         "padding-bottom": 0,
-        "background-color": "#FEFFFF",
+        "background-color": "#feffff",
         "title": "和菓子のFAQ",
         "description": "皆さんからよくいただく和菓子に関する質問に答えております。",
-        "quiestion-close-bgcolor": "#F0F1ED",
+        "quiestion-close-bgcolor": "#f0f1ed",
         "quiestion-open-bgcolor": "#779547",
-        "quiestion-open-fontcolor": "#FEFFFF"
+        "quiestion-open-fontcolor": "#feffff"
+      }
+    },
+    "ccaf43a4-cf0f-4472-a3dc-e94c4a6e5d3b": {
+      "type": "ss-shipment",
+      "blocks": {
+        "492f8f32-0f1c-407e-8e0d-aec359f2c111": {
+          "type": "blockset",
+          "settings": {
+            "title": "配送料金",
+            "description": "<p>全国一律660円（税込）<\/p><p>2品以上で送料無料<\/p><p>品質保持のため、クール便でお届けいたします。<\/p>",
+            "image": "shopify:\/\/shop_images\/top_d01d862e-9c5d-4a82-ba24-352ad6a1ace5.jpg",
+            "url": "#",
+            "image-position": "row-reverse"
+          }
+        },
+        "eb9cf79a-a226-45d9-b99c-4879f2a577f5": {
+          "type": "blockset",
+          "settings": {
+            "title": "当日出荷に対応",
+            "description": "<p>平日の12:00までにご注文いただいた場合、当日中に出荷いたします。関東圏であれば、翌日にお届けすることが可能です。<\/p><p>それ以外の地域にお住まいの場合は、地域によって異なりますが、通常は2〜3営業日以内にお届けすることを目安にしています。<\/p>",
+            "image": "shopify:\/\/shop_images\/top.jpg",
+            "url": "#",
+            "image-position": "row"
+          }
+        }
+      },
+      "block_order": [
+        "492f8f32-0f1c-407e-8e0d-aec359f2c111",
+        "eb9cf79a-a226-45d9-b99c-4879f2a577f5"
+      ],
+      "settings": {
+        "padding-top": 80,
+        "padding-bottom": 80,
+        "background-color": "#feffff"
       }
     }
   },
@@ -172,6 +223,7 @@
     "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89",
     "5794dbc2-6d9c-454e-b7c4-265dbe801070",
     "ae262904-3326-4120-b7c8-13028df1cb9b",
-    "6633294a-cdf3-41bf-af1b-70782c39cfd5"
+    "6633294a-cdf3-41bf-af1b-70782c39cfd5",
+    "ccaf43a4-cf0f-4472-a3dc-e94c4a6e5d3b"
   ]
 }

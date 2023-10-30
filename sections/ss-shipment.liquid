@@ -1,0 +1,248 @@
+{% assign number_color = section.settings.number-color %}
+
+{% style %}
+
+.ssShipment {
+  background-color: {{ section.settings.background-color }};
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+}
+
+.ssShipment__items{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+
+}
+
+.ssShipment__item{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.ssShipment__image{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding-top: 53.0666%;
+  position: relative;
+}
+
+.ssShipment__image img{
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  display: inline-block;
+  top: 0;
+  left: 0;
+  aspect-ratio: 375/199;
+  object-fit: cover;
+  height: 100%;
+}
+
+
+
+.ssShipment__texts{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  padding: 40px;
+}
+
+.ssShipment__title{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.ssShipment__text{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 172%; /* 25.8px */
+  letter-spacing: 0.6px;
+}
+
+.ssShipment__text p {
+  padding: 0;
+  margin: 0;
+}
+
+.ssShipment__text p:not(:first-child){
+  margin-top: 10px;
+}
+
+.ssShipment__buttonlayout{
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 750px) {
+  .ssShipment__items{
+    padding: 0;
+    margin: 0;
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+
+  .ssShipment__item{
+    flex-direction: row;
+  }
+
+  .ssShipment__item-rowreverse{
+    flex-direction: row-reverse;
+  }
+
+  .ssShipment__texts{
+    padding-top: 64px;
+    padding-bottom: 64px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .ssShipment__title{
+    margin-right: auto;
+  }
+
+
+  .ssShipment__image{
+    width: 50%;
+    padding-top: 26.5625%;
+    flex: 1 1 auto;
+    object-fit: cover;
+    background: pink;
+
+  }
+
+  
+
+}
+{% endstyle %}
+
+<section class="ssShipment">
+  <div class="ssShipment__inner">
+    <div class="ssCard__title">
+      <h2 class="ssCard__maintitle">
+        {{ section.settings.title }}
+      </h2>
+      <p class="ssCard__capture">
+        {{ section.settings.description }}
+      </p>
+    </div>
+    <ul class="ssShipment__items">
+      {%- for block in section.blocks -%}
+        <li class="ssShipment__item {% if block.settings.image-position == 'row-reverse' %}ssShipment__item-rowreverse{% endif %}">
+          <picture class="ssShipment__image">
+            <source srcset="{{ block.settings.image | image_url: width: 1500 }}" media="(min-width: 800px)" alt="{{ block.settings.image.alt }}">
+            <source srcset="{{ block.settings.image | image_url: width: 800 }}" media="(min-width: 400px)" alt="{{ block.settings.image.alt }}">
+            <img src="{{ block.settings.image |  image_url: width:400  }}" alt="{{ block.settings.image.alt }}">
+          </picture>
+          <div class="ssShipment__texts">
+            <h2 class="ssShipment__title">{{ block.settings.title }}</h2>
+            <div class="ssShipment__text">
+              {{ block.settings.description }}
+            </div>
+            <div class="ssShipment__buttonlayout">
+              <a href="{{ block.settings.url }}" class="ssCard__button">もっとみる</a>
+            </div>
+          </div>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
+
+
+{% schema %}
+    {
+    "name": "ss配送案内",
+     "blocks": [
+        {
+         "type": "blockset",
+         "name": "ブロックセット",
+           "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "タイトルを入力してください"
+            },
+            {
+              "type": "richtext",
+              "id": "description",
+              "label": "テキスト",
+              "default": "<p>文章を入力してください</p>"
+            },
+           {
+               "type": "image_picker",
+               "id": "image",
+               "label": "バナー"
+           },
+           {
+                "id": "url",
+                "type": "url",
+                "label": "リンク"
+           },
+           {
+                "id": "image-position",
+                "type": "select",
+                "label": "画像の位置",
+                "options": [
+                  {
+                    "value": "row",
+                    "label": "左"
+                  },
+                  {
+                    "value": "row-reverse",
+                    "label": "右"
+                  }
+                ],
+                "default": "row"
+           }
+         ]
+       }
+     ],
+     "settings": [
+      {
+            "type": "range",
+            "id": "padding-top",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "上の余白",
+            "default": 0
+          },
+          {
+            "type": "range",
+            "id": "padding-bottom",
+            "min": 0,
+            "max": 200,
+            "step": 10,
+            "label": "下の余白",
+            "default": 0
+          },
+          {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#FEFFFF"
+          }
+      ],
+     "presets": [
+        {
+          "name": "ss配送案内"
+        }
+      ]
+    }
+  {% endschema %}

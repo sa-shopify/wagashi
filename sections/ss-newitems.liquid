@@ -105,7 +105,7 @@
     </ul>
   </div>
   <div class="ssCard__buttonlayout">
-    <a href="#" class="ssCard__button">もっとみる</a>
+    <a href="{{ section.settings.url }}" class="ssCard__button">もっとみる</a>
   </div>
 </section>
 
@@ -147,7 +147,12 @@
             "type": "collection",
             "id": "item-collection",
             "label": "表示対象のコレクション"
-          }
+          },
+          {
+                "id": "url",
+                "type": "url",
+                "label": "リンク"
+           }
       ],
      "presets": [
         {
