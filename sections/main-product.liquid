@@ -96,6 +96,52 @@
                   </h2>
                 </a>
               </div>
+
+              {%- when 'ssLabel' -%}
+                {% if product.metafields.custom.label %}
+                  {% style %}
+                      .ssProductLabel{
+                        width: 100%;
+                      }
+                      .ssProductLabel__lists{
+                        padding: 0;
+                        margin: 0;
+                        display: flex;
+                        flex-wrap: wrap;
+                        list-style: none;
+                        gap: 8px;
+                      }
+
+                      .ssProductLabel__list{
+                        padding: 0;
+                        margin: 0;
+                        padding: 4px 8px;
+                        background-color: #DA9B8A;
+                        color: #FEFFFF;
+                        font-size: 10px;
+                        font-weight: 400;
+                        letter-spacing: 0.3px;
+                      }
+
+                      @media screen and (min-width: 750px) {
+                        .ssProductLabel__list{
+                          font-size: 12px;
+                          letter-spacing: 0.36px;
+                        }
+                      }
+                  {% endstyle %}
+
+                  {% assign labels = product.metafields.custom.label |  newline_to_br | split: '<br />' %}
+
+                  <div class="ssProductLabel">
+                    <ul class="ssProductLabel__lists">
+                      {% for label in labels %}
+                      <li class="ssProductLabel__list">{{ label }}</li>
+                    {% endfor %}
+                    </ul>
+                  </div>
+                {% endif %}
+
             {%- when 'price' -%}
               <div class="no-js-hidden" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
                 {%- render 'price',
@@ -726,6 +772,11 @@
     {
       "type": "title",
       "name": "t:sections.main-product.blocks.title.name",
+      "limit": 1
+    },
+    {
+      "type": "ssLabel",
+      "name": "ラベル",
       "limit": 1
     },
     {

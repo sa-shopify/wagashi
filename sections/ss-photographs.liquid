@@ -1,6 +1,6 @@
 {% style %}
 
-.ssPhotographsCard {
+.ssSection-{{ section.id }} {
   background-color: {{ section.settings.background-color }};
   padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
   padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
@@ -110,7 +110,7 @@
 
 
 @media screen and (min-width: 750px) {
-  .ssPhotographsCard{
+  .ssSection-{{ section.id }} {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -151,7 +151,7 @@
 
 
 
-<section class="ssPhotographsCard">
+<section class="ssSection-{{ section.id }}">
   <div class="ssPhotographsCard__imagearea">
     <div class="ssPhotographsCard__image1">
       <img src="{{ section.settings.image-left |  image_url: width:400  }}" src="{{ section.settings.image-left.alt}}">

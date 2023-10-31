@@ -1,7 +1,7 @@
 
 {% style %}
 
-.ssRankCard-{{ section.id }} {
+.ssSection-{{ section.id }} {
   background-color: {{ section.settings.background-color }};
   padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
   padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
@@ -46,7 +46,7 @@
 }
 
 @media screen and (min-width: 750px) {
-  .ssRankCard-{{ section.id }} {
+  .ssSection-{{ section.id }} {
     padding-top: {{ section.settings.padding-top }}px;
     padding-bottom: {{ section.settings.padding-bottom }}px;
   }
@@ -64,7 +64,7 @@
 
 
 
-<section class="ssRankCard-{{ section.id }}">
+<section class="ssSection-{{ section.id }}">
   <div class="ssCard__title">
     <h2 class="ssCard__maintitle">
       月間ランキング

@@ -2,7 +2,7 @@
 
 {% style %}
 
-.ssFaq {
+.ssSection-{{ section.id }} {
   background-color: {{ section.settings.background-color }};
   padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
   padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
@@ -160,7 +160,7 @@
 
 </script>
 
-<section class="ssFaq">
+<section class="ssSection-{{ section.id }}">
   <div class="ssFaq__inner">
     <div class="ssCard__title">
       <h2 class="ssCard__maintitle">

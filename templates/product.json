@@ -15,6 +15,11 @@
           "settings": {
           }
         },
+        "ba450866-38ac-4f71-b8d9-e79e91322647": {
+          "type": "ssLabel",
+          "settings": {
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -53,6 +58,7 @@
       "block_order": [
         "vendor",
         "title",
+        "ba450866-38ac-4f71-b8d9-e79e91322647",
         "price",
         "variant_picker",
         "quantity_selector",
