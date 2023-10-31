@@ -130,6 +130,10 @@ body {
     text-align: center;
     cursor: pointer;
 }
+.ssCard__button:hover{
+    opacity: 0.8;
+}
+
 
 .ssCard__buttonlayout{
     width: 100%;

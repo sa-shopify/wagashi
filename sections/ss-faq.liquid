@@ -19,6 +19,7 @@
 .ssFaq__item{
   background-color: #F0F1ED;
   margin-bottom: 16px;
+  cursor: pointer;
 }
 
 .ssFaq__question::before{
@@ -41,6 +42,7 @@
   line-height: 172%; /* 25.8px */
   letter-spacing: 0.6px;
   position: relative;
+  display: block;
 }
 
 .ssFaq__mark{
@@ -48,7 +50,9 @@
   background: #779547;
   width: 20px;
   height: 1px;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   vertical-align: middle;
   position: absolute;
   top: 50%;
@@ -61,7 +65,11 @@
   background: #779547;
   width: 20px;
   height: 1px;
-  transform:translateX(50%)  rotate(90deg);
+  -webkit-transform:translateX(50%)  rotate(90deg);
+      -ms-transform:translateX(50%)  rotate(90deg);
+          transform:translateX(50%)  rotate(90deg);
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
   transition: all .3s ease;
   vertical-align: middle;
   position: absolute;
@@ -69,34 +77,49 @@
   right: 10px;
 }
 
-.ssFaq__item[open] .ssFaq__question{
+.ssFaq__item.is-active .ssFaq__question{
   background-color: #779547;
   color: #FEFFFF;
 }
 
-.ssFaq__item[open] .ssFaq__question::before{
+.ssFaq__item.is-active .ssFaq__question::before{
   color: #FEFFFF;
 }
 
-.ssFaq__item[open] .ssFaq__mark {
+.ssFaq__item.is-active .ssFaq__mark {
   background-color: #FEFFFF;
   z-index: 4;
 }
 
-.ssFaq__item[open] .ssFaq__mark::after{
-  transform:translateX(50%)  rotate(180deg);
+.ssFaq__item.is-active .ssFaq__mark::after{
+  -webkit-transform:translateX(50%)  rotate(180deg);
+      -ms-transform:translateX(50%)  rotate(180deg);
+          transform:translateX(50%)  rotate(180deg);
   opacity: 0;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
   transition: all .3s ease;
 }
 
 .ssFaq__answer{
-  padding: 16px 56px 16px 46px;
+  padding:0;
+  margin:0;
   color: #020202;
   font-size: 15px;
   font-weight: 400;
   line-height: 172%; /* 25.8px */
   letter-spacing: 0.6px;
+  visibility: hidden;
+  max-height:0;
+  opacity:0;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
 
+.ssFaq__item.is-active .ssFaq__answer {
+  padding: 16px 56px 16px 46px;
+  visibility: visible;
+  max-height: 200px;
+  opacity: 1;
 }
 
 @media screen and (min-width: 750px) {
@@ -106,12 +129,36 @@
     max-width: 1200px;
     margin: 0 auto;
   }
+  .ssFaq__question{
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
 
-  /* .ssFaq__answer{
-  font-size: 15px !important;
-  } */
+  .ssFaq__answer{
+    font-size: 16px;
+    letter-spacing: 0.64px;
+  }
+
 }
 {% endstyle %}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+  const faqs = document.querySelectorAll('.ssFaq__item');
+  for(let i = 0; i < faqs.length; i++) {
+    faqs[i].querySelector('.ssFaq__question').addEventListener('click', function(){
+      if(faqs[i].classList.contains('is-active')){
+          faqs[i].classList.remove('is-active');
+        } 
+        // 現在のFAQセットが閉じている場合
+        else {
+          faqs[i].classList.add('is-active');
+        }
+    });
+  }
+});
+
+</script>
 
 <section class="ssFaq">
   <div class="ssFaq__inner">
@@ -125,10 +172,10 @@
     </div>
     <div class="ssFaq__items">
       {%- for block in section.blocks -%}
-        <details class="ssFaq__item">
-            <summary class="ssFaq__question">{{ block.settings.block-question }}<span class="ssFaq__mark"></span></summary>
-            <p class="ssFaq__answer">{{ block.settings.block-answer }}</p>
-        </details>
+        <dl class="ssFaq__item">
+            <dt class="ssFaq__question">{{ block.settings.block-question }}<span class="ssFaq__mark"></span></dt>
+            <dd class="ssFaq__answer">{{ block.settings.block-answer }}</dd>
+        </dl>
       {%-  endfor -%%}
 
     </div>
