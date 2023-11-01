@@ -52,6 +52,7 @@
       name="{{ option.name }}"
       value="{{ value | escape }}"
       form="{{ product_form_id }}"
+      class="ssVariableButton"
       {% if option.selected_value == value %}
         checked
       {% endif %}

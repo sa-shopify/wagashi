@@ -218,12 +218,34 @@
                   {%- endif -%}
                 {%- endif -%}
               </p>
+
             {%- when 'description' -%}
-              {%- if product.description != blank -%}
+
+              {%- if product.description != blank and product.has_only_default_variant == true -%}
                 <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
                   {{ product.description }}
                 </div>
               {%- endif -%}
+
+              {% if product.has_only_default_variant == false %}
+                {% for variant in product.variants %}
+                  {% if variant.metafields.custom.variation-description != blank %}
+                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                      <span class="ssVariableButton__selected" data-variant-title="{{ variant.title }}" 
+                      style="{% if variant.title != product.selected_or_first_available_variant.title %}
+                        display: none;{% endif %}">
+                            {{ variant.metafields.custom.variation-description }}
+                      </span>
+                    </div>
+                  {% else %}
+                    <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+                      {{ product.description }}
+                    </div>
+                  {% endif %}
+                {% endfor %}
+              {% endif %}
+
+
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -727,6 +749,28 @@
     }
   </script>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const productSelectItems = document.querySelectorAll('.ssVariableButton')
+    const selectedOptionItem = document.querySelectorAll('.ssVariableButton__selected')
+
+    for(let i = 0; i < productSelectItems.length; i++) {
+      productSelectItems[i].addEventListener('click', function(){
+        const value = this.value;
+        for(let j = 0; j < selectedOptionItem.length; j++){
+          if (selectedOptionItem[j].getAttribute('data-variant-title') === value) {
+            selectedOptionItem[j].style.display = "block"
+          } else {
+            selectedOptionItem[j].style.display = "none"
+          }
+
+        }
+      })
+    }
+
+  })
+</script>
 
 {% schema %}
 {
