@@ -84,7 +84,9 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "background-color": "#F0F1ED",
+        "heading": "こちらの商品はいかがですか？",
+        "sub-heading": "この和菓子を購入している方はこちらの商品も見ています。",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -95,8 +97,8 @@
         "show_vendor": false,
         "show_rating": false,
         "columns_mobile": "2",
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },

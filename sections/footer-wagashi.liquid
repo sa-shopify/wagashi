@@ -7,11 +7,21 @@
 
 {%- style -%}
 
-  .ssFooter {
-    background-color: {{ section.settings.background-color }};
-    padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
-    padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
-  }
+  {% if request.path == '/' or request.path == '/pop-up-store' %}
+    .ssFooter {
+      background-color: {{ section.settings.background-color }};
+      padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+      padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+    }
+  {% else %}
+    .ssFooter {
+      background-color: {{ section.settings.background-color-product-page }};
+      padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+      padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+    }
+  {% endif %}
+
+
 
   .ssFooter__inner{
     padding: 0;
@@ -343,8 +353,14 @@
           {
             "type": "color",
             "id": "background-color",
-            "label": "背景色",
+            "label": "商品ページ以外のフッターの背景色",
             "default": "#F0F1ED"
+          },
+          {
+            "type": "color",
+            "id": "background-color-product-page",
+            "label": "商品ページのフッターの背景色",
+            "default": "#FEFFFF"
           },
           {
           "type": "checkbox",

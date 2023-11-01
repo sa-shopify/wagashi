@@ -7,9 +7,11 @@
 {%- endif -%}
 
 {%- style -%}
+  
   .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
   }
 
   @media screen and (min-width: 750px) {
@@ -20,21 +22,60 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden">
+{% style %}
+  .ssProductRelated{
+      background-color: {{ section.settings.background-color }};
+    }
+
+  .ssProductRelated__maintitle{
+    color: #020202;
+    font-size: 20px;
+    font-weight: 400;
+  }
+  .ssProductRelated__capture{
+    color: #020202;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 172%; /* 25.8px */
+    letter-spacing: 0.6px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  .ssProductRelated__buttonlayout{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+  }
+  .ssProductRelated__button{
+    margin-top: 0;
+  }
+{% endstyle %}
+
+
+<div class="color-{{ section.settings.color_scheme }} gradient no-js-hidden ssProductRelated">
   <product-recommendations
     class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+      {% comment %} <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
         {{ section.settings.heading }}
-      </h2>
+      </h2> {% endcomment %}
+      
+        <h2 class="ssProductRelated__maintitle">
+          {{ section.settings.heading }}
+        </h2>
+        <p class="ssProductRelated__capture">
+          {{ section.settings.sub-heading }}
+        </p>
+     
       <ul
         class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
         role="list"
       >
         {% for recommendation in recommendations.products %}
-          <li class="grid__item">
+          <li class="grid__item ssProductGrid">
             {% render 'card-product',
               card_product: recommendation,
               media_aspect_ratio: section.settings.image_ratio,
@@ -45,12 +86,17 @@
             %}
           </li>
         {% endfor %}
+        <div class="ssProductRelated__buttonlayout">
+          <a href="{{ section.settings.url }}" class="ssCard__button ssProductRelated__button">もっとみる</a>
+        </div>
       </ul>
     {% endif %}
+    
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
     {% render 'mask-arch' %}
   {%- endif -%}
+  
 </div>
 
 {% schema %}
@@ -60,14 +106,26 @@
   "class": "section",
   "settings": [
     {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#F0F1ED"
+          },
+    {
       "type": "paragraph",
       "content": "t:sections.related-products.settings.paragraph__1.content"
     },
     {
       "type": "inline_richtext",
       "id": "heading",
-      "default": "You may also like",
+      "default": "こちらの商品はいかがですか",
       "label": "t:sections.related-products.settings.heading.label"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "sub-heading",
+      "default": "この和菓子を購入している方はこちらの商品も見ています。",
+      "label": "サブタイトル"
     },
     {
       "type": "select",
@@ -230,7 +288,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
-      "default": 36
+      "default": 80
     },
     {
       "type": "range",
@@ -240,7 +298,7 @@
       "step": 4,
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
-      "default": 36
+      "default": 80
     }
   ]
 }
