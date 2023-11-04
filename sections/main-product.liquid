@@ -130,8 +130,83 @@
               >
                 {{- block.settings.text -}}
               </p>
-            {%- when 'title' -%}
-              <div class="product__title" {{ block.shopify_attributes }}>
+            {%- when 'ssProductFoodlabel' -%}
+              {% style %}
+                .ssProductInfo{
+                  margin: 0px;
+                  padding: 0px;
+                  width: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 16px;
+                  margin-top: 25px;
+                  margin-bottom: 40px;
+                }
+                .ssProductInfo__list{
+                  margin: 0px;
+                  padding: 0px;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 10px;
+                }
+
+                .ssProductInfo__title{
+                  margin: 0px;
+                  padding: 0px;
+                  color: #020202;
+                  font-size: 13px;
+                  font-weight: 400;
+                  line-height: 150%; /* 19.5px */
+                  letter-spacing: 0.26px;
+                }
+                .ssProductInfo__description{
+                  margin: 0px;
+                  padding: 0px;
+                  padding: 15px; 16px;
+                  color: #020202;
+                  font-size: 10px;
+                  font-weight: 400;
+                  letter-spacing: 0.3px;
+                  background-color: #F0F1ED;
+                }
+                @media screen and (min-width: 750px) {
+                  .ssProductInfo__description{
+                    font-size: 12px;
+                    letter-spacing: 0.36px;
+                  }
+                }
+              {% endstyle %}
+
+              {% assign titles = 'product-volume, product-ingredients, product-allergens, product-expiration-date' | split: ', ' %}
+              <dl class="ssProductInfo">
+
+              {% for title in titles %}
+                {% assign field_value = product.metafields.foodlabel[title] %}
+                {% if field_value %}
+                    {% case title %}
+                      {% when 'product-volume' %}
+                          {% assign display_name = '内容量' %}
+                      {% when 'product-ingredients' %}
+                          {% assign display_name = '原材料' %}
+                      {% when 'product-allergens' %}
+                          {% assign display_name = 'アレルギー物質' %}
+                      {% when 'product-expiration-date' %}
+                          {% assign display_name = '賞味期限' %}
+                    {% endcase %}
+
+                    <div class="ssProductInfo__list">
+                      <dt class="ssProductInfo__title">
+                        {{ display_name }}
+                      </dt>
+                      <dd class="ssProductInfo__description">
+                        {{ field_value }}
+                      </dd>
+                    </div>
+                {% endif %}
+              {% endfor %}
+              </dl>
+          {%- when 'title' -%}
+              <div class="product__title ssTweakProductPage-title" {{ block.shopify_attributes }}>
                 <h1>{{ product.title | escape }}</h1>
                 <a href="{{ product.url }}" class="product__title">
                   <h2 class="h1">
@@ -866,6 +941,11 @@
     {
       "type": "ssLabel",
       "name": "ラベル",
+      "limit": 1
+    },
+    {
+      "type": "ssProductFoodlabel",
+      "name": "ss商品の詳細表",
       "limit": 1
     },
     {

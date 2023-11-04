@@ -48,6 +48,11 @@
           "settings": {
           }
         },
+        "80e87c96-59e9-42c9-b748-eafbca63c988": {
+          "type": "ssProductFoodlabel",
+          "settings": {
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -64,6 +69,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "80e87c96-59e9-42c9-b748-eafbca63c988",
         "share"
       ],
       "settings": {
@@ -84,7 +90,7 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "background-color": "#F0F1ED",
+        "background-color": "#f0f1ed",
         "heading": "こちらの商品はいかがですか？",
         "sub-heading": "この和菓子を購入している方はこちらの商品も見ています。",
         "heading_size": "h2",

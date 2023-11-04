@@ -108,7 +108,8 @@
 }
 
 .shopify-payment-button__button--unbranded {
-  background-color: rgba(var(--color-button), var(--alpha-button-background));
+  /* background-color: rgba(var(--color-button), var(--alpha-button-background)); */
+  background-color: #779547;
   color: rgb(var(--color-button-text));
   font-size: 1.4rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
@@ -229,8 +230,9 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type='radio']:checked + label {
-  background-color: rgb(var(--color-foreground));
+  /* background-color: rgb(var(--color-foreground)); */
   color: rgb(var(--color-background));
+  background-color: #6B5D58;
 }
 
 .product-form__input input[type='radio']:not(.disabled) + label > .visually-hidden {
@@ -245,6 +247,7 @@ fieldset.product-form__input .form__label {
 
 .product-form__input input[type='radio']:checked + label::selection {
   background-color: rgba(var(--color-background), 0.3);
+  
 }
 
 .product-form__input input[type='radio']:disabled + label,

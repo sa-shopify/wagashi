@@ -1,5 +1,6 @@
 body {
  font-family: 'Noto Serif JP', serif;
+ color: #020202;
 }
 
 
@@ -196,3 +197,20 @@ body {
         letter-spacing: 0.64px;
     }
 }
+
+.ssTweakProductPage-title h1{
+    font-size: 30px;
+
+  }
+  .ssTweakProductPage-price span{
+    font-size: 17px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ssTweakProductPage-title h1{
+      font-size: 40px;
+    }
+    .ssTweakProductPage-price span{
+      font-size: 18px;
+  }
+  }

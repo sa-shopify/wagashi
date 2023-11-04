@@ -63,6 +63,7 @@
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
         {%- endif -%}
 
+
         <div class="product-form__buttons">
           {%- liquid
             assign check_against_inventory = true
@@ -84,9 +85,11 @@
           >
             <span>
               {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                {{ 'products.product.sold_out' | t }}
+                売り切れ
+                {% comment %} {{ 'products.product.sold_out' | t }} {% endcomment %}
               {%- else -%}
-                {{ 'products.product.add_to_cart' | t }}
+              カートに追加する
+                {% comment %} {{ 'products.product.add_to_cart' | t }} {% endcomment %}
               {%- endif -%}
             </span>
             <div class="loading-overlay__spinner hidden">
