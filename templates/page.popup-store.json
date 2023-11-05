@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "ss-popup-store",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

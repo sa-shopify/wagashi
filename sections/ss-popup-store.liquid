@@ -1,0 +1,205 @@
+
+{%- style -%}
+  .ssPopupPage{
+    padding: 0;
+    margin: 0;
+    padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+    padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+  }
+  .ssPopupPage__blocks{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    
+    
+  }
+  .ssPopupIntroduction__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ssPopupIntroduction__message{
+    padding: 124px 35px 40px 35px;
+    background:#779547;
+
+  }
+
+  .ssPopupIntroduction__title{
+    padding: 0;
+    margin: 0;
+    color: #FEFFFF;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+
+  .ssPopupIntroduction__description p{
+    padding: 0;
+    margin: 0;
+    color: #FEFFFF;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 172%; /* 25.8px */
+    letter-spacing: 0.6px;
+  }
+
+  .ssPopupIntroduction__imageBox{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+  }
+  .ssPopupIntroduction__imageBox::before{
+  background-image: url('https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup___sp_1ae4d839-36d7-42bd-83d0-a3c4bf507e4b.jpg?v=1697613394');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  content: "";
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  }
+
+  .ssPopupIntroduction__image{
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .ssPopupIntroduction__image img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ssPopupIntroduction__decoration1 img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 65.6vw;
+    height: auto;
+  }
+  .ssPopupIntroduction__decoration2 img{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 65.6vw;
+    height: auto;
+  }
+
+
+  @media screen and (min-width: 750px) {
+    .ssPopupIntroduction__message{
+      padding: 0;
+      width: 100%;
+      padding: 130px 40px 80px 40px;
+    }
+    .ssPopupIntroduction__title{
+      font-size: 40px;
+      max-width: 780px;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 20px;
+    }
+    .ssPopupIntroduction__description{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .ssPopupIntroduction__description p{
+      font-size: 16px;
+      letter-spacing: 0.64px;
+    }
+    .ssPopupIntroduction__imageBox{
+      padding-top: 640px;
+      overflow: hidden;
+    }
+    .ssPopupIntroduction__decoration1 img{
+      width: 46.171vw;
+    }
+    .ssPopupIntroduction__decoration2 img{
+      width: 35.546vw;
+    }
+    .ssPopupIntroduction__imageBox::before{
+      background-image: url('https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup_4f4aa25b-dc0b-4627-a0dc-e1c0bfd0f488.jpg?v=1697613409');
+    }
+    
+
+  }
+{%- endstyle -%}
+
+<div class="ssPopupPage">
+  <ul class="ssPopupPage__blocks">
+    <li class="ssPopupPage__block">
+      <div class="ssPopupIntroduction__inner">
+        <div class="ssPopupIntroduction__message">
+          <h2 class="ssPopupIntroduction__title">和菓子屋ぽっぷあっぷ</h2>
+          <div class="ssPopupIntroduction__description">
+            <p>私たちのポップアップストアでは、和菓子の魅力を一堂に集めました。</p>
+            <p>厳選された素材と職人の技が生み出す、風味豊かな和菓子たちがお待ちしています。</p>
+            <p>春の訪れを感じる桜餅や、夏の涼を楽しむ抹茶アイス、秋の豊穣を彩る栗きんとんなど、季節ごとの旬の味覚をお楽しみいただけます。</p>
+            <p>また、古典的なお茶との相性を考えたセットメニューや、手土産にもぴったりなお菓子の詰め合わせもご用意しております。</p>
+          </div>
+        </div>
+        <div class="ssPopupIntroduction__imageBox">
+          <picture class="ssPopupIntroduction__decoration1">
+            <source srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_1.png?v=1697613370" alt="" media="(min-width: 700px)">
+            <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_1.png?v=1697613370" alt="">
+          </picture>
+          <picture class="ssPopupIntroduction__decoration2">
+            <source srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_2.png?v=1697613370" alt="" media="(min-width: 700px)">
+            <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_2.png?v=1697613369" alt="">
+          </picture>
+        </div>
+      </div>
+    </li>
+    <li class="ssPopupPage__block">
+      
+    </li>
+    <li class="ssPopupPage__block"></li>
+    <li class="ssPopupPage__block"></li>
+  </ul>
+</div>
+
+
+{% schema %}
+{
+  "name": "ポップアップストア特設ページ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}
