@@ -154,7 +154,7 @@
     margin: 0;
     display: block;
     background: #FEFFFF;
-    width: calc(100% - 30px);
+    width: 100%;
     margin: 0 auto;
     border-radius: 20px;
   }
@@ -301,6 +301,133 @@
   }
 {% endstyle %}
 
+{% style %}
+  .ssPopupPageProducts{
+    padding:0;
+    margin:0;
+    width: 100%;
+    background-color: #FEFFFF;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    /* background-color: {{ section.settings.ssPopupSchedule-background-color }};
+    padding-top: {{ section.settings.ssPopupSchedule-padding-top |  times: 0.5 }}px;
+    padding-bottom: {{ section.settings.ssPopupSchedule-padding-bottom |  times: 0.5 }}px; */
+
+  }
+  .ssPopupPageProducts__section{
+    margin: 0;
+    padding: 0;
+    margin-right: 15px;
+    margin-left: 15px;
+  }
+
+  
+
+  .ssPopupPageProducts__products{
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+    justify-content:center;
+  }
+  .ssPopupPageProducts__product{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+  }
+  .ssPopupPageProducts__imagebox{
+    width: 100%;
+  }
+  .ssPopupPageProducts__image{
+    padding:0;
+    margin:0;
+    width: 100%;
+    padding-top: 100%;
+    position:relative;
+    border-radius: 20px;
+    overflow: hidden;
+  }
+  .ssPopupPageProducts__image img{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+  }
+  .ssPopupPageProducts__message{
+    width: calc(100% - 80px);
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left:40px;
+  }
+
+  .ssPopupPageProducts__message h2{
+    padding:0;
+    margin:0;
+    color: #020202;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  .ssPopupPageProducts__messagetext{
+    padding:0;
+    margin:0;
+    color: #020202;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 172%; /* 25.8px */
+    letter-spacing: 0.6px;
+  }
+  .ssPopupPageProducts__messagetext:not(:first-child){
+    margin-top: 10px;
+  }
+  @media screen and (min-width: 750px) {
+    .ssPopupPageProducts {
+      /* padding-top: {{ section.settings.ssPopupSchedule-padding-top }}px;
+      padding-bottom: {{ section.settings.ssPopupSchedule-padding-bottom }}px; */
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .ssPopupPageProducts__section{
+      margin: 0 40px;
+      padding: 0;
+    }
+    .ssPopupPageProducts__products{
+      gap: 40px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .ssPopupPageProducts__product{
+      width: 100%;
+      flex-direction: row;
+      align-items: center;
+    justify-content:center;
+    }
+    .ssPopupPageProducts__imagebox{
+      max-width: 359px;
+    }
+    .ssPopupPageProducts__message{
+      padding: calc(4.6875vw / 2) calc(5.46875vw / 2) calc(5.46875vw / 2) calc(5.46875vw / 2);
+    }
+    .ssPopupPageProducts__messagetext{
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 172%; /* 27.52px */
+      letter-spacing: 0.64px;
+    }
+    @media screen and (min-width: 1200px) {
+      .ssPopupPageProducts__message{
+        padding: 4.6875vw 5.46875vw 5.46875vw 5.46875vw;
+      }
+    }
+    
+  }
+{% endstyle %}
+
 <div class="ssPopupPage">
   <ul class="ssPopupPage__blocks">
     <li class="ssPopupIntroduction">
@@ -402,7 +529,42 @@
         </div>
       </div>
     </li>
-    <li class="ssPopupPageIntro"></li>
+    <li class="ssPopupPageProducts">
+      <div class="ssPopupPageProducts__section">
+        <ul class="ssPopupPageProducts__products">
+          <li class="ssPopupPageProducts__product">
+            <div class="ssPopupPageProducts__imagebox">
+              <div class="ssPopupPageProducts__image">
+                <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/product_1c61ccc9-13ce-4dc9-8219-7adf62bfab05.jpg?v=1698136760" alt="">
+              </div>
+            </div>
+            <div class="ssPopupPageProducts__message">
+              <h2>水羊羹（夕凪）</h2>
+              <div class="ssPopupPageProducts__messagetext">
+                <p>春に秋を交えたような色合いの羊羹です。</p>
+                <p>甘くなりすぎないようにあんこを控えめにしています。</p>
+                <p>インスタグラムでバエルと話題になっております。お写真を撮ってぜひ、楽しんでお食事ください。</p>
+              </div>
+            </div>
+          </li>
+          <li class="ssPopupPageProducts__product">
+            <div class="ssPopupPageProducts__imagebox">
+              <div class="ssPopupPageProducts__image">
+                <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/product_1c61ccc9-13ce-4dc9-8219-7adf62bfab05.jpg?v=1698136760" alt="">
+              </div>
+            </div>
+            <div class="ssPopupPageProducts__message">
+              <h2>水羊羹（夕凪）</h2>
+              <div class="ssPopupPageProducts__messagetext">
+                <p>春に秋を交えたような色合いの羊羹です。</p>
+                <p>甘くなりすぎないようにあんこを控えめにしています。</p>
+                <p>インスタグラムでバエルと話題になっております。お写真を撮ってぜひ、楽しんでお食事ください。</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
     <li class="ssPopupPageShop"></li>
   </ul>
 </div>
