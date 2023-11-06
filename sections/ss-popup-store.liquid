@@ -10,8 +10,6 @@
     padding: 0;
     margin: 0;
     list-style: none;
-    
-    
   }
   .ssPopupIntroduction__inner{
     display: flex;
@@ -131,14 +129,181 @@
     .ssPopupIntroduction__imageBox::before{
       background-image: url('https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup_4f4aa25b-dc0b-4627-a0dc-e1c0bfd0f488.jpg?v=1697613409');
     }
-    
 
   }
 {%- endstyle -%}
 
+{% style %}
+.ssPopupSchedule{
+  width: 100%;
+  background-color: #F0F1ED;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  /* background-color: {{ section.settings.ssPopupSchedule-background-color }};
+  padding-top: {{ section.settings.ssPopupSchedule-padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.ssPopupSchedule-padding-bottom |  times: 0.5 }}px; */
+}
+  .ssPopupSchedule__section{
+    width: calc(100% - 30px);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .ssCard__items{
+    padding: 0;
+    margin: 0;
+    display: block;
+    background: #FEFFFF;
+    width: calc(100% - 30px);
+    margin: 0 auto;
+    border-radius: 20px;
+  }
+
+  .ssPopupSchedule__tabs{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ssPopupSchedule__tab{
+    padding: 0;
+    margin: 0;
+    list-style: none;    
+    flex:1;
+    padding-top: 32px;
+    padding-bottom: 33px;
+    color: #808080;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 400;
+    position: relative;
+  }
+
+  .ssPopupSchedule__tab.is-active{
+    color: #779547;
+  }
+
+  .ssPopupSchedule__tab::after{
+    content: '';
+    height: 4px;
+    width: 100%;
+    background: #BABFC5;
+    border-radius: 40px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .ssPopupSchedule__tab.is-active::after{
+    background: #779547;
+  }
+
+  .ssPopupSchedule__openBlocks{
+    padding-top: 32px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 38px;
+    display: none;
+  }
+
+  .ssPopupSchedule__openBlocks.is-active{
+    display: block;
+  }
+
+  .ssPopupSchedule__openBlock{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .ssPopupSchedule__openBlock:not(:first-child){
+    margin-top: 40px;
+  }
+
+  .ssPopupSchedule__shopName{
+    padding: 0;
+    margin: 0;
+    padding: 8px 24px;
+    display: inline-block;
+    background: #6B5D58;
+    border-radius: 8px;
+    color: #FEFFFF;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .ssPopupSchedule__shopName-close{
+    background: #BABFC5;
+  }
+  .ssPopupSchedule__eventDataRow{
+    padding: 0;
+    margin: 0;
+    padding: 24px 0px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    position: relative;
+
+  }
+
+  .ssPopupSchedule__eventDataRow dt{
+    padding: 0;
+    margin: 0;
+    color: #808080;
+    font-size: 17px;
+    font-weight: 400;
+    height: auto;
+    display: inline-block;
+    width: 36px;
+
+  }
+  .ssPopupSchedule__eventDataRow dd{
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    color: #020202;
+    font-size: 17px;
+    font-weight: 400;
+  }
+
+  .ssPopupSchedule__eventDataRow::before{
+    content:'';
+    background: linear-gradient(to right, #779547, #779547 4px, transparent 4px, transparent 8px);
+    background-size: 8px 1px;
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  @media screen and (min-width: 750px) {
+    .ssPopupSchedule__section {
+      /* padding-top: {{ section.settings.ssPopupSchedule-padding-top }}px;
+      padding-bottom: {{ section.settings.ssPopupSchedule-padding-bottom }}px; */
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+    .ssPopupSchedule__openBlocks{
+      padding: 40px 80px 82px 80px;
+    }
+
+    .ssPopupSchedule__title{
+      padding: 0 0 3.125vw 0;
+      width: calc(100% - 30px);
+      max-width: 1100px;
+    }
+
+
+  }
+{% endstyle %}
+
 <div class="ssPopupPage">
   <ul class="ssPopupPage__blocks">
-    <li class="ssPopupPage__block">
+    <li class="ssPopupIntroduction">
       <div class="ssPopupIntroduction__inner">
         <div class="ssPopupIntroduction__message">
           <h2 class="ssPopupIntroduction__title">和菓子屋ぽっぷあっぷ</h2>
@@ -161,13 +326,110 @@
         </div>
       </div>
     </li>
-    <li class="ssPopupPage__block">
-      
+    <li class="ssPopupSchedule">
+      <div class="ssPopupSchedule__section">
+        <div class="ssCard__title ssPopupSchedule__title">
+          <h2 class="ssCard__maintitle">
+            スケジュール
+          </h2>
+          <p class="ssCard__capture">
+            開催日をチェックしてポップアップストアへ来てください。
+          </p>
+        </div>
+        <div class="ssCard__items">
+          <ul class="ssCard__itemsinner ssPopupSchedule__tabs">
+            <li class="ssPopupSchedule__tab is-active" data-id="open">開催予定・開催中</li>
+            <li class="ssPopupSchedule__tab" data-id="close">開催終了</li>
+           </ul>
+           <div class="ssPopupSchedule__openBlocks is-active" data-id="open">
+            <div class="ssPopupSchedule__openBlock">
+              <p class="ssPopupSchedule__shopName">横浜高島屋</p>
+              <dl class="ssPopupSchedule__eventData">
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>日付</dt>
+                  <dd>2023年5月4日〜2023年5月24日</dd>
+                </div>
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>場所</dt>
+                  <dd>神奈川県横浜市西区南幸1丁目6-31 地下一階 Foodies’Port2 イベントスクエア</dd>
+                </div>
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>時間</dt>
+                  <dd>午前10時〜午後9時</dd>
+                </div>
+              </dl>
+             </div>
+             <div class="ssPopupSchedule__openBlock">
+              <p class="ssPopupSchedule__shopName">新宿高島屋</p>
+              <dl class="ssPopupSchedule__eventData">
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>日付</dt>
+                  <dd>2023年5月4日〜2023年5月24日</dd>
+                </div>
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>場所</dt>
+                  <dd>東京都新宿区歌舞伎町1丁目333 地下一階 Foodies’Port2 イベントスクエア</dd>
+                </div>
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>時間</dt>
+                  <dd>午前10時〜午後9時</dd>
+                </div>
+              </dl>
+             </div>
+           </div>
+
+           <div class="ssPopupSchedule__openBlocks" data-id="close">
+            <div class="ssPopupSchedule__openBlock">
+              <p class="ssPopupSchedule__shopName ssPopupSchedule__shopName-close">横浜高島屋</p>
+              <dl class="ssPopupSchedule__eventData">
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>日付</dt>
+                  <dd>2023年2月4日〜2023年2月24日</dd>
+                </div>
+              </dl>
+             </div>
+             <div class="ssPopupSchedule__openBlock">
+              <p class="ssPopupSchedule__shopName ssPopupSchedule__shopName-close">新宿高島屋</p>
+              <dl class="ssPopupSchedule__eventData">
+                <div class="ssPopupSchedule__eventDataRow">
+                  <dt>日付</dt>
+                  <dd>2023年3月4日〜2023年3月24日</dd>
+                </div>
+              </dl>
+             </div>
+           </div>
+           
+        </div>
+      </div>
     </li>
-    <li class="ssPopupPage__block"></li>
-    <li class="ssPopupPage__block"></li>
+    <li class="ssPopupPageIntro"></li>
+    <li class="ssPopupPageShop"></li>
   </ul>
 </div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const tabs = document.querySelectorAll('.ssPopupSchedule__tab');
+    const blocks = document.querySelectorAll('.ssPopupSchedule__openBlocks');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function(){
+        // すべてのタブからis-activeクラスを削除
+        tabs.forEach(t => t.classList.remove('is-active'));
+        // 現在のタブにis-activeクラスを追加
+        this.classList.add('is-active');
+        // すべてのブロックを非表示にする
+        blocks.forEach(b => b.classList.remove('is-active'));
+        // クリックされたタブに対応するブロックを表示する
+        const activeBlock = document.querySelector(`.ssPopupSchedule__openBlocks[data-id="${this.dataset.id}"]`);
+        if (activeBlock) {
+          activeBlock.classList.add('is-active');
+        }
+      });
+    });
+  });
+</script>
 
 
 {% schema %}
