@@ -321,7 +321,6 @@
     margin-left: 15px;
   }
 
-  
 
   .ssPopupPageProducts__products{
     padding:0;
@@ -426,6 +425,158 @@
     }
     
   }
+{% endstyle %}
+
+
+{% style %}
+.ssPopupPageShop__section{
+  padding:0;
+  margin:0;
+}
+.ssPopupPageShop__imagebox{
+  padding:0;
+  margin:0;
+  position: relative;
+}
+.ssPopupPageShop__imagebox::before{
+  content: '';
+  width: 100%;
+  height: auto;
+  display: block;
+  padding-top:89.3333%;
+}
+ .ssPopupPageShop__image{
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  object-fit: cover;
+  top:0;
+  left:0;
+ }
+ .ssPopupPageShop__deco1{
+  width: 65.6vw;
+  position: absolute;
+  top:0;
+  left:0;
+ }
+ .ssPopupPageShop__deco2{
+  width: 55.4666vw;
+  position: absolute;
+  bottom:0;
+  right:0;
+ }
+ .ssPopupPageShop__message{
+  padding:0;
+  margin:0;
+  background: #FEFFFF;
+  position:relative;
+ }
+
+ .ssPopupPageShop__messageDecoTitle::after{
+  content: attr(data-title);
+  height: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  display: block;
+  color: #FEFFFF;
+  top: 0px;
+  left: 0px;
+ }
+ .ssPopupPageShop__messageDecoSub::after{
+  content: attr(data-title);
+  height: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  display: block;
+  color: #FEFFFF;
+  top: 0px;
+  left: 0px;
+ }
+
+ .ssPopupPageShop__messageDecoTitle{
+  position: absolute;
+  top: -72px;
+  left: 15px;
+  color:#6B5D58;
+  font-size: 30px;
+  font-weight: 400;
+  display: block;
+  line-height: 120%;
+  writing-mode: vertical-rl;
+ }
+ .ssPopupPageShop__messageDecoSub{
+  position: absolute;
+  top: -72px;
+  left: 65px;
+  color: #6B5D58;
+  font-size: 17px;
+  font-weight: 400;
+  display: block;
+  line-height: 120%;
+  writing-mode: vertical-rl;
+ }
+
+
+ .ssPopupPageShop__messageInner{
+  padding:0;
+  margin:0;
+  padding: 96px 15px 40px 15px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap:16px;
+ }
+ .ssPopupPageShop__messageNumber{
+  padding:0;
+  margin:0;
+  display: inline-block;
+  color: #020202;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 116%; /* 20.88px */
+ }
+ .ssPopupPageShop__messageText{
+  flex: 1;
+ }
+ .ssPopupPageShop__messageText p{
+  padding:0;
+  margin:0;
+  color:  #020202;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 172%; /* 27.52px */
+  letter-spacing: 0.64px;
+ }
+ @media screen and (min-width: 750px) {
+
+  .ssPopupPageShop__imagebox::before{
+    padding-top:46.5625%;
+  }
+  .ssPopupPageShop__deco1{
+    width: 46.171875vw;
+  }
+  .ssPopupPageShop__deco2{
+    width: 35.546875vw;
+  }
+  .ssPopupPageShop__messageInner{
+    padding-left: 19.0625vw;
+  }
+  .ssPopupPageShop__messageText{
+    width:100%;
+    max-width: 582px;
+  }
+  .ssPopupPageShop__messageDecoTitle{
+    position: absolute;
+    left: 90px;
+  }
+  .ssPopupPageShop__messageDecoSub{
+    position: absolute;
+    left: 146px;
+  }
+ }
 {% endstyle %}
 
 <div class="ssPopupPage">
@@ -565,9 +716,53 @@
         </ul>
       </div>
     </li>
-    <li class="ssPopupPageShop"></li>
+    <li class="ssPopupPageShop">
+      <div class="ssPopupPageShop__section">
+        <div class="ssPopupPageShop__imagebox">
+          <picture>
+            <source class="ssPopupPageShop__image" srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup.jpg?v=1697613397" media="(min-width: 700px)">
+            <img class="ssPopupPageShop__image" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup___SP.jpg?v=16976133847">
+          </picture>
+          <img class="ssPopupPageShop__deco1" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_sp.svg?v=1699244243">
+          <img class="ssPopupPageShop__deco2" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco2_1.svg?v=1699274154">
+
+        </div>
+        <div class="ssPopupPageShop__message">
+          <div class="ssPopupPageShop__decos">
+            
+            <span class="ssPopupPageShop__messageDecoTitle" data-title="和 菓 子 屋">和 菓 子 屋</span>
+            <span class="ssPopupPageShop__messageDecoSub" data-title="お ん ら い ん">お ん ら い ん</span>
+          </div>
+          
+          <div class="ssPopupPageShop__messageInner">
+            <span class="ssPopupPageShop__messageNumber">一</span>
+            <div class="ssPopupPageShop__messageText">
+              <p>「時はさざ波、美味は雅」。古き良き京都の和菓子屋。</p>
+              <p>四季折々の彩りと香り、お茶との調和。古都の粋を凝縮した和菓子、京の華。</p>
+              <p>厳選した材料から皆様に喜ばれる和菓子づくりを。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
   </ul>
 </div>
+
+
+            {% comment %} <picture class="ssPopupPageShop__image">
+              <source srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup_2a4e7b33-41c5-43c6-b544-78e347fad34d.jpg?v=1697613405" media="(min-width: 1000px)">
+              <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup___SP.jpg?v=1697613384" alt="">
+            </picture>
+            <picture class="ssPopupPageShop__imageDeco1">
+              <source srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_pc.svg?v=1699244240" media="(min-width: 1000px)">
+              <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_sp.svg?v=1699244243" alt="">
+            </picture>
+            <picture class="ssPopupPageShop__imageDeco2">
+              <source srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_2.png?v=1697613370" media="(min-width: 1000px)">
+              <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_2.png?v=1697613369" alt="">
+            </picture> {% endcomment %}
+
+
 
 
 <script>
