@@ -172,8 +172,8 @@
         "7a36f66f-0cc3-4cf5-8b40-fdd6e4cd3eaa"
       ],
       "settings": {
-        "padding-top": 0,
-        "padding-bottom": 0,
+        "padding-top": 80,
+        "padding-bottom": 80,
         "background-color": "#feffff",
         "title": "和菓子のFAQ",
         "description": "皆さんからよくいただく和菓子に関する質問に答えております。",

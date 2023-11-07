@@ -26,7 +26,6 @@
   .ssFooter__inner{
     padding: 0;
     margin: 0;
-    width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -38,13 +37,14 @@
         -ms-flex-align: start;
             align-items: flex-start;
     margin: 0 auto;
-    padding: 40px;
+    margin-left:24px;
+
   }
 
   .ssFooter__infomations{
     padding: 0;
     margin: 0;
-    padding: 40px 0px 24px 0px;
+    padding: 0px 0px 24px 0px;
   }
 
   .ssFooter__logo{
@@ -148,6 +148,11 @@
   }
 
   @media screen and (min-width: 750px) {
+
+      .ssFooter {
+          padding-top: {{ section.settings.padding-top }}px;
+          padding-bottom: {{ section.settings.padding-bottom }}px;
+        }
 
       .ssFooter__inner{
         display: -webkit-box;

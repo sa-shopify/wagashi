@@ -5,9 +5,10 @@
     "footer": {
       "type": "footer-wagashi",
       "settings": {
-        "padding-top": 0,
-        "padding-bottom": 0,
-        "background-color": "#F0F1ED",
+        "padding-top": 80,
+        "padding-bottom": 80,
+        "background-color": "#f0f1ed",
+        "background-color-product-page": "#feffff",
         "show_social": true,
         "menu": "main-menu",
         "logo": "shopify:\/\/shop_images\/logo.png"
