@@ -56,7 +56,12 @@
   font-size: 30px;
   font-weight: 400;
   margin-bottom: 20px;
+  font-style: normal;
+  line-height: normal;
 }
+
+
+
 
 .ssShipment__text{
   padding: 0;
@@ -66,7 +71,11 @@
   font-weight: 400;
   line-height: 172%; /* 25.8px */
   letter-spacing: 0.6px;
+  font-style: normal;
 }
+
+
+
 
 .ssShipment__text p {
   padding: 0;
@@ -79,9 +88,15 @@
 
 .ssShipment__buttonlayout{
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 @media screen and (min-width: 750px) {
+  .ssSection-{{ section.id }} {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
   .ssShipment__items{
     padding: 0;
     margin: 0;
@@ -105,8 +120,6 @@
   }
 
   .ssShipment__texts{
-    padding-top: 64px;
-    padding-bottom: 64px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -116,12 +129,17 @@
             flex-direction: column;
     width: 50%;
     margin: 0 auto;
+    align-items: center;
+    justify-content:center;
+    padding: 0px;
     
   }
 
   .ssShipment__textsinner{
-
     margin: 0 auto;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    width: 410px;
     
   }
 
@@ -132,6 +150,7 @@
 
   .ssShipment__title{
     margin-right: auto;
+    font-size: 40px;
   }
 
   .ssShipment__image{
@@ -148,14 +167,6 @@
 
 <section class="ssSection-{{ section.id }}">
   <div class="ssShipment__inner">
-    <div class="ssCard__title">
-      <h2 class="ssCard__maintitle">
-        {{ section.settings.title }}
-      </h2>
-      <p class="ssCard__capture">
-        {{ section.settings.description }}
-      </p>
-    </div>
     <ul class="ssShipment__items">
       {%- for block in section.blocks -%}
         <li class="ssShipment__item {% if block.settings.image-position == 'row-reverse' %}ssShipment__item-rowreverse{% endif %}">
@@ -171,7 +182,7 @@
                 {{ block.settings.description }}
               </div>
               <div class="ssShipment__buttonlayout">
-                <a href="{{ block.settings.url }}" class="ssCard__button">もっとみる</a>
+                <a href="{{ block.settings.url }}" class="ssCard__button ssCard__buttoMargin">もっとみる</a>
               </div>
             </div>
           </div>
@@ -238,8 +249,8 @@
             "min": 0,
             "max": 200,
             "step": 10,
-            "label": "上の余白",
-            "default": 0
+            "label": "上の余白(スマートフォンonly)",
+            "default": 80
           },
           {
             "type": "range",
@@ -247,8 +258,8 @@
             "min": 0,
             "max": 200,
             "step": 10,
-            "label": "下の余白",
-            "default": 0
+            "label": "下の余白(スマートフォンonly)",
+            "default": 80
           },
           {
             "type": "color",

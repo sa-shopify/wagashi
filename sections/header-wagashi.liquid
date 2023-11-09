@@ -1,7 +1,6 @@
 {% style %}
   .ssPopupHeader{
     position: relative;
-
   }
   .ssPopupHeader__header{
     width: 100%;
@@ -11,6 +10,16 @@
     top: 0;
     left: 0;
     z-index:9999;
+    height: 84px;
+  }
+  .ssPopupHeader__innner{
+    padding: 20px 15px 20px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: inherit;
+    align-items: center;
+    
   }
   .ssPopupHeader__spMenubox{
     display: block;
@@ -59,8 +68,7 @@
   }
   
   .ssPopupHeader__spMenu a{
-    padding:0;
-    margin:0;
+    
     padding: 24px 20px;
     color: #FEFFFF;
     display: block;
@@ -69,16 +77,11 @@
     font-weight: 400;
     line-height: 116%;
   }
-  .ssPopupHeader__innner{
-    padding: 20px 15px 20px 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    
-  }
+  
   .ssPopupHeader__logo img{
     width: 103px;
     height: auto;
+    display: inline-block;
   }
   .ssPopupHeader__spMenuButton{
     width: 44px;
@@ -155,6 +158,10 @@
     letter-spacing: 0.28px;
   }
   @media screen and (min-width: 750px) {
+    .ssPopupHeader__header{
+      height: 95px;
+      border-bottom-left-radius: 40px;
+    }
     .ssPopupHeader__innner{
       padding: 20px 50px;
     }
@@ -199,12 +206,12 @@
   })
 </script>
 
-<div class="ssPopupHeader">
+<header class="ssPopupHeader">
   <div class="ssPopupHeader__header">
     <div class="ssPopupHeader__innner page-width">
       <div class="ssPopupHeader__logo">
         <a href="/">
-          <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/logo.png?v=1697613369">
+          <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup-sp-logo.svg?v=1699365147">
         </a>
       </div>
         <button id="ssPopupHeader__spButton" class="ssPopupHeader__spMenuButton" aria-label="メインメニューを開く">
@@ -232,7 +239,7 @@
     </ul>
     <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_2.png?v=1697613369" class="ssPopupHeader__spMenuBottomImage">
   </div>
-</div>
+</header>
 
 
 

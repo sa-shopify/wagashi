@@ -10,7 +10,7 @@
         "background-color": "#f0f1ed",
         "background-color-product-page": "#feffff",
         "show_social": true,
-        "menu": "main-menu",
+        "menu": "footer",
         "logo": "shopify:\/\/shop_images\/logo.png"
       }
     }

@@ -44,8 +44,11 @@
   .ssFooter__infomations{
     padding: 0;
     margin: 0;
-    padding: 0px 0px 24px 0px;
+    padding: 0px 0px 40px 20px;
+    order: 1;
   }
+
+ 
 
   .ssFooter__logo{
     padding: 0;
@@ -77,7 +80,7 @@
     padding: 13px;
   }
 
-  .ssFooter__sns li a:first-child{
+  .ssFooter__sns li:first-child a{
     padding-left: 0;
   }
 
@@ -91,10 +94,12 @@
     padding: 0;
     margin: 0;
     color: #020202;
+    display: inline-block;
     font-size: 14px;
     font-weight: 400;
     line-height: 150%; /* 21px */
     letter-spacing: 0.28px;
+    font-style: normal;
     padding-top: 10px;
     padding-bottom: 10px;
   }
@@ -106,12 +111,11 @@
     display: contents;
   }
 
-  .ssFooter__infomations{
-    order: 1;
-    padding-left: 20px;
-  }
+  
 
   .ssFooter__mailmagazin{
+    width: calc(100% - 32px);
+    box-sizing: border-box;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
@@ -127,6 +131,10 @@
         -ms-flex-order: 2;
             order: 2;
   }
+  .ssFooter__menus li{
+    padding: 0;
+    margin: 0;
+  }
 
   .ssFooter__mailmagazin h3{
     margin: 0;
@@ -136,10 +144,13 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 116%;
+    font-style: normal;
   }
 
   .ssFooter__mailinput{
     background: #F0F1ED;
+
+    
   }
 
   .ssFooter__field:after{
@@ -168,6 +179,8 @@
         width: calc(100% - 80px);
         margin: 0 auto;
         max-width: 1200px;
+        padding-right: 50px;
+        padding-left: 50px;
       }
 
       .ssFooter__left{
@@ -203,6 +216,11 @@
 
       .ssFooter__infomations{
         padding-left: 0px;
+        padding-bottom: 24px;
+      }
+
+      .ssFooter__mailmagazin h3{
+        font-size: 18px;
       }
 
       .ssFooter__menus{
@@ -212,9 +230,15 @@
 
       .ssFooter__menu{
         display: inline-block;
+
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 21px */
+        letter-spacing: 0.28px;
         padding: 0;
         margin: 0;
-        gap: 5px;
+        vertical-align: bottom;
       }
 
       .ssFooter__mailmagazin{
