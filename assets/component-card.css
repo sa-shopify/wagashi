@@ -147,7 +147,7 @@
 
 .card__information {
   grid-row-start: 2;
-  padding: 1.3rem 1rem;
+  padding: 13px 1rem;
 }
 
 .card:not(.ratio) > .card__content {
@@ -385,7 +385,8 @@
 }
 
 .card-information > *:not(.visually-hidden:first-child) + *:not(.rating):not(.card__information-volume-pricing-note) {
-  margin-top: 0.7rem;
+  /* margin-top: 0.7rem; */
+  margin-top: 7px;
 }
 
 .card-information .caption {

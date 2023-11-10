@@ -125,7 +125,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-left: 20px;
+    /* padding-left: 20px; */
+    padding-left: 18px;
     margin-bottom: 30px;
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
@@ -149,8 +150,10 @@
 
   .ssFooter__mailinput{
     background: #F0F1ED;
+  }
 
-    
+  .ssFooter__mailinput-white{
+    background: #FEFFFF;
   }
 
   .ssFooter__field:after{
@@ -159,6 +162,20 @@
   }
 
   @media screen and (min-width: 750px) {
+
+      .ssFooter__menus li{
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 150%; /* 21px */
+        letter-spacing: 0.28px;
+      }
+
+      .ssFooter__menus li:not(:first-child){
+        margin-top: 5px;
+      }
 
       .ssFooter {
           padding-top: {{ section.settings.padding-top }}px;
@@ -282,7 +299,7 @@
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
                 name="contact[email]"
-                class="field__input ssFooter__mailinput"
+                class="field__input {% if request.path != '/' or request.path != '/pages/pop-up-store' %}ssFooter__mailinput{%- endif -%} ssFooter__mailinput-white"
                 value="{{ form.email }}"
                 aria-required="true"
                 autocorrect="off"

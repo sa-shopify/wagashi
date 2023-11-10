@@ -183,7 +183,8 @@ variant-selects {
 }
 
 fieldset.product-form__input .form__label {
-  margin-bottom: 0.2rem;
+  /* margin-bottom: 0.2rem; */
+  margin-bottom: 10px;
 }
 
 .product-form__input input[type='radio'] {
@@ -198,14 +199,20 @@ fieldset.product-form__input .form__label {
   border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
   background-color: rgb(var(--color-background));
   color: rgba(var(--color-foreground));
-  border-radius: var(--variant-pills-radius);
+  /* border-radius: var(--variant-pills-radius); */
+  border-radius: 50px;
   color: rgb(var(--color-foreground));
   display: inline-block;
-  margin: 0.7rem 0.5rem 0.2rem 0;
-  padding: 1rem 2rem;
-  font-size: 1.4rem;
-  letter-spacing: 0.1rem;
-  line-height: 1;
+  /* margin: 0.7rem 0.5rem 0.2rem 0; */
+  /* margin-right: 5px; */
+  /* padding: 1rem 2rem; */
+  padding: 10px 20px;
+  /* font-size: 1.4rem; */
+  font-size: 14px;
+  /* letter-spacing: 0.1rem; */
+  letter-spacing: 0.28px;
+  /* line-height: 1; */
+  line-height: 150%;
   text-align: center;
   transition: border var(--duration-short) ease;
   cursor: pointer;
@@ -281,7 +288,8 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__submit {
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
+  margin-bottom: 10px;
 }
 
 .no-js .product-form__submit.button--secondary {
@@ -315,7 +323,8 @@ fieldset.product-form__input .form__label {
 /* Product info */
 
 .product__info-container > * + * {
-  margin: 1.5rem 0;
+  margin: 15px 0;
+  /* margin: 1.5rem 0; */
 }
 
 .product__info-container iframe {
@@ -325,7 +334,12 @@ fieldset.product-form__input .form__label {
 .product__info-container .product-form,
 .product__info-container .product__description,
 .product__info-container .icon-with-text {
-  margin: 2.5rem 0;
+  margin: 30px 0 2.5rem 0;
+  /* margin: 2.5rem 0; */
+}
+
+.product__info-container .product__description{
+  margin: 25px 0 2.5rem 0;
 }
 
 .product__text {
@@ -372,7 +386,7 @@ a.product__text {
 }
 
 .product .price__container {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 .product .price dl {
@@ -400,6 +414,21 @@ a.product__text {
 
 .product__description-title {
   font-weight: 600;
+}
+
+.product__description span {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 27.52px */
+  letter-spacing: 0.64px;
+  /* color: #020202;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%;
+  letter-spacing: 0.6px;
+  display: inline-block; */
 }
 
 .product--no-media .product__title,

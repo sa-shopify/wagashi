@@ -12,15 +12,15 @@
 {% endcomment %}
 <script src="{{ 'share.js' | asset_url }}" defer="defer"></script>
 
-<share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden" {{ block.shopify_attributes }}>
+<share-button id="Share-{{ section.id }}" class="share-button quick-add-hidden ssProductPage_shareMargin" {{ block.shopify_attributes }}>
   <button class="share-button__button hidden">
     {% render 'icon-share' %}
     {{ block.settings.share_label | escape }}
   </button>
   <details id="Details-{{ block.id }}-{{ section.id }}">
     <summary class="share-button__button">
-      {% render 'icon-share' %}
-      {{ block.settings.share_label | escape }}
+      {% render 'icon-share' %}<span>共有する</span>
+      {% comment %} {{ block.settings.share_label | escape }} {% endcomment %}
     </summary>
     <div class="share-button__fallback motion-reduce">
       <div class="field">
