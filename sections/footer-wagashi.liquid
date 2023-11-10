@@ -299,7 +299,7 @@
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
                 name="contact[email]"
-                class="field__input {% if request.path != '/' or request.path != '/pages/pop-up-store' %}ssFooter__mailinput{%- endif -%} ssFooter__mailinput-white"
+                class="field__input ssFooter__mailinput {% if request.path != '/' and request.path != '/pages/pop-up-store' %}ssFooter__mailinput-white{% endif %}"
                 value="{{ form.email }}"
                 aria-required="true"
                 autocorrect="off"

@@ -52,32 +52,23 @@
     width: 100%;
     padding-top: 100%;
     overflow: hidden;
+    
   }
   .ssPopupIntroduction__imageBox::before{
-  background-image: url('https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup___sp_1ae4d839-36d7-42bd-83d0-a3c4bf507e4b.jpg?v=1697613394');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  content: "";
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: -1;
-  }
-
-
-
-  .ssPopupIntroduction__image img{
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    width: 100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup___sp_1ae4d839-36d7-42bd-83d0-a3c4bf507e4b.jpg?v=1697613394');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
     height: 100%;
-    object-fit: cover;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
   }
+
+
 
   .ssPopupIntroduction__decoration1Img{
     position: absolute;
@@ -92,7 +83,7 @@
     display: block;
     bottom: 0;
     right: 0;
-    width: 65.6vw;
+    width: 55.466vw;
     height: auto;
   }
 
@@ -434,7 +425,7 @@
     height: 100%;
   }
   .ssPopupPageProducts__message{
-    width: calc(100%);
+    width: 100%;
     padding-top: 40px;
     padding-right: 40px;
     padding-left:40px;
@@ -450,7 +441,10 @@
     font-style: normal;
     line-height: normal;
   }
-  .ssPopupPageProducts__messagetext{
+  
+
+
+  .ssPopupPageProducts__messagetext p{
     padding:0;
     margin:0;
     color: #020202;
@@ -461,11 +455,13 @@
     font-style: normal;
   }
 
-  .ssPopupPageProducts__messagetext:not(:first-child){
+  .ssPopupPageProducts__messagetext p{
     padding:0;
     margin:0;
     margin-top: 10px;
   }
+ 
+
 
   @media screen and (min-width: 750px) {
     .ssPopupPageProducts {
@@ -486,25 +482,28 @@
       letter-spacing: 0.64px;
     }
     .ssPopupPageProducts__products{
-      gap: 40px;
+      gap: 80px;
       max-width: 1100px;
       width: 100%;
       margin: 0 auto;
     }
     .ssPopupPageProducts__product{
       width: 100%;
+      height: auto;
       flex-direction: row;
       align-items: center;
     justify-content:center;
     }
     .ssPopupPageProducts__imagebox{
       max-width: 359px;
+      padding-left: 0px;
+      padding-right: 0px;
     }
     .ssPopupPageProducts__image{
       border-radius: 40px;
     }
     .ssPopupPageProducts__message{
-      padding: calc(4.6875vw / 2) calc(5.46875vw / 2) calc(5.46875vw / 2) calc(5.46875vw / 2);
+      padding: calc(4.6875vw) calc(5.46875vw) calc(5.46875vw) calc(5.46875vw);
     }
     .ssPopupPageProducts__messagetext{
       font-size: 16px;
@@ -512,11 +511,7 @@
       line-height: 172%; /* 27.52px */
       letter-spacing: 0.64px;
     }
-    @media screen and (min-width: 1200px) {
-      .ssPopupPageProducts__message{
-        padding: 4.6875vw 5.46875vw 5.46875vw 5.46875vw;
-      }
-    }
+   
     
   }
 {% endstyle %}
@@ -557,7 +552,6 @@
  }
  .ssPopupPageShop__deco2{
   display: block;
-  width: 100%;
   height: auto;
   width: 55.4666vw;
   position: absolute;
@@ -681,7 +675,7 @@
 
  @media screen and (min-width: 750px) {
   .ssPopupPageShop__title{
-    left: 7.03125vw;
+    margin-left: 90px;
   }
   .ssPopupPageShop__messageDecoSub-sp{
     display: none;
@@ -785,6 +779,8 @@
  .ssPopupPageShop__list{
   padding:0;
   margin:0;
+  display: flex;
+  gap: 16px;
  }
  .ssPopupPageShop__list:not(:first-child){
   margin-top: 28px;
@@ -812,8 +808,13 @@
   .ssPopupPageShop__deco2{
     width: 35.546875vw;
   }
+
+  .ssPopupPageShop__list{
+    gap: 24px;
+  }
   .ssPopupPageShop__messageInner{
     padding-left: 19.0625vw;
+    padding-top: 80px;
   }
   .ssPopupPageShop__messageText{
     width:100%;
