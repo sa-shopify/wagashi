@@ -1,0 +1,265 @@
+{% if section.settings.popup-page-top-block %}
+  {% assign mobile_top_padding_value = section.settings.padding_top | plus : 44 %}
+  {% assign pc_top_padding_value = section.settings.padding_top | plus : 15 %}
+{% else %}
+  {% assign mobile_top_padding_value = section.settings.padding_top | divided_by : 2  %}
+  {% assign pc_top_padding_value = section.settings.padding_top %}
+{% endif %}
+
+
+{%- style -%}
+
+  .ssPopupPageProducts{
+    padding:0;
+    margin:0;
+    width: 100%;
+    background-color: {{ section.settings.background-color }};
+    padding-top: {{ mobile_top_padding_value }}px;
+    padding-bottom: {{ section.settings.padding_bottom |  times: 0.5 }}px;
+  }
+  .ssPopupPageProducts__section{
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .ssPopupPageProducts__products{
+    padding:0;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    list-style: none;
+    align-items: center;
+    justify-content:center;
+  }
+  .ssPopupPageProducts__product{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+  }
+  .ssPopupPageProducts__imagebox{
+    width: 100%;
+    padding-right: 15px;
+    padding-left:15px;
+  }
+  .ssPopupPageProducts__image{
+    padding:0;
+    margin:0;
+    width: 100%;
+    padding-top: 100%;
+    position:relative;
+    border-radius: 40px;
+    overflow: hidden;
+
+  }
+  .ssPopupPageProducts__image img{
+    position:absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+  }
+  .ssPopupPageProducts__message{
+    width: 100%;
+    padding-top: 40px;
+    padding-right: 40px;
+    padding-left:40px;
+  }
+
+  .ssPopupPageProducts__message h2{
+    padding:0;
+    margin:0;
+    color: #020202;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    font-style: normal;
+    line-height: normal;
+  }
+  
+
+
+  .ssPopupPageProducts__messagetext p{
+    padding:0;
+    margin:0;
+    color: #020202;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 172%; /* 25.8px */
+    letter-spacing: 0.6px;
+    font-style: normal;
+  }
+
+  .ssPopupPageProducts__messagetext p{
+    padding:0;
+    margin:0;
+    margin-top: 10px;
+  }
+ 
+
+
+  @media screen and (min-width: 750px) {
+    .ssPopupPageProducts {
+      padding-top: {{ pc_top_padding_value }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .ssPopupPageProducts__section{
+      margin: 0 40px;
+      padding: 0;
+    }
+    .ssPopupPageProducts__message h2{
+      font-size: 40px;
+    }
+    .ssPopupPageProducts__messagetext{
+      font-size: 16px;
+      letter-spacing: 0.64px;
+    }
+    .ssPopupPageProducts__products{
+      gap: 80px;
+      max-width: 1100px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .ssPopupPageProducts__product{
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      align-items: center;
+    justify-content:center;
+    }
+    .ssPopupPageProducts__imagebox{
+      max-width: 359px;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .ssPopupPageProducts__image{
+      border-radius: 40px;
+    }
+    .ssPopupPageProducts__message{
+      padding: calc(4.6875vw) calc(5.46875vw) calc(5.46875vw) calc(5.46875vw);
+    }
+    .ssPopupPageProducts__messagetext{
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 172%; /* 27.52px */
+      letter-spacing: 0.64px;
+    }
+   
+    
+  }
+{%- endstyle -%}
+
+
+
+<div class="ssPopupPageProducts">
+  <div class="ssPopupPageProducts__section">
+    <ul class="ssPopupPageProducts__products">
+
+
+      {% for block in section.blocks %}
+        <li class="ssPopupPageProducts__product">
+          <a href="{{ block.link }}" class="ssPopupPageProducts__link">
+            <div class="ssPopupPageProducts__imagebox">
+              <div class="ssPopupPageProducts__image">
+                <img src="{{ block.image | image_url: width: 2000  }}" alt="{{ block.image.alt }}">
+              </div>
+            </div>
+            <div class="ssPopupPageProducts__message">
+              <h2>{{ block.title }}</h2>
+              <div class="ssPopupPageProducts__messagetext">
+                {{ block.description }}
+              </div>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+
+    </ul>
+  </div>
+</div>
+
+
+
+
+{% schema %}
+{
+  "name": "ssポップアップ_商品紹介",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "popup-page-top-block",
+      "default": false,
+      "label": "ポップアップページの最上部の場合はチェック(余白調整)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "背景色",
+      "default": "#FEFFFF"
+    }
+  ],
+  "presets": [
+        {
+          "name": "ssポップアップ_商品紹介"
+        }
+  ],
+  "blocks": [
+        {
+         "type": "blockset",
+         "name": "ブロックセット",
+           "settings": [
+            {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "タイトルを入力してください"
+            },
+            {
+              "type": "richtext",
+              "id": "description",
+              "label": "テキスト",
+              "default": "<p>文章を入力してください</p>"
+            },
+           {
+               "type": "image_picker",
+               "id": "image",
+               "label": "画像"
+           },
+           {
+                "id": "url",
+                "type": "url",
+                "label": "リンク"
+           }
+           
+         ]
+       }
+     ]
+}
+{% endschema %}

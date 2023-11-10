@@ -1,0 +1,229 @@
+{% if section.settings.popup-page-top-block %}
+  {% assign mobile_top_padding_value = section.settings.padding_top | plus : 44 %}
+  {% assign pc_top_padding_value = section.settings.padding_top | plus : 15 %}
+{% else %}
+  {% assign mobile_top_padding_value = section.settings.padding_top | divided_by : 2  %}
+  {% assign pc_top_padding_value = section.settings.padding_top %}
+{% endif %}
+
+
+
+
+{%- style -%}
+
+  
+  .ssPopupIntroduction__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .ssPopupIntroduction__message{
+    padding: {{ mobile_top_padding_value }}px 35px {{ section.settings.padding_bottom |  times: 0.5 }}px 35px;
+    background-color: {{ section.settings.background-color }};
+
+  }
+
+  .ssPopupIntroduction__title{
+    padding: 0;
+    margin: 0;
+    color: #FEFFFF;
+    text-align: center;
+    font-size: 29px;
+    font-style: normal;
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: normal;
+  }
+
+  .ssPopupIntroduction__description p{
+    padding: 0;
+    margin: 0;
+    color: #FEFFFF;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 172%; /* 25.8px */
+    letter-spacing: 0.6px;
+  }
+
+  .ssPopupIntroduction__imageBox{
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    overflow: hidden;
+    
+  }
+  .ssPopupIntroduction__imageBox::before{
+    background-image: url('{{ section.settings.image-sp | image_url: width: 700 }}');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+  }
+
+
+
+  .ssPopupIntroduction__decoration1Img{
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 65.6vw;
+    height: auto;
+  }
+  .ssPopupIntroduction__decoration2Img{
+    position: absolute;
+    display: block;
+    bottom: 0;
+    right: 0;
+    width: 55.466vw;
+    height: auto;
+  }
+
+
+  @media screen and (min-width: 750px) {
+    .ssPopupIntroduction__message{
+      padding: 0;
+      width: 100%;
+      padding: {{ pc_top_padding_value }}px 40px {{ section.settings.padding_bottom }}px 40px;
+    }
+    .ssPopupIntroduction__title{
+      font-size: 40px;
+      max-width: 780px;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom: 20px;
+      margin-top: 80px;
+    }
+    .ssPopupIntroduction__description{
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .ssPopupIntroduction__description p{
+      font-size: 16px;
+      letter-spacing: 0.64px;
+    }
+    .ssPopupIntroduction__imageBox{
+      padding-top: 640px;
+      overflow: hidden;
+    }
+    .ssPopupIntroduction__decoration1Img{
+      width: 46.171vw;
+    }
+    .ssPopupIntroduction__decoration2Img{
+      width: 35.546vw;
+    }
+    .ssPopupIntroduction__imageBox::before{
+      background-image: url('{{ section.settings.image-pc | image_url: width: 1500 }}');
+    }
+
+  }
+{%- endstyle -%}
+
+
+
+<div class="ssPopupIntroduction">
+  <div class="ssPopupIntroduction__inner">
+    <div class="ssPopupIntroduction__message">
+      <h2 class="ssPopupIntroduction__title">{{ section.settings.title }}</h2>
+      <div class="ssPopupIntroduction__description">
+        {{ section.settings.description }}
+      </div>
+    </div>
+    <div class="ssPopupIntroduction__imageBox">
+      <picture>
+        <source class="ssPopupIntroduction__decoration1Img" srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_1.png?v=1697613370" alt="装飾画像" media="(min-width: 700px)">
+        <img class="ssPopupIntroduction__decoration1Img" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_1.png?v=1697613370" alt="装飾画像">
+      </picture>
+      <picture>
+        <source class="ssPopupIntroduction__decoration2Img" srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_2.png?v=1697613370" alt="装飾画像" media="(min-width: 700px)">
+        <img class="ssPopupIntroduction__decoration2Img" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_2.png?v=1697613369" alt="装飾画像">
+      </picture>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% schema %}
+{
+  "name": "ssポップアップ_イントロ",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "checkbox",
+      "id": "popup-page-top-block",
+      "default": true,
+      "label": "ポップアップページの最上部の場合はチェック(余白調整)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 80
+    },
+    {
+      "type": "color",
+      "id": "background-color",
+      "label": "背景色",
+      "default": "#779547"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "タイトル",
+      "default": "タイトルを入力してください"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "テキスト",
+      "default": "<p>文章を入力してください</p>"
+    },
+    {
+        "type": "image_picker",
+        "id": "image-pc",
+        "label": "バナー(パソコン用)"
+    },
+    {
+        "type": "image_picker",
+        "id": "image-sp",
+        "label": "バナー(スマートフォン用)"
+    }
+
+  ],
+  "presets": [
+        {
+          "name": "ssポップアップ_イントロ"
+        }
+  ]
+}
+{% endschema %}
