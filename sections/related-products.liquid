@@ -113,7 +113,7 @@
           </li>
         {% endfor %}
         <div class="ssProductRelated__buttonlayout">
-          <a href="{{ section.settings.url }}" class="ssCard__button ssProductRelated__button">もっとみる</a>
+          <a href="{{ section.settings.link }}" class="ssCard__button ssProductRelated__button">もっとみる</a>
         </div>
       </ul>
     {% endif %}
@@ -153,6 +153,11 @@
       "default": "この和菓子を購入している方はこちらの商品も見ています。",
       "label": "サブタイトル"
     },
+    {
+          "id": "link",
+          "type": "url",
+          "label": "「もっとみる」リンク"
+      },
     {
       "type": "select",
       "id": "heading_size",

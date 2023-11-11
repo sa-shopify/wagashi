@@ -27,7 +27,7 @@
         "popup-page-top-block": false,
         "padding_top": 80,
         "padding_bottom": 80,
-        "background-color": "#F0F1ED"
+        "background-color": "#f0f1ed"
       }
     },
     "6c8f088b-1f8d-4e30-bd2a-b9230e76c4a7": {
@@ -38,8 +38,7 @@
           "settings": {
             "title": "水羊羹（夕凪）",
             "description": "<p>春に秋を交えたような色合いの羊羹です。<\/p><p>甘くなりすぎないようにあんこを控えめにしています。<\/p><p>インスタグラムでバエルと話題になっております。お写真を撮ってぜひ、楽しんでお食事ください。<\/p>",
-            "image-pc": "shopify:\/\/shop_images\/product_e88e8c19-7c8b-4b7a-84e0-8adb4982958e.jpg",
-            "image-sp": "shopify:\/\/shop_images\/product_1c61ccc9-13ce-4dc9-8219-7adf62bfab05.jpg",
+            "image": "shopify:\/\/shop_images\/product_e88e8c19-7c8b-4b7a-84e0-8adb4982958e.jpg",
             "url": "shopify:\/\/products\/yunagi"
           }
         },
@@ -48,8 +47,7 @@
           "settings": {
             "title": "水羊羹（鈴蘭）",
             "description": "<p>当店で古くから愛されている昔ながらの羊羹です。<\/p><p>甘くなりすぎないようにあんこを控えめにしています。<\/p><p>インスタグラムでバエルと話題になっております。お写真を撮ってぜひ、楽しんでお食事ください。<\/p>",
-            "image-pc": "shopify:\/\/shop_images\/product_9f91de8b-ffce-4100-92fc-23bbe24c0fa2.jpg",
-            "image-sp": "shopify:\/\/shop_images\/product_fe9641bd-76aa-4221-9837-91024e226adf.jpg",
+            "image": "shopify:\/\/shop_images\/popup___sp_1ae4d839-36d7-42bd-83d0-a3c4bf507e4b.jpg",
             "url": "shopify:\/\/products\/suzurann"
           }
         }
@@ -62,17 +60,43 @@
         "popup-page-top-block": false,
         "padding_top": 80,
         "padding_bottom": 80,
-        "background-color": "#FEFFFF"
+        "background-color": "#feffff"
       }
     },
     "c06b6e48-5208-4774-8896-4928006d0045": {
       "type": "ss-popup-banner",
+      "blocks": {
+        "9b1524c4-e9db-45d2-aec1-cfa63cb81142": {
+          "type": "blockset",
+          "settings": {
+            "description": "<p>「時はさざ波、美味は雅」。古き良き京都の和菓子屋。<\/p><p>四季折々の彩りと香り、お茶との調和。古都の粋を凝縮した和菓子、京の華。<\/p><p>厳選した材料から皆様に喜ばれる和菓子づくりを。<\/p>"
+          }
+        },
+        "b4bf7808-d924-4f4f-ba12-9fc3c3221142": {
+          "type": "blockset",
+          "settings": {
+            "description": "<p>風情ある味わい、伝統を纏う。古都ならではの和菓子をお届けします。<\/p><p>季節ごとの自然の恵みを活かし、心を込めて一つ一つ手作り。<\/p><p>お茶のひとときを彩る、上質な味の旅を。京の雅、和の極みをあなたのもとへ。<\/p>"
+          }
+        },
+        "7b39bab6-f6ea-4037-aee7-532608cf4687": {
+          "type": "blockset",
+          "settings": {
+            "description": "<p>雅やかな時を刻む、京都発の和の心。昔ながらの製法で、一品一品丁寧に。<\/p><p>四季の移ろいを感じる風味と色彩、伝統の味が織りなす物語。<\/p><p>お茶席を華やかにする、洗練された和菓子の数々。季節を感じる一口で、心に残るひとときを。<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "9b1524c4-e9db-45d2-aec1-cfa63cb81142",
+        "b4bf7808-d924-4f4f-ba12-9fc3c3221142",
+        "7b39bab6-f6ea-4037-aee7-532608cf4687"
+      ],
       "settings": {
-        "background-color": "#FEFFFF",
+        "background-color": "#feffff",
         "popup-page-top-block": false,
         "padding_bottom": 80,
         "image-pc": "shopify:\/\/shop_images\/popup.jpg",
-        "image-sp": "shopify:\/\/shop_images\/popup___SP.jpg"
+        "image-sp": "shopify:\/\/shop_images\/popup___SP.jpg",
+        "link": "\/"
       }
     }
   },

@@ -8,13 +8,28 @@
 
 
 {%- style -%}
+.ssPopupPageShop{
+  padding:0;
+  margin:0;
+  display: block;
+  width: 100%;
+}
+.ssPopupPageShop__link{
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
  .ssPopupPageShop__messageInner{
   padding:0;
   margin:0;
   padding: 96px 15px {{ section.settings.padding_bottom |  times: 0.5 }}px 15px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   gap:16px;
  }
 
@@ -23,11 +38,16 @@
   margin:0;
   padding-top: {{ mobile_top_padding_value }}px;
 }
+
+
+
 .ssPopupPageShop__imagebox{
   padding:0;
   margin:0;
   position: relative;
+  display: block;
 }
+
 .ssPopupPageShop__imagebox::before{
   content: '';
   width: 100%;
@@ -35,30 +55,35 @@
   display: block;
   padding-top:89.3333%;
 }
- .ssPopupPageShop__image{
+
+.ssPopupPageShop__image{
   width: 100%;
   height: 100%;
   display: block;
   position: absolute;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   top:0;
   left:0;
  }
+
  .ssPopupPageShop__deco1{
   width: 65.6vw;
   position: absolute;
   display: block;
-  top:0;
+  top:-1px;
   left:0;
  }
+
  .ssPopupPageShop__deco2{
   display: block;
   height: auto;
   width: 55.4666vw;
   position: absolute;
-  bottom:0;
+  bottom:-1px;
   right:0;
  }
+
  .ssPopupPageShop__message{
   padding:0;
   margin:0;
@@ -75,8 +100,12 @@
   left: 0;
   margin-left:15px;
   display: block;
-  writing-mode: vertical-rl;
-  transform: translateY(-50%);
+  -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: tb-rl;
+          writing-mode: vertical-rl;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
   white-space: nowrap;
  }
 
@@ -104,14 +133,10 @@
     display: block;
  }
 
-
  .ssPopupPageShop__messageDecoSub-pc{
   padding:0;
   margin:0;
   display: none;
-  
-  
-
  }
 
  .ssPopupPageShop__messageDecoSub-pc::before{
@@ -125,9 +150,6 @@
     display: block;
  }
 
- 
-
- 
  .ssPopupPageShop__messageDecoTitle-sp{
   padding:0;
   margin:0;
@@ -138,8 +160,7 @@
   line-height: 120%; /* 36px */
   margin-right: 16px;
   position: relative;
-    display: block;
-  
+  display: block;
  }
 
  .ssPopupPageShop__messageDecoTitle-sp::before{
@@ -153,59 +174,22 @@
     display: block;
  }
 
-
-
  .ssPopupPageShop__messageDecoTitle-pc{
   padding:0;
   margin:0;
   display: none;
-  
  }
 
-
  .ssPopupPageShop__messageDecoTitle-pc::before{
-  content: attr(data-title);
-  overflow: hidden;
-  height: 50%;
+    content: attr(data-title);
+    overflow: hidden;
+    height: 50%;
     color: #FEFFFF;
-  position: absolute;
+    position: absolute;
     top:0;
     left:0;
     display: block;
  }
-
- @media screen and (min-width: 750px) {
-  .ssPopupPageShop__title{
-    margin-left: 90px;
-  }
-  .ssPopupPageShop__messageDecoSub-sp{
-    display: none;
-  }
-  .ssPopupPageShop__messageDecoTitle-sp{
-    display: none;
-  }
-  .ssPopupPageShop__messageDecoSub-pc{
-    display: block;
-    color: #6B5D58;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%; /* 21.6px */
-    position: relative;
- 
-  }
-  .ssPopupPageShop__messageDecoTitle-pc{
-    display: block;
-    color: #6B5D58;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%; /* 48px */
-    position: relative;
-  }
- }
-
-
 
 
  .ssPopupPageShop__messageNumber{
@@ -243,58 +227,94 @@
   line-height: 172%; /* 27.52px */
   letter-spacing: 0.64px;
  }
+
  @media screen and (min-width: 750px) {
+  .ssPopupPageShop__title{
+    margin-left: 90px;
+  }
+
+  .ssPopupPageShop__messageDecoSub-sp{
+    display: none;
+  }
+
+  .ssPopupPageShop__messageDecoTitle-sp{
+    display: none;
+  }
+
+  .ssPopupPageShop__messageDecoSub-pc{
+    display: block;
+    color: #6B5D58;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 21.6px */
+    position: relative;
+  }
+
+  .ssPopupPageShop__messageDecoTitle-pc{
+    display: block;
+    color: #6B5D58;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 48px */
+    position: relative;
+  }
 
   .ssPopupPageShop__imagebox::before{
     padding-top:46.5625%;
   }
+  
+  .ssPopupPageShop__lists{
+    width: calc(100% - 19.0625vw);
+  }
+
   .ssPopupPageShop__deco1{
     width: 46.171875vw;
   }
+
   .ssPopupPageShop__deco2{
     width: 35.546875vw;
   }
 
   .ssPopupPageShop__list{
     gap: 24px;
+    width:100%;
   }
+
   .ssPopupPageShop__messageInner{
     padding-left: 19.0625vw;
     padding-top: {{ section.settings.padding_bottom }}px;
   }
   .ssPopupPageShop__messageText{
     width:100%;
-    max-width: 582px;
   }
 
   .ssPopupPageShop__list:not(:first-child){
       margin-top: 40px;
   }
-  
-
 
  }
-    
-  
+
 {%- endstyle -%}
 
 
 
-<div class="ssPopupPageShop">
-  <a href="{{ section.settings.link }}">
+<section class="ssPopupPageShop" id="popup-banner">
+  <a href="{{ section.settings.link }}" class="ssPopupPageShop__link">
     <div class="ssPopupPageShop__section">
       <div class="ssPopupPageShop__imagebox">
         <picture>
-          <source class="ssPopupPageShop__image" srcset="{{ block.image-pc | image_url: width: 1500  }}" media="(min-width: 700px)">
-          <img class="ssPopupPageShop__image" src="{{ block.image-sp | image_url: width: 800  }}">
+          <source class="ssPopupPageShop__image" srcset="{{ section.settings.image-pc | image_url: width: 1500  }}" alt="{{ section.settings.image-pc.alt }}" media="(min-width: 700px)">
+          <img class="ssPopupPageShop__image" src="{{ section.settings.image-sp | image_url: width: 800  }}" alt="{{ section.settings.image-sp.alt }}">
         </picture>
 
         <picture>
-          <source class="ssPopupPageShop__deco1" srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_pc.svg?v=1699244240" media="(min-width: 700px)">
-          <img class="ssPopupPageShop__deco1" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_pc.svg?v=1699244240">
+          <source class="ssPopupPageShop__deco1" srcset="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_pc.svg?v=1699244240" media="(min-width: 700px)" alt="装飾画像">
+          <img class="ssPopupPageShop__deco1" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco_pc.svg?v=1699244240" alt="装飾画像">
         </picture>
 
-        <img class="ssPopupPageShop__deco2" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco2_1.svg?v=1699274154">
+        <img class="ssPopupPageShop__deco2" src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/deco2_1.svg?v=1699274154" alt="装飾画像">
 
       </div>
       <div class="ssPopupPageShop__message">
@@ -304,28 +324,28 @@
           <h2 class="ssPopupPageShop__messageDecoTitle-sp" data-title="和 菓 子 屋">和 菓 子 屋</h2>
           <h2 class="ssPopupPageShop__messageDecoTitle-pc" data-title="和 菓 子 屋">和 菓 子 屋</h2>
         </div>
-        
+
         <div class="ssPopupPageShop__messageInner">
           <ul class="ssPopupPageShop__lists">
-            {% for block in section.blocks.blockset %}
+            {% for block in section.blocks %}
               <li class="ssPopupPageShop__list">
-                
+
                   <span class="ssPopupPageShop__messageNumber">{{ forloop.index | replace: '1' ,'一' | replace: '2' ,'二' | replace: '3' ,'三' | replace: '4' ,'四' | replace: '5' ,'五' }}</span>
                   <div class="ssPopupPageShop__messageText">
-                    {{ block.description }}
+                    {{ block.settings.description }}
                   </div>
-                
+
               </li>
             {% endfor %}
 
 
           </ul>
-          
+
         </div>
       </div>
     </div>
   </a>
-</div>
+</section>
 
 
 

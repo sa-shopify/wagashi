@@ -4,20 +4,44 @@
   "sections": {
     "header": {
       "type": "header-wagashi",
+      "blocks": {
+        "7684162b-c47d-4cef-90e8-ae4c2c6ae9a1": {
+          "type": "blockset",
+          "settings": {
+            "menu_title": "ご紹介",
+            "menu_id": "popup-introduction"
+          }
+        },
+        "0e5aa591-9dc3-420e-a6b5-244bc6d5ec48": {
+          "type": "blockset",
+          "settings": {
+            "menu_title": "スケジュール",
+            "menu_id": "popup-schedule"
+          }
+        },
+        "36d7e69c-8a9f-4a08-9ecb-8a9bf04c5888": {
+          "type": "blockset",
+          "settings": {
+            "menu_title": "商品紹介",
+            "menu_id": "popup-products"
+          }
+        },
+        "e50c2f98-94a0-4228-b44f-660ec04b738e": {
+          "type": "blockset",
+          "settings": {
+            "menu_title": "オンラインショップへ",
+            "menu_id": "popup-banner"
+          }
+        }
+      },
+      "block_order": [
+        "7684162b-c47d-4cef-90e8-ae4c2c6ae9a1",
+        "0e5aa591-9dc3-420e-a6b5-244bc6d5ec48",
+        "36d7e69c-8a9f-4a08-9ecb-8a9bf04c5888",
+        "e50c2f98-94a0-4228-b44f-660ec04b738e"
+      ],
       "settings": {
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "background-1",
-        "menu_color_scheme": "background-1",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "logo": "shopify:\/\/shop_images\/popup-sp-logo.svg"
       }
     }
   },

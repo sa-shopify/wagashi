@@ -2,6 +2,7 @@
   .ssPopupHeader{
     position: relative;
   }
+
   .ssPopupHeader__header{
     width: 100%;
     background: #F0F1ED;
@@ -12,15 +13,25 @@
     z-index:9999;
     height: 84px;
   }
+
   .ssPopupHeader__innner{
     padding: 20px 15px 20px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     height: inherit;
-    align-items: center;
-    
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
+
   .ssPopupHeader__spMenubox{
     display: block;
     padding:0;
@@ -33,15 +44,17 @@
     height: 100vh;
     background: #779547;
     opacity: 0;
+    -webkit-transition: opacity .5s, visibility .5s;
+    -o-transition: opacity .5s, visibility .5s;
     transition: opacity .5s, visibility .5s; ;
-    visibility: hidden:
+    visibility: hidden;
   }
+
   .ssPopupHeader__spMenubox.is-active {
     opacity: 1;
     visibility: visible;
     position: fixed;
   }
-
 
   .ssPopupHeader__spMenus{
     padding:0;
@@ -64,11 +77,9 @@
     width: 55.466vw;
     height: auto;
     z-index: 20;
-    
   }
-  
+
   .ssPopupHeader__spMenu a{
-    
     padding: 24px 20px;
     color: #FEFFFF;
     display: block;
@@ -83,41 +94,58 @@
     width: 103px;
     height: 40px;
   }
-  
+
   .ssPopupHeader__logo img{
     display: inline-block;
     width: 100%;
     height: 100%;
   }
+
   .ssPopupHeader__spMenuButton{
     width: 44px;
     height: 44px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
     border: none;
   }
 
   .ssPopupHeader__spMenuButton span{
     background: #000000;
-    /* width: 55%; */
     position: absolute;
     top: 50%;
     left: 50%;
     width: 18.5px;
     height: 1px;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
     transition: all .3s ease;
   }
 
   .ssPopupHeader__spMenuButton span:nth-child(1){
-    transform: translate(-50%, -8px);
+    -webkit-transform: translate(-50%, -8px);
+        -ms-transform: translate(-50%, -8px);
+            transform: translate(-50%, -8px);
   }
 
   .ssPopupHeader__spMenuButton span:nth-child(3){
-    transform: translate(-50%, 7px);
+    -webkit-transform: translate(-50%, 7px);
+        -ms-transform: translate(-50%, 7px);
+            transform: translate(-50%, 7px);
   }
 
   .ssPopupHeader__spMenuButton.is-active span:nth-child(2) {
@@ -125,10 +153,14 @@
   }
 
   .ssPopupHeader__spMenuButton.is-active span:nth-child(1) {
-    transform: translate(-50%, -50%) rotate(225deg);
+    -webkit-transform: translate(-50%, -50%) rotate(225deg);
+        -ms-transform: translate(-50%, -50%) rotate(225deg);
+            transform: translate(-50%, -50%) rotate(225deg);
   }
   .ssPopupHeader__spMenuButton.is-active span:nth-child(3) {
-    transform: translate(-50%, -50%) rotate(-225deg);
+    -webkit-transform: translate(-50%, -50%) rotate(-225deg);
+        -ms-transform: translate(-50%, -50%) rotate(-225deg);
+            transform: translate(-50%, -50%) rotate(-225deg);
   }
 
   .ssPopupHeader__pcMenubox{
@@ -141,17 +173,19 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    
   }
+
   .ssPopupHeader__menu a{
     text-decoration: none;
     color: #020202;
   }
+
   .ssPopupHeader__menu a:hover{
     text-decoration: underline;
   }
-
 
   .ssPopupHeader__menu{
     padding: 0;
@@ -163,17 +197,21 @@
     line-height: 150%; /* 21px */
     letter-spacing: 0.28px;
   }
+
   @media screen and (min-width: 750px) {
     .ssPopupHeader__header{
       height: 95px;
       border-bottom-left-radius: 40px;
     }
+
     .ssPopupHeader__innner{
       padding: 20px 50px;
     }
+
     .ssPopupHeader__spMenuButton{
       display: none;
     }
+
     .ssPopupHeader__spMenubox{
       display: none;
     }
@@ -181,6 +219,7 @@
     .ssPopupHeader__pcMenubox{
       display: inline;
     }
+
     .ssPopupHeader__menu{
       font-size: 14px;
     }
@@ -209,6 +248,25 @@
         popMenu.classList.remove('is-active');
       }
     })
+
+    document.querySelectorAll('a[href^="#"]').forEach(
+      anchor => {
+        anchor.addEventListener('click', function(e){
+          e.preventDefault();
+
+          const href = anchor.getAttribute("href");
+          const target = document.getElementById(href.replace("#", ""));
+          const tartgetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+
+          window.scrollTo({
+            top: tartgetPosition,
+            behavior: 'smooth'
+          });
+
+
+        })
+      }
+    )
   })
 </script>
 
@@ -216,8 +274,8 @@
   <div class="ssPopupHeader__header">
     <div class="ssPopupHeader__innner page-width">
       <div class="ssPopupHeader__logo">
-        <a href="/">
-          <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup-sp-logo.svg?v=1699365147">
+        <a href="{{'/'}}">
+          <img src="{{ section.settings.logo |  image_url: width:400   }}" alt="{{ section.settings.logo.alt }}">
         </a>
       </div>
         <button id="ssPopupHeader__spButton" class="ssPopupHeader__spMenuButton" aria-label="メインメニューを開く">
@@ -228,20 +286,18 @@
   
       <nav class="ssPopupHeader__pcMenubox">
         <ul class="ssPopupHeader__menus">
-          <li class="ssPopupHeader__menu"><a href="#">ご紹介</a></li>
-          <li class="ssPopupHeader__menu"><a href="#">スケジュール</a></li>
-          <li class="ssPopupHeader__menu"><a href="#">商品紹介</a></li>
-          <li class="ssPopupHeader__menu"><a href="#">オンラインショップへ</a></li>
+          {% for block in section.blocks %}
+            <li class="ssPopupHeader__menu"><a href="#{{ block.settings.menu_id }}">{{ block.settings.menu_title }}</a></li>
+          {% endfor %}
         </ul>
       </nav>
     </div>
   </div>
   <div id="ssPopupHeader__spMenubox" class="ssPopupHeader__spMenubox">
     <ul class="ssPopupHeader__spMenus">
-      <li class="ssPopupHeader__spMenu"><a href="#">ご紹介</a></li>
-      <li class="ssPopupHeader__spMenu"><a href="#">スケジュール</a></li>
-      <li class="ssPopupHeader__spMenu"><a href="#">商品紹介</a></li>
-      <li class="ssPopupHeader__spMenu"><a href="#">オンラインショップへ</a></li>
+      {% for block in section.blocks %}
+        <li class="ssPopupHeader__spMenu"><a href="#{{ block.settings.menu_id }}">{{ block.settings.menu_title }}</a></li>
+      {% endfor %}
     </ul>
     <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_2.png?v=1697613369" class="ssPopupHeader__spMenuBottomImage">
   </div>
@@ -251,196 +307,55 @@
 
 
 
-
-
 {% schema %}
 {
   "name": "ポップアップ用ヘッダー",
   "class": "section-header",
-  "max_blocks": 3,
+  "max_blocks": 4,
   "settings": [
     {
-      "type": "select",
-      "id": "logo_position",
-      "options": [
-        {
-          "value": "top-left",
-          "label": "t:sections.header.settings.logo_position.options__2.label"
-        },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        },
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "middle-center",
-          "label": "t:sections.header.settings.logo_position.options__4.label"
-        }
-      ],
-      "default": "middle-left",
-      "label": "t:sections.header.settings.logo_position.label",
-      "info": "t:sections.header.settings.logo_help.content"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    },
-    {
-      "type": "select",
-      "id": "menu_type_desktop",
-      "options": [
-        {
-          "value": "dropdown",
-          "label": "t:sections.header.settings.menu_type_desktop.options__1.label"
-        },
-        {
-          "value": "mega",
-          "label": "t:sections.header.settings.menu_type_desktop.options__2.label"
-        },
-        {
-          "value": "drawer",
-          "label": "t:sections.header.settings.menu_type_desktop.options__3.label"
-        }
-      ],
-      "default": "dropdown",
-      "label": "t:sections.header.settings.menu_type_desktop.label",
-      "info": "t:sections.header.settings.menu_type_desktop.info"
-    },
-    {
-      "type": "select",
-      "id": "sticky_header_type",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
-        },
-        {
-          "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
-        },
-        {
-          "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
-        },
-        {
-          "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
-        }
-      ],
-      "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__1.content"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "background-1"
-    },
-      {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "background-1"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__3.content",
-      "info": "t:sections.header.settings.header__4.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_country_selector",
-      "default": false,
-      "label": "t:sections.header.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_language_selector",
-      "default": false,
-      "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
-    },
-    {
-      "type": "select",
-      "id": "mobile_logo_position",
-      "options": [
-        {
-          "value": "center",
-          "label": "t:sections.header.settings.mobile_logo_position.options__1.label"
-        },
-        {
-          "value": "left",
-          "label": "t:sections.header.settings.mobile_logo_position.options__2.label"
-        }
-      ],
-      "default": "center",
-      "label": "t:sections.header.settings.mobile_logo_position.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.spacing"
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
-    }
+               "type": "image_picker",
+               "id": "logo",
+               "label": "ロゴ"
+           }
   ],
   "blocks": [
     {
-      "type": "@app"
+      "type": "blockset",
+      "name": "ブロックセット",
+        "settings": [
+         {
+        "type": "text",
+        "id": "menu_title",
+        "label": "メニュー名",
+        "default": "メニュー名を入力してください"
+      },    
+      {
+      "type": "select",
+      "id": "menu_id",
+      "options": [
+          {
+            "value": "popup-introduction",
+            "label": "紹介"
+          },
+          {
+            "value": "popup-schedule",
+            "label": "スケジュール"
+          },
+          {
+            "value": "popup-products",
+            "label": "テキスト画像"
+          },
+          {
+            "value": "popup-banner",
+            "label": "バナー"
+          }
+        ],
+        "default": "popup-introduction",
+        "label": "遷移先",
+        "info": "遷移先を選択してください"
+      }
+     ]
     }
   ]
 }

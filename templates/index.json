@@ -42,16 +42,27 @@
             "banner_sp": "shopify:\/\/shop_images\/top___4_sp.jpg",
             "url": "shopify:\/\/collections\/all"
           }
+        },
+        "0997fc12-412c-418d-b1a7-039ed2153e31": {
+          "type": "blockset",
+          "settings": {
+            "main-title": "創業明治二〇年",
+            "sub-title": "京都からのお届けもの",
+            "banner_pc": "shopify:\/\/shop_images\/product_6_9bd53320-28c2-462b-89c7-0994aaec6aa5.jpg",
+            "banner_sp": "shopify:\/\/shop_images\/product_6_9bd53320-28c2-462b-89c7-0994aaec6aa5.jpg",
+            "url": "#"
+          }
         }
       },
       "block_order": [
         "template--21458671599922__cfa198a9-5a4c-4986-b9d0-b8a90e627f73-blockset-1",
         "cece7938-1323-4954-9dac-33057527c4b5",
         "0d4b7eb8-369c-4018-831f-5bad5736045f",
-        "2c69c583-a555-43de-a834-68308d54c8eb"
+        "2c69c583-a555-43de-a834-68308d54c8eb",
+        "0997fc12-412c-418d-b1a7-039ed2153e31"
       ],
       "settings": {
-        "overlay": 0.4,
+        "overlay": 0.2,
         "overlay-color": "#000000"
       }
     },
@@ -62,7 +73,8 @@
         "padding-bottom": 80,
         "background-color": "#f0f1ed",
         "rank-number": true,
-        "item-collection": "ranking"
+        "item-collection": "ranking",
+        "link": "shopify:\/\/collections\/ranking"
       }
     },
     "6e8fbdb5-5a6b-49b1-8106-0eb30a7e7c89": {
@@ -96,8 +108,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/top___1_62ca6244-3052-4ebf-b71b-516f08b72c59.jpg",
             "block-title": "調理",
-            "block-description": "お客様ご注文後に、ご注文の和菓子は職人の手によって一つ一つ丁寧に調理されます。当店では、伝統的な製法や秘伝のレシピを守りながら、最高品質の和菓子を提供するために努めています。",
-            "link": ""
+            "block-description": "お客様ご注文後に、ご注文の和菓子は職人の手によって一つ一つ丁寧に調理されます。当店では、伝統的な製法や秘伝のレシピを守りながら、最高品質の和菓子を提供するために努めています。"
           }
         },
         "d2ccdd65-b686-4290-9e94-631c32d4c92f": {
@@ -105,8 +116,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/top___2.jpg",
             "block-title": "検品",
-            "block-description": "調理が完了した和菓子は、品質管理チームによって厳しい検品が行われます。お菓子の見た目や味わい、鮮度など、細部にわたるチェックが行われます。品質基準に適合しない場合は、再調理や再検品が行われることもあります。",
-            "link": ""
+            "block-description": "調理が完了した和菓子は、品質管理チームによって厳しい検品が行われます。お菓子の見た目や味わい、鮮度など、細部にわたるチェックが行われます。品質基準に適合しない場合は、再調理や再検品が行われることもあります。"
           }
         },
         "d011eafe-291c-410e-85cc-faa19078c798": {
@@ -114,8 +124,7 @@
           "settings": {
             "image": "shopify:\/\/shop_images\/top___3.jpg",
             "block-title": "配達",
-            "block-description": "検品を通過した和菓子は、丁寧な梱包作業の後、迅速かつ安全な配送が行われます。当店では、信頼できる配送パートナーと協力しており、お客様がご注文された商品が安全にお手元に届くよう努めています。",
-            "link": ""
+            "block-description": "検品を通過した和菓子は、丁寧な梱包作業の後、迅速かつ安全な配送が行われます。当店では、信頼できる配送パートナーと協力しており、お客様がご注文された商品が安全にお手元に届くよう努めています。"
           }
         }
       },
@@ -191,7 +200,7 @@
             "title": "配送料金",
             "description": "<p>全国一律660円（税込）<\/p><p>2品以上で送料無料<\/p><p>品質保持のため、クール便でお届けいたします。<\/p>",
             "image": "shopify:\/\/shop_images\/top_d01d862e-9c5d-4a82-ba24-352ad6a1ace5.jpg",
-            "url": "#",
+            "url": "\/",
             "image-position": "row-reverse"
           }
         },
@@ -201,7 +210,7 @@
             "title": "当日出荷に対応",
             "description": "<p>平日の12:00までにご注文いただいた場合、当日中に出荷いたします。関東圏であれば、翌日にお届けすることが可能です。<\/p><p>それ以外の地域にお住まいの場合は、地域によって異なりますが、通常は2〜3営業日以内にお届けすることを目安にしています。<\/p>",
             "image": "shopify:\/\/shop_images\/top.jpg",
-            "url": "#",
+            "url": "\/",
             "image-position": "row"
           }
         }

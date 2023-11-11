@@ -94,6 +94,7 @@
         "background-color": "#f0f1ed",
         "heading": "こちらの商品はいかがですか？",
         "sub-heading": "この和菓子を購入している方はこちらの商品も見ています。",
+        "link": "shopify:\/\/collections",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
