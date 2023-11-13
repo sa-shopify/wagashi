@@ -1,8 +1,14 @@
+{% if section.settings.popup-page-top-block %}
+  {% assign mobile_top_padding_value = section.settings.padding-top | plus : 44 %}
+  {% assign pc_top_padding_value = section.settings.padding-top | plus : 95 %}
+{% else %}
+  {% assign mobile_top_padding_value = section.settings.padding-top | divided_by : 2  %}
+  {% assign pc_top_padding_value = section.settings.padding-top %}
+{% endif %}
 
 {%- style -%}
-
 .popTop__section{
-  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-top: {{ mobile_top_padding_value }}px;
   padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
 }
 
@@ -97,13 +103,13 @@
 
 @media screen and (min-width: 750px) {
   .popTop__section {
-    padding-top: {{ section.settings.padding-top }}px;
+    padding-top: {{ pc_top_padding_value }}px;
     padding-bottom: {{ section.settings.padding-bottom }}px;
     padding-right: 40px;
     padding-left: 40px;
   }
   .popTop__title h2{
-    font-size: 29px;
+    font-size: 40px;
   }
   .popBg__image::before{
     padding-top: 50%;
@@ -112,9 +118,7 @@
     background-image: url('{{ section.settings.image-pc | image_url: width: 2000 }}');
   }
 
-  .popTop__title h2{
-    font-size: 40px;
-  }
+ 
 
   .popBg__image__paragraph p{
     font-size: 16px;
@@ -135,7 +139,7 @@
 
 {%- endstyle -%}
 
-<section class="popTop popTop__section">
+<section class="popTop popTop__section" id="popup-introduction">
 
     <div class="popTop__title">
       <h2>{{ section.settings.title }}</h2>
@@ -164,6 +168,12 @@
       "name": "ssPopup2タイトル",
       "settings": [
         {
+          "type": "checkbox",
+          "id": "popup-page-top-block",
+          "default": true,
+          "label": "ポップアップページの最上部の場合はチェック(余白調整)"
+        },
+        {
               "type": "text",
               "id": "title",
               "label": "タイトル",
@@ -183,19 +193,19 @@
           },
         {
           "type": "range",
-          "id": "padding_top",
+          "id": "padding-top",
           "min": 0,
           "max": 200,
           "step": 4,
           "unit": "px",
           "label": "t:sections.all.padding.padding_top",
-          "default": 160
+          "default": 80
         },
         {
           "type": "range",
-          "id": "padding_bottom",
+          "id": "padding-bottom",
           "min": 0,
-          "max": 100,
+          "max": 200,
           "step": 4,
           "unit": "px",
           "label": "t:sections.all.padding.padding_bottom",

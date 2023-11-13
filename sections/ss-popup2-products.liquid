@@ -1,8 +1,17 @@
+{% if section.settings.popup-page-top-block %}
+  {% assign mobile_top_padding_value = section.settings.padding-top | plus : 44 %}
+  {% assign pc_top_padding_value = section.settings.padding-top | plus : 15 %}
+{% else %}
+  {% assign mobile_top_padding_value = section.settings.padding-top | divided_by : 2  %}
+  {% assign pc_top_padding_value = section.settings.padding-top %}
+{% endif %}
+
+
 {%- style -%}
 
 .imgText__section{
-  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
-  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+  padding-top: {{ mobile_top_padding_value }}px;
+  padding-bottom: {{ section.settings.padding-bottom | times: 0.5 }}px;
 }
 
 .imgText{
@@ -44,9 +53,9 @@
   flex: 1;
   margin: 0;
   padding: 0;
-  padding-top: 70px;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding-top: 40px;
+  padding-right: 40px;
+  padding-left: 40px;
 }
 
 .imgTxt__text dt,
@@ -89,7 +98,7 @@
 
 @media screen and (min-width: 750px) {
   .imgText__section {
-    padding-top: {{ section.settings.padding-top }}px;
+    padding-top: {{ pc_top_padding_value }}px;
     padding-bottom: {{ section.settings.padding-bottom }}px;
     padding-right: 40px;
     padding-left: 40px;
@@ -124,14 +133,14 @@
 
 {%- endstyle -%}
 
-<section class="imgText imgText__section">
+<section class="imgText imgText__section" id="popup-productss">
   <div class="section-inner imgText__inner">
     <div class="imgTxt__image">
-      <img src="{{ block.settings.image | image_url: width: 800  }}" alt="{{ block.settings.image.alt }}">
+      <img src="{{ section.settings.image | image_url: width: 800  }}" alt="{{ section.settings.image.alt }}">
     </div>
     <dl class="imgTxt__text">
-      <dt>{{ block.settings.title }}</dt>
-      <dd>{{ block.settings.description }}</dd>
+      <dt>{{ section.settings.title }}</dt>
+      <dd>{{ section.settings.description }}</dd>
     </dl>
 
   </div>
@@ -163,19 +172,19 @@
           },
         {
           "type": "range",
-          "id": "padding_top",
+          "id": "padding-top",
           "min": 0,
           "max": 200,
           "step": 4,
           "unit": "px",
           "label": "t:sections.all.padding.padding_top",
-          "default": 160
+          "default": 80
         },
         {
           "type": "range",
-          "id": "padding_bottom",
+          "id": "padding-bottom",
           "min": 0,
-          "max": 100,
+          "max": 200,
           "step": 4,
           "unit": "px",
           "label": "t:sections.all.padding.padding_bottom",

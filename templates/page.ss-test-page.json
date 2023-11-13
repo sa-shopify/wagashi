@@ -8,36 +8,26 @@
         "padding_bottom": 28
       }
     },
-    "764922d1-dbac-4679-8b6b-be7ee2ed8844": {
-      "type": "ss-test-3",
-      "settings": {
-        "message": "文章"
-      }
-    },
-    "cbd71d48-58dd-46fa-a4f6-2a53695ee646": {
-      "type": "ss-test-2",
-      "settings": {
-        "message": "文章"
-      }
-    },
     "9a6ca415-f36b-436a-ac8d-bb3573523fb3": {
       "type": "ss-popup2-top",
       "settings": {
+        "popup-page-top-block": true,
         "title": "和菓子屋ぽっぷあっぷ",
         "description": "<p>私たちのポップアップストアでは、和菓子の魅力を一堂に集めました。<\/p><p>厳選された素材と職人の技が生み出す、風味豊かな和菓子たちがお待ちしています。<\/p><p>春の訪れを感じる桜餅や、夏の涼を楽しむ抹茶アイス、秋の豊穣を彩る栗きんとんなど、季節ごとの旬の味覚をお楽しみいただけます。<\/p><p>また、古典的なお茶との相性を考えたセットメニューや、手土産にもぴったりなお菓子の詰め合わせもご用意しております。<\/p>",
         "background-color": "#779547",
-        "padding_top": 160,
-        "padding_bottom": 80,
+        "padding-top": 80,
+        "padding-bottom": 80,
         "image-pc": "shopify:\/\/shop_images\/popup_4f4aa25b-dc0b-4627-a0dc-e1c0bfd0f488.jpg",
         "image-sp": "shopify:\/\/shop_images\/popup___sp_1ae4d839-36d7-42bd-83d0-a3c4bf507e4b.jpg"
       }
     },
-    "c02b3916-e4f4-46f0-9d45-776467a8d112": {
+    "3d05f07c-f83d-4428-b4e1-c5414f233bea": {
       "type": "ss-popup2-schedule",
       "settings": {
+        "popup-page-top-block": false,
         "title": "スケジュール",
         "sub-title": "開催日をチェックしてポップアップストアへ来てください。",
-        "padding-top": 160,
+        "padding-top": 80,
         "padding-bottom": 80,
         "background-color": "#f0f1ed"
       }
@@ -47,9 +37,9 @@
       "settings": {
         "title": "水羊羹（夕凪）",
         "description": "<p>春に秋を交えたような色合いの羊羹です。<\/p><p>甘くなりすぎないようにあんこを控えめにしています。<\/p><p>インスタグラムでバエルと話題になっております。お写真を撮ってぜひ、楽しんでお食事ください。<\/p>",
-        "background-color": "#FEFFFF",
-        "padding_top": 160,
-        "padding_bottom": 80,
+        "background-color": "#feffff",
+        "padding-top": 80,
+        "padding-bottom": 0,
         "image": "shopify:\/\/shop_images\/popup-1.jpg"
       }
     },
@@ -58,19 +48,17 @@
       "settings": {
         "title": "水羊羹（鈴蘭）",
         "description": "<p>当店で古くから愛されている昔ながらの羊羹です。<\/p><p>甘くなりすぎないようにあんこを控えめにしています。<\/p><p>インスタグラムでバエルと話題になっております。お写真を撮ってぜひ、楽しんでお食事ください。<\/p>",
-        "background-color": "#FEFFFF",
-        "padding_top": 160,
-        "padding_bottom": 80,
+        "background-color": "#feffff",
+        "padding-top": 80,
+        "padding-bottom": 80,
         "image": "shopify:\/\/shop_images\/popup-2.jpg"
       }
     }
   },
   "order": [
     "main",
-    "764922d1-dbac-4679-8b6b-be7ee2ed8844",
-    "cbd71d48-58dd-46fa-a4f6-2a53695ee646",
     "9a6ca415-f36b-436a-ac8d-bb3573523fb3",
-    "c02b3916-e4f4-46f0-9d45-776467a8d112",
+    "3d05f07c-f83d-4428-b4e1-c5414f233bea",
     "19cef3b0-93a4-46e2-8d5b-889a07725d6a",
     "d1cbd302-9769-47fe-8ecd-97875e989e63"
   ]

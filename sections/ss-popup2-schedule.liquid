@@ -1,7 +1,15 @@
+{% if section.settings.popup-page-top-block %}
+  {% assign mobile_top_padding_value = section.settings.padding-top | plus : 44 %}
+  {% assign pc_top_padding_value = section.settings.padding-top | plus : 15 %}
+{% else %}
+  {% assign mobile_top_padding_value = section.settings.padding-top | divided_by : 2  %}
+  {% assign pc_top_padding_value = section.settings.padding-top %}
+{% endif %}
+
 {%- style -%}
 
 .popSchedule__section{
-  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-top: {{ mobile_top_padding_value }}px;
   padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
 }
 
@@ -9,12 +17,33 @@
   background-color: {{ section.settings.background-color }};
 }
 
+.popSchedule__maintitle{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 10px;
+}
+
+.popSchedule__capture{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 27.52px */
+  letter-spacing: 0.64px;
+}
 
 
 .popSchedule__contents{
   margin-top: 40px;
   background: #FEFFFF;
-  border-radius: 40px;
+  border-radius: 20px;
 }
 
 .popSchedule__tabs{
@@ -68,10 +97,10 @@
 
 
   .popSchedule__group{
-    padding-top: 40px;
-    padding-bottom: 82px;
-    padding-right: 80px;
-    padding-left: 80px;
+    padding-top: 32px;
+    padding-bottom: 38px;
+    padding-right: 15px;
+    padding-left: 15px;
     display: none;
   }
 
@@ -82,7 +111,7 @@
   
 
   .popSchedule__block:not(:first-child){
-    margin-top: 64px;
+    margin-top: 40px;
   }
 
   .popSchedule__area {
@@ -96,7 +125,7 @@
     display: inline-block;
     background: #6B5D58;
     color: #FEFFFF;
-    border-radius: 16px;
+    border-radius: 8px;
   }
 
   .popSchedule__area.popSchedule__area--gray {
@@ -116,27 +145,32 @@
 
   .popSchedule__item {
     display: flex;
-    padding-top: 24px;
+    padding-top: 16px;
     padding-bottom: 24px;
     position: relative;
    }
+
+ 
+   .popSchedule__item:first-child {
+    padding-top: 24px;
+
+  }
   .popSchedule__item::after{
     content: '';
     display: block;
     background: linear-gradient(to right, #779547, #779547 4px, transparent 4px, transparent 8px);
     position: absolute;
+    background-size: 8px 1px;
     top: 100%;
     left: 0;
     width: 100%;
     height: 1px;
   }
 
-  .popSchedule__item:first-child {
-    margin-top: 8px;
-  }
+
 
   .popSchedule__item dt{
-    width: 50px;
+    width: 58px;
     padding: 0;
     margin: 0;
     font-size: 17px;
@@ -146,13 +180,6 @@
     color: #808080;
   }
 
-  .popSchedule__item dt {
-    color: #808080;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
 
   .popSchedule__item dd{
     flex: 1;
@@ -174,7 +201,7 @@
 
 @media screen and (min-width: 750px) {
   .popSchedule__section{
-    padding-top: {{ section.settings.padding-top }}px;
+    padding-top: {{ pc_top_padding_value }}px;
     padding-bottom: {{ section.settings.padding-bottom }}px;
   }
 
@@ -185,18 +212,61 @@
     margin-left: 40px;
   }
 
-  .popSchedule__area {
+  .popSchedule__contents{
+    border-radius: 40px;
+  }
+
+  .popSchedule__group{
+    padding-top: 40px;
+    padding-bottom: 82px;
+    padding-right: 80px;
+    padding-left: 80px;
+  }
+
+  .popSchedule__maintitle{
     font-size: 24px;
   }
+
+  .popSchedule__capture{
+    font-size: 16px;
+    line-height: 172%; /* 27.52px */
+    letter-spacing: 0.64px;
+  }
+
+  .popSchedule__block:not(:first-child){
+    margin-top: 64px;
+  }
+
+
+  .popSchedule__area {
+    font-size: 24px;
+    border-radius: 16px;
+  }
+
+
 
   .popSchedule__tab{
     padding-top: 40px;
     padding-bottom: 40px;
+    font-size: 18px;
+    line-height: 116%;
   }
+
+  .popSchedule__item:first-child {
+    padding-top: 32px;
+
+  }
+
+  .popSchedule__item{
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+  
 
   .popSchedule__item dt{
     font-size: 18px;
     line-height: 116%;
+    width: 60px;
   }
 
   .popSchedule__item dd{
@@ -209,13 +279,13 @@
 
 {%- endstyle -%}
 
-<section class="popSchedule popSchedule__section">
+<section class="popSchedule popSchedule__section" id="popup-schedule">
   <div class="popSchedule__innner">
     <div class="popSchedule__title">
-      <h2 class="ssCard__maintitle">
+      <h2 class="popSchedule__maintitle">
         {{ section.settings.title }}
       </h2>
-      <p class="ssCard__capture">
+      <p class="popSchedule__capture">
         {{ section.settings.sub-title }}
       </p>
     </div>
@@ -281,28 +351,26 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function(){
-    const tabs = document.querySelectorAll('.popSchedule__tab');
-    const blocks = document.querySelectorAll('.popSchedule__group');
+  const tabs = document.querySelectorAll('.popSchedule__tab');
+  const blocks = document.querySelectorAll('.popSchedule__group');
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', function(){
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function(){
+      tabs.forEach(t => t.classList.remove('is-active'));
 
-        tabs.forEach(t => t.classList.remove('is-active'));
+      this.classList.add('is-active');
 
-        this.classList.add('is-active');
+      const id = tab.getAttribute('data-id');
 
-        const id = tab.getAttribute('data-id');
-
-        blocks.forEach(b => {
-          b.classList.remove('is-active'));
-          if(b.getAttribute('data-id') === id) {
-            b.classList.add('is-active');
-          }
-
+      blocks.forEach(b => {
+        b.classList.remove('is-active');
+        if(b.getAttribute('data-id') === id) {
+          b.classList.add('is-active');
         }
       });
     });
   });
+});
 </script>
 
 
@@ -312,6 +380,12 @@
     {
       "name": "ssPopup2スケジュール",
       "settings": [
+        {
+          "type": "checkbox",
+          "id": "popup-page-top-block",
+          "default": false,
+          "label": "ポップアップページの最上部の場合はチェック(余白調整)"
+        },
           {
               "type": "text",
               "id": "title",
@@ -332,13 +406,13 @@
           "step": 4,
           "unit": "px",
           "label": "t:sections.all.padding.padding_top",
-          "default": 160
+          "default": 80
         },
         {
           "type": "range",
           "id": "padding-bottom",
           "min": 0,
-          "max": 100,
+          "max": 200,
           "step": 4,
           "unit": "px",
           "label": "t:sections.all.padding.padding_bottom",

@@ -6,7 +6,7 @@
   top:0;
   left:0;
   z-index: 10;
-  height: 95px;
+  height: 84px;
   display: block;
 }
 
@@ -16,9 +16,6 @@
   position: relative;
   z-index: 15;
   height: inherit;
-  
-  
-
 }
 
 .popHeader__inner{
@@ -194,14 +191,20 @@
 
 
 @media screen and (min-width: 990px) {
-  .popHeader__body{
-    border-bottom-left-radius: 40px;
+  .popHeader{
+    height: 95px;
+  }
 
+  .popHeader__inner{
+    border-bottom-left-radius: 40px;
+    padding: 20px 90px 20px 90px;
+  }
+  .popHeader__body{
     width: calc(100% - 180px);
   }
 
   .popHeader__inner {
-    padding: 20px 50px 20px 50px;
+    
     
   }
 
