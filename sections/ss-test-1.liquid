@@ -1,0 +1,95 @@
+{%- style -%}
+.test1 {
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.box{
+  padding: 0;
+  margin: 0;
+  display: block;
+  width: 100%;
+  height: 500px;
+}
+.content {
+
+background-image: url('https://cdn.shopify.com/s/files/1/0841/4478/3666/files/popup_4f4aa25b-dc0b-4627-a0dc-e1c0bfd0f488.jpg?v=1697613409');
+background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+.content {
+  height: 2000px;
+
+  padding: 20px;
+}
+
+{%- endstyle -%}
+
+<div class="test1">
+    アイウエオ
+    <div class="box">
+      <h1>ここにコンテンツを配置</h1>
+        <p>コンテンツの詳細など...</p>
+    </div>
+
+    <div class="content">
+        <h1>ここにコンテンツを配置</h1>
+        <p>コンテンツの詳細など...</p>
+    </div>
+
+</div>
+
+{% schema %}
+    {
+      "name": "ssテスト1",
+     "max_blocks": 1,
+     "blocks": [
+       {
+         "type": "blockset_1",
+         "name": "ブロックセット1",
+           "settings": [
+            {
+               "type": "paragraph",
+               "content": "見出し"
+           },
+           {
+               "type": "image_picker",
+               "id": "banner",
+               "label": "バナー"
+           },
+           {
+                "id": "follow_link",
+                "type": "url",
+                "label": "リンク"
+           }
+         ]
+       }
+     ],
+     "settings": [
+        {
+          "type": "textarea",
+          "id": "message",
+          "label": "メッセージ",
+          "default": "文章"
+        }
+      ],
+     "presets": [
+        {
+          "name": "ssテスト1",
+          "blocks": [
+           
+          ]
+        }
+      ]
+    }
+  {% endschema %}

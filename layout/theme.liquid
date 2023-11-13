@@ -283,7 +283,9 @@
     {%- endif -%}
 
     {% if request.path == '/pages/pop-up-store' %}
-      {% sections 'header-group-wagashi' %}
+      {% sections 'header-group-wagashi2' %}
+    {% elsif request.path == '/pages/ss-test' %}
+      {% sections 'header-group-wagashi2' %}
     {% else %}
       {% sections 'header-group' %}
     {% endif %}

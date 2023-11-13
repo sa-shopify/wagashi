@@ -1,0 +1,360 @@
+{%- style -%}
+
+.popSchedule__section{
+  padding-top: {{ section.settings.padding-top |  times: 0.5 }}px;
+  padding-bottom: {{ section.settings.padding-bottom |  times: 0.5 }}px;
+}
+
+.popSchedule{
+  background-color: {{ section.settings.background-color }};
+}
+
+
+
+.popSchedule__contents{
+  margin-top: 40px;
+  background: #FEFFFF;
+  border-radius: 40px;
+}
+
+.popSchedule__tabs{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  text-align: center;
+  list-style: none;
+}
+
+.popSchedule__tab{
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 116%;
+  position: relative;
+  display: block;
+  padding: 32px 0 33px 0;
+  color: #808080;
+  cursor: pointer;
+  line-height: normal;
+}
+
+
+
+.popSchedule__tab.is-active {
+  color: #779547;
+}
+
+
+
+.popSchedule__tab::after{
+    content: '';
+    width: 100%;
+    height: 4px;
+    display: block;
+    background: #BABFC5;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 40px;
+
+  }
+
+  .popSchedule__tab.is-active::after{
+    background: #779547;
+  }
+
+
+  .popSchedule__group{
+    padding-top: 40px;
+    padding-bottom: 82px;
+    padding-right: 80px;
+    padding-left: 80px;
+    display: none;
+  }
+
+  .popSchedule__group.is-active{
+    display: block;
+  }
+
+  
+
+  .popSchedule__block:not(:first-child){
+    margin-top: 64px;
+  }
+
+  .popSchedule__area {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding: 8px 24px;
+    display: inline-block;
+    background: #6B5D58;
+    color: #FEFFFF;
+    border-radius: 16px;
+  }
+
+  .popSchedule__area.popSchedule__area--gray {
+    background: #BABFC5;
+  }
+
+
+  .popSchedule__block p{
+    
+  }
+
+  .popSchedule__items {
+    padding: 0;
+    margin: 0;
+  }
+
+
+  .popSchedule__item {
+    display: flex;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    position: relative;
+   }
+  .popSchedule__item::after{
+    content: '';
+    display: block;
+    background: linear-gradient(to right, #779547, #779547 4px, transparent 4px, transparent 8px);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 1px;
+  }
+
+  .popSchedule__item:first-child {
+    margin-top: 8px;
+  }
+
+  .popSchedule__item dt{
+    width: 50px;
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #808080;
+  }
+
+  .popSchedule__item dt {
+    color: #808080;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .popSchedule__item dd{
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: #020202;
+  }
+
+  .popSchedule__innner{
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+
+
+@media screen and (min-width: 750px) {
+  .popSchedule__section{
+    padding-top: {{ section.settings.padding-top }}px;
+    padding-bottom: {{ section.settings.padding-bottom }}px;
+  }
+
+  .popSchedule__innner{
+    padding-right: 50px;
+    padding-left: 50px;
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+  .popSchedule__area {
+    font-size: 24px;
+  }
+
+  .popSchedule__tab{
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .popSchedule__item dt{
+    font-size: 18px;
+    line-height: 116%;
+  }
+
+  .popSchedule__item dd{
+    font-size: 18px;
+    line-height: 116%;
+  }
+
+
+}
+
+{%- endstyle -%}
+
+<section class="popSchedule popSchedule__section">
+  <div class="popSchedule__innner">
+    <div class="popSchedule__title">
+      <h2 class="ssCard__maintitle">
+        {{ section.settings.title }}
+      </h2>
+      <p class="ssCard__capture">
+        {{ section.settings.sub-title }}
+      </p>
+    </div>
+    <div class="popSchedule__contents">
+      <ul class="popSchedule__tabs">
+        <li class="popSchedule__tab is-active" data-id="0">
+          開催予定・開催中
+        </li>
+        <li class="popSchedule__tab" data-id="1">
+          開催終了
+        </li>
+      </ul>
+      <div class="popSchedule__groups">
+        <div class="popSchedule__group is-active" data-id="0">
+          {% for event in shop.metaobjects.event.values %}
+            {% if event.upcoming %}
+          <div class="popSchedule__block">
+            <p class="popSchedule__area">{{ event.building }}</p>
+            <dl class="popSchedule__items">
+              <div class="popSchedule__item">
+                <dt>日付</dt>
+                <dd>{{ event.date }}</dd>
+              </div>
+              <div class="popSchedule__item">
+                <dt>場所</dt>
+                <dd>{{ event.place }}</dd>
+              </div>
+              <div class="popSchedule__item">
+                <dt>時間</dt>
+                <dd>{{ event.time }}</dd>
+              </div>
+            </dl>
+          </div>
+        {% endif %}
+      {% endfor %}
+        </div>
+
+        <div class="popSchedule__group" data-id="1">
+          {%- for event in shop.metaobjects.event.values -%}
+            {% if event.upcoming == false %}
+          <div class="popSchedule__block">
+            <p class="popSchedule__area popSchedule__area--gray">{{ event.building }}</p>
+            <dl class="popSchedule__items">
+              <div class="popSchedule__item">
+                <dt>日付</dt>
+                <dd>{{ event.date }}</dd>
+              </div>
+            </dl>
+          </div>
+            {% endif %}
+          {%- endfor -%}
+
+        </div>
+      </div>
+
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const tabs = document.querySelectorAll('.popSchedule__tab');
+    const blocks = document.querySelectorAll('.popSchedule__group');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function(){
+
+        tabs.forEach(t => t.classList.remove('is-active'));
+
+        this.classList.add('is-active');
+
+        const id = tab.getAttribute('data-id');
+
+        blocks.forEach(b => {
+          b.classList.remove('is-active'));
+          if(b.getAttribute('data-id') === id) {
+            b.classList.add('is-active');
+          }
+
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+{% schema %}
+    {
+      "name": "ssPopup2スケジュール",
+      "settings": [
+          {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "タイトルを入力してください"
+            },
+            {
+              "type": "textarea",
+              "id": "sub-title",
+              "label": "サブタイトル",
+              "default": "サブタイトルを入力してください"
+            },
+        {
+          "type": "range",
+          "id": "padding-top",
+          "min": 0,
+          "max": 200,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 160
+        },
+        {
+          "type": "range",
+          "id": "padding-bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 80
+        },
+        {
+          "type": "color",
+          "id": "background-color",
+          "label": "背景色",
+          "default": "#F0F1ED"
+        }
+      ],
+     "presets": [
+        {
+          "name": "ssPopup2スケジュール"
+        }
+      ]
+    }
+  {% endschema %}

@@ -1,0 +1,77 @@
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement-bar-0": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "announcement-bar-0"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "background-1",
+        "show_line_separator": true,
+        "show_social": false,
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
+    },
+    "header": {
+      "type": "header-wagashi2",
+      "blocks": {
+        "117f4c75-5e60-47bc-ab86-b7cf78c94640": {
+          "type": "slide",
+          "settings": {
+            "menu_title": "ご紹介",
+            "menu_id": "popup-introduction"
+          }
+        },
+        "b9dcecae-880f-44c9-90c6-a7a7555de4b9": {
+          "type": "slide",
+          "settings": {
+            "menu_title": "スケジュール",
+            "menu_id": "popup-schedule"
+          }
+        },
+        "fa92041c-0331-4f06-be20-da04a3540bf9": {
+          "type": "slide",
+          "settings": {
+            "menu_title": "商品紹介",
+            "menu_id": "popup-products"
+          }
+        },
+        "62604b38-0291-46e1-88e5-57901edf647b": {
+          "type": "slide",
+          "settings": {
+            "menu_title": "オンラインショップへ",
+            "menu_id": "popup-banner"
+          }
+        }
+      },
+      "block_order": [
+        "117f4c75-5e60-47bc-ab86-b7cf78c94640",
+        "b9dcecae-880f-44c9-90c6-a7a7555de4b9",
+        "fa92041c-0331-4f06-be20-da04a3540bf9",
+        "62604b38-0291-46e1-88e5-57901edf647b"
+      ],
+      "settings": {
+        "logo": "shopify:\/\/shop_images\/popup-sp-logo.svg"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

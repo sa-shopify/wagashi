@@ -1,0 +1,315 @@
+
+{%- style -%}
+
+
+
+.popBanner__image{
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.popBanner__link{
+  text-decoration: none;
+  color: #020202;
+}
+.popBanner__image::before{
+  content: '';
+  display: block;
+  padding-top: 100%;
+  
+}
+.popBanner__img{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popBanner__items{
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 96px;
+  margin: 0;
+  background: {{ section.settings.background-color }};
+  
+}
+
+.popBanner__item{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+  max-width: 822px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+.popBanner__item:not(:first-child){
+  margin-top: 40px;
+}
+
+.popBanner__number{
+  display: block;
+}
+
+.popBanner__paragraph{
+  margin-left: 16px;
+}
+
+.popBanner__paragraph p{
+  padding: 0;
+  margin: 0;
+  color: #020202;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 172%; /* 27.52px */
+  letter-spacing: 0.64px;
+}
+
+.popBanner__body{
+  width: 100%;
+  display: block;
+  position: relative;
+}
+
+.popBanner__title{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 15px;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+}
+
+.popBanner__heading2{
+  padding: 0;
+  margin: 0;
+  color: #6B5D58;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  position: relative;
+  display: block;
+}
+
+.popBanner__heading2::before{
+  content: attr(data-title);
+  overflow: hidden;
+  color: #FEFFFF;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top:0;
+  left: 0;
+  display: block;
+}
+
+.popBanner__subTitle{
+  padding: 0;
+  margin: 0;
+  margin-left: 16px;
+  color: #6B5D58;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.popBanner__subTitle::before{
+  content: attr(data-title);
+  overflow: hidden;
+  color: #FEFFFF;
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top:0;
+  left: 0;
+}
+
+.u-hidden-sp{
+    display: block;
+  }
+
+  .u-hidden-pc{
+    display: none;
+  }
+
+
+@media screen and (min-width: 750px) {
+
+  .u-hidden-sp{
+    display: none;
+  }
+
+  .u-hidden-pc{
+    display: block;
+  }
+
+
+  .popBanner__paragraph{
+    margin-left: 24px;
+  }
+
+  .popBanner__image::before{
+    padding-top: 46.5625vw;
+  }
+  .popBanner__items{
+    padding-top: 0px;
+  }
+
+  .popBanner__title{
+    left: min(7.03125vw, 90px);
+  }
+
+
+
+  .popBanner__items{
+  padding-left: 0px;
+  padding-right: 0px;
+
+}
+
+
+.popBanner__heading2{
+  font-size: min(3.125vw, 40px);
+}
+
+
+
+.popBanner__subTitle{
+  font-size: min(1.40625vw, 18px);
+}
+
+
+
+}
+
+{%- endstyle -%}
+
+<section class="popBanner">
+  <a href="{{ section.settings.link }}" class="popBanner__link">
+    <div class="popBanner__image">
+      <picture>
+        <source class="popBanner__img" srcset="{{ section.settings.image-pc | image_url: width: 1500  }}" alt="{{ section.settings.image-pc.alt }}" media="(min-width: 750px)">
+        <img class="popBanner__img" src="{{ section.settings.image-sp | image_url: width: 800  }}" alt="{{ section.settings.image-sp.alt }}">
+      </picture>
+    </div>
+    <div class="popBanner__body">
+      <div class="popBanner__title">
+        <span class="popBanner__subTitle u-hidden-sp" data-title="{{ section.settings.sub-title-sp }}">{{ section.settings.sub-title-sp }}</span>
+        <span class="popBanner__subTitle u-hidden-pc" data-title="{{ section.settings.sub-title-pc }}">{{ section.settings.sub-title-pc }}</span>
+        <h2 class="popBanner__heading2" data-title="{{ section.settings.title }}">{{ section.settings.title }}</h2>
+      </div>
+
+
+      <ul class="popBanner__items">
+        {% for block in section.blocks %}
+        <li class="popBanner__item">
+          <span class="popBanner__number">
+            {{ forloop.index | replace: '1' ,'一' | replace: '2' ,'二' | replace: '3' ,'三' | replace: '4' ,'四' | replace: '5' ,'五' }}
+          </span>
+          <div class="popBanner__paragraph">
+            {{ block.settings.paragraph }}
+          </div>
+        </li>
+      {% endfor %}
+      </ul>
+    </div>
+  </a>
+</section>
+
+
+
+{% schema %}
+    {
+      "name": "ssPopup2バナー",
+      "settings": [
+        {
+              "type": "text",
+              "id": "title",
+              "label": "タイトル",
+              "default": "和 菓 子 屋"
+            },
+            
+            {
+              "type": "text",
+              "id": "sub-title-pc",
+              "label": "サブタイトル(PC)",
+              "default": "お ん ら い ん す と あ"
+            },
+            {
+              "type": "text",
+              "id": "sub-title-sp",
+              "label": "サブタイトル(SP)",
+              "default": "お ん ら い ん"
+            },
+            {
+            "type": "color",
+            "id": "background-color",
+            "label": "背景色",
+            "default": "#FEFFFF"
+          },
+        {
+          "type": "range",
+          "id": "padding_top",
+          "min": 0,
+          "max": 200,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_top",
+          "default": 160
+        },
+        {
+          "type": "range",
+          "id": "padding_bottom",
+          "min": 0,
+          "max": 100,
+          "step": 4,
+          "unit": "px",
+          "label": "t:sections.all.padding.padding_bottom",
+          "default": 80
+        },
+        {
+            "type": "image_picker",
+            "id": "image-pc",
+            "label": "バナー(パソコン用)"
+        },
+        {
+            "type": "image_picker",
+            "id": "image-sp",
+            "label": "バナー(スマートフォン用)"
+        },
+        {
+                "id": "link",
+                "type": "url",
+                "label": "リンク"
+           }
+      ],
+     "presets": [
+        {
+          "name": "ssPopup2バナー"
+        }
+      ],
+      "blocks": [
+        {
+         "type": "blockset",
+         "limit": 5,
+         "name": "ブロックセット",
+           "settings": [
+            {
+              "type": "richtext",
+              "id": "paragraph",
+              "label": "テキスト",
+              "default": "<p>文章を入力してください</p>"
+            }
+         ]
+       }
+     ]
+    }
+  {% endschema %}

@@ -1,0 +1,362 @@
+
+{% style %}
+.popHeader{
+  width: 100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 10;
+  height: 95px;
+  display: block;
+}
+
+.popHeader__body{
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 15;
+  height: inherit;
+  
+  
+
+}
+
+.popHeader__inner{
+  background-color: #F0F1ED;
+  border-bottom-left-radius: 20px;
+  width: 100%;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 12;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px 15px 20px 20px;
+}
+
+.popHeader__logo{
+  width: 103px;
+  height: auto;
+  margin-left: 5px;
+}
+
+.popHeader__logo a{
+  display: block;
+  width: 100%;
+}
+
+.popHeader__logo a:hover{
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.popHeader__logo img {
+  display: block;
+  width: 100%;
+}
+
+.popHeader__nav{
+  display: none;
+  padding: 0;
+  margin: 0;
+
+}
+
+.popHeader__menus{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.popHeader__menu{
+  padding: 0;
+  margin: 0;
+}
+
+.popHeader__menu a{
+  text-decoration: none;
+  display: block;
+  font-family: 'Noto Serif JP';
+  color: #020202;
+  font-size: 14px;
+  font-style: normal;
+  padding: 12px;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+  letter-spacing: 0.28px;
+}
+
+.popHeader__menu a:hover{
+  text-decoration: underline;
+}
+
+.popHeader__spnav.is-active {
+    opacity: 1;
+    visibility: visible;
+
+  }
+
+  .popHeader__spnav{
+    transition: opacity .5s;
+    opacity: 0;
+    visibility: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: #779547;
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding-top: 140px;
+  }
+
+.popHeader__button{
+  all: unset;
+  width: 44px;
+  height: 44px;
+  display: block;
+  position: relative;
+}
+
+.popHeader__button span{
+  width: 18.5px;
+  height: 1px;
+  background-color: #020202;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .3s ease;
+}
+
+.popHeader__button span:nth-child(1){
+  transform: translate(-50%, -8px);
+}
+.popHeader__button span:nth-child(2){
+  transform: translate(-50%, -50%);
+}
+.popHeader__button span:nth-child(3){
+  transform: translate(-50%, 7px);
+}
+
+.popHeader__button.is-active span:nth-child(1){
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.popHeader__button.is-active span:nth-child(2){
+  opacity: 0;
+}
+
+.popHeader__button.is-active span:nth-child(3){
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+.popHeader__spmenus{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .popHeader__spmenu{
+    padding: 0;
+    margin: 0;
+  }
+
+  .popHeader__spmenu a{
+    display: block;
+    color: #FEFFFF;
+    padding: 24px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 116%;
+    font-style: normal;
+  }
+
+  .popHeader__spImage{
+    padding:0;
+    margin:0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 208px;
+    height: 63px;
+  }
+
+
+@media screen and (min-width: 990px) {
+  .popHeader__body{
+    border-bottom-left-radius: 40px;
+
+    width: calc(100% - 180px);
+  }
+
+  .popHeader__inner {
+    padding: 20px 50px 20px 50px;
+    
+  }
+
+
+  .popHeader__button{
+    display: none;
+  }
+
+  .popHeader__nav{
+    display: block;
+  }
+
+  .popHeader__spnav{
+    display: none;
+  }
+
+}
+
+{% endstyle %}
+
+
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function(){
+    const popBtn = document.getElementById('popHeader-button');
+    const popMenu = document.getElementById('sp-nav');
+    popBtn.addEventListener('click', function(){
+      if(!this.classList.contains('is-active')){
+        this.classList.add('is-active');
+        popMenu.classList.add('is-active');
+      } else{
+        this.classList.remove('is-active');
+        popMenu.classList.remove('is-active');
+      }
+    })
+
+    document.querySelectorAll('a[href^="#"]').forEach(
+      anchor => {
+        anchor.addEventListener('click', function(e){
+          e.preventDefault();
+
+          const href = anchor.getAttribute("href");
+          const target = document.getElementById(href.replace("#", ""));
+          const tartgetPosition = target.getBoundingClientRect().top + window.pageYOffset;
+
+          window.scrollTo({
+            top: tartgetPosition,
+            behavior: 'smooth'
+          });
+
+
+        })
+      }
+    )
+  })
+</script>
+
+
+<header class="popHeader">
+  <div class="popHeader__body">
+    <div class="popHeader__inner">
+      <div class="popHeader__logo">
+        <a href="{{'/'}}" class="popHeader__link">
+          <img src="{{ section.settings.logo | image_url: width:103 }}" alt="ロゴ">
+        </a>
+      </div>
+      <button class="popHeader__button" id="popHeader-button">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+     <nav class="popHeader__nav">
+        <ul class="popHeader__menus">
+          {% comment %} <li class="popHeader_menu"><a href="">ご紹介</a></li>
+          <li class="popHeader_menu"><a href="">スケジュール</a></li>
+          <li class="popHeader_menu"><a href="">商品紹介</a></li>
+          <li class="popHeader_menu"><a href="">オンラインショップへ</a></li> {% endcomment %}
+
+          {% for block in section.blocks %}
+            <li class="popHeader__menu"><a href="#{{ block.settings.menu_id }}">{{ block.settings.menu_title }}</a></li>
+          {% endfor %}
+
+        </ul>
+      </nav>
+    </div>
+    <nav class="popHeader__spnav" id="sp-nav">
+        <ul class="popHeader__spmenus">
+          {% comment %} <li class="popHeader_spmenu"><a href="">ご紹介</a></li>
+          <li class="popHeader_spmenu"><a href="">スケジュール</a></li>
+          <li class="popHeader_spmenu"><a href="">商品紹介</a></li>
+          <li class="popHeader_spmenu"><a href="">オンラインショップへ</a></li> {% endcomment %}
+          {% for block in section.blocks %}
+            <li class="popHeader__spmenu"><a href="#{{ block.settings.menu_id }}">{{ block.settings.menu_title }}</a></li>
+          {% endfor %}
+        </ul>
+        <img src="https://cdn.shopify.com/s/files/1/0841/4478/3666/files/decoration_sp_2.png?v=1697613369" alt="装飾アイコン" class="popHeader__spImage">
+    </nav>
+  </div>
+</header>
+
+
+
+
+{% schema %}
+{
+  "name": "ポップアップヘッダー2",
+  "class": "section-header",
+  "max_blocks": 5,
+  "settings": [
+      {
+                "type": "image_picker",
+                "id": "logo",
+                "label": "ロゴ"
+      }
+
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "メニューの追加",
+        "settings": [
+         {
+        "type": "text",
+        "id": "menu_title",
+        "label": "メニュー名",
+        "default": "メニュー名を入力してください"
+          },
+          {
+          "type": "select",
+          "id": "menu_id",
+          "options": [
+              {
+                "value": "popup-introduction",
+                "label": "紹介"
+              },
+              {
+                "value": "popup-schedule",
+                "label": "スケジュール"
+              },
+              {
+                "value": "popup-products",
+                "label": "テキスト画像"
+              },
+              {
+                "value": "popup-banner",
+                "label": "バナー"
+              }
+            ],
+            "default": "popup-introduction",
+            "label": "遷移先",
+            "info": "遷移先を選択してください"
+          }
+     ]
+    }
+  ]
+}
+{% endschema %}
