@@ -19,10 +19,11 @@
           nextEl: '.ssSlide__next',
           prevEl: '.ssSlide__prev',
         },
-        autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-      },
+        autoplay: false,
+      //   autoplay: {
+      //   delay: 3000,
+      //   disableOnInteraction: false
+      // },
     });
   })
 </script>
@@ -89,23 +90,32 @@
   z-index: 10;
 }
 
-.ssSlide__messages{
+.ssSlide__title{
   position: absolute;
+  display: inline-block;
   top: 6.4vw;
   right: 4vw;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: reverse;
-      -ms-flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
           flex-direction: row-reverse;
   z-index: 6;
 }
 
-.ssSlide__mainmessage, .ssSlide__submessage{
+.ssSlide__title p {
   margin:0;
   padding:0;
   font-weight: 300;
   line-height: 120%;
+  display: inline-block;
   font-style: normal;
   color: #FEFFFF;
   -webkit-writing-mode: vertical-rl;
@@ -114,15 +124,23 @@
   
 }
 
-.ssSlide__mainmessage{
-  font-size: max(3.2vw, 10px);
+.ssSlide__mainTitle{
   padding-right: 8px;
   letter-spacing: 0.6rem;
+  color: #FEFFFF;
+  font-size: max(3.2vw, 10px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
-.ssSlide__submessage{
-  font-size: 2.666vw;
+.ssSlide__subTitle{
   letter-spacing: 0.4rem;
+  color: #FEFFFF;
+  font-size: 2.666vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }
 
 .ssSlide__label{
@@ -146,6 +164,41 @@
   background: #6B5D58;
   -webkit-box-shadow: 1px 0px 0px 0px #FFF;
           box-shadow: 1px 0px 0px 0px #FFF;
+}
+
+
+
+.ssSlide__title{
+  top: 6.4vw;
+  right: 4vw;
+  position: absolute;
+  z-index: 6;
+  display: inline-block;
+  writing-mode: vertical-rl;
+  
+}
+
+.ssSlide__mainTitle{
+  display: flex;
+  flex-direction: column;
+  font-size: max(3.2vw, 10px);
+  padding-right: 8px;
+  letter-spacing: 0.6rem;
+  color: #FEFFFF;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+
+.ssSlide__subTitle{
+  display: inline-block;
+  letter-spacing: 0.4rem;
+  color: #FEFFFF;
+  font-size: 2.666vw;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+  
 }
 
 .ssSlide__swipernav {
@@ -184,18 +237,17 @@
 
 @media screen and (min-width: 750px) {
 
-  .ssSlide__messages{
-    position: absolute;
+  .ssSlide__title{
     top: 5vw;
     right: 7.03125vw;
   }
 
-  .ssSlide__mainmessage{
+  .ssSlide__mainTitle{
     font-size: min(3.125vw, 40px);
     letter-spacing: 0.8rem;
   }
 
-  .ssSlide__submessage{
+  .ssSlide__subTitle{
     font-size: min(1.4062vw, 18px);
     letter-spacing: 0.5rem;
   }
@@ -263,19 +315,14 @@
                     <source srcset="{{ block.settings.banner_pc | image_url: width: 2000 }}" media="(min-width: 1126px)" alt="{{ block.settings.banner_pc.alt }}">
                     <img src="{{ block.settings.banner_sp | image_url: width: 1200 }}" alt="{{ block.settings.banner_sp.alt }}">
                 </picture>
-                <div class="ssSlide__messages">
-                  <p class="ssSlide__submessage">
-                    {{ block.settings.sub-title }}
-                  </p>
-                  <p class="ssSlide__mainmessage">
-                    {{ block.settings.main-title }}
-                  </p>
+                <div class="ssSlide__title">
+                  <span class="ssSlide__subTitle">{{ block.settings.sub-title }}</span>
+                  <span class="ssSlide__mainTitle">{{ block.settings.main-title }}</span>
                 </div>
                 <span class="ssSlide__label">
                   商品一覧をみる
                 </span>
               </div>
-                
             </a>
         </li>
       {% endfor %}
