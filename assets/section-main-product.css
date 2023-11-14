@@ -15,6 +15,8 @@
   padding-left: 0;
 }
 
+
+
 @media screen and (min-width: 750px) {
   .product__column-sticky {
     display: block;
@@ -110,10 +112,15 @@
 .shopify-payment-button__button--unbranded {
   /* background-color: rgba(var(--color-button), var(--alpha-button-background)); */
   background-color: #779547;
-  color: rgb(var(--color-button-text));
-  font-size: 1.4rem;
-  line-height: calc(1 + 0.2 / var(--font-body-scale));
-  letter-spacing: 0.07rem;
+  /* color: rgb(var(--color-button-text)); */
+  color: #FEFFFF;
+  /* font-size: 1.4rem; */
+  font-size: 15px;
+  /* line-height: calc(1 + 0.2 / var(--font-body-scale)); */
+  line-height: 15px;
+  /* letter-spacing: 0.07rem; */
+  letter-spacing: 0.6px;
+  height: 45px;
 }
 
 .shopify-payment-button__button--unbranded::selection {
@@ -163,7 +170,8 @@
 .product-form__input {
   flex: 0 0 100%;
   padding: 0;
-  margin: 0 0 1.2rem 0;
+  /* margin: 0 0 1.2rem 0; */
+  margin: 0 0 12px 0;
   max-width: 44rem;
   min-width: fit-content;
   border: none;
@@ -196,12 +204,13 @@ fieldset.product-form__input .form__label {
 }
 
 .product-form__input input[type='radio'] + label {
-  border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity));
+  /* border: var(--variant-pills-border-width) solid rgba(var(--color-foreground), var(--variant-pills-border-opacity)); */
+  border: var(--variant-pills-border-width) solid #6B5D58;
   background-color: rgb(var(--color-background));
-  color: rgba(var(--color-foreground));
   /* border-radius: var(--variant-pills-radius); */
   border-radius: 50px;
-  color: rgb(var(--color-foreground));
+  /* color: rgb(var(--color-foreground)); */
+  color: #020202;
   display: inline-block;
   /* margin: 0.7rem 0.5rem 0.2rem 0; */
   /* margin-right: 5px; */
@@ -325,6 +334,10 @@ fieldset.product-form__input .form__label {
 .product__info-container > * + * {
   margin: 15px 0;
   /* margin: 1.5rem 0; */
+}
+
+.ss-quentity-top-margin{
+  margin-top: 12px !important;
 }
 
 .product__info-container iframe {
@@ -483,7 +496,8 @@ a.product__text {
 }
 
 .product-form__quantity .form__label {
-  margin-bottom: 0.6rem;
+  margin-bottom: 6px;
+  /* margin-bottom: 0.6rem; */
 }
 
 .price-per-item__label.form__label {
@@ -522,6 +536,15 @@ a.product__text {
 }
 
 @media screen and (max-width: 749px) {
+  .product__description span {
+    color: var(--unnamed, #020202);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 172%; /* 25.8px */
+    letter-spacing: 0.6px;
+  }
+  
   .product__media-list {
     margin-left: -2.5rem;
     margin-bottom: 3rem;

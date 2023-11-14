@@ -96,7 +96,8 @@ html.no-js .no-js-hidden {
 .page-width {
   max-width: var(--page-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  /* padding: 0 1.5rem; */
+  padding: 0 15px;
 }
 
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
@@ -1449,8 +1450,9 @@ details[open] > .share-button__fallback {
 .share-button__button .icon-share {
   height: 1.2rem;
   /* margin-right: 1rem; */
-  margin-right: 10px;
+  /* margin-right: 10px; */
   min-width: 1.3rem;
+  margin-right: 14px;
 }
 
 .share-button__fallback {
@@ -2484,7 +2486,7 @@ product-info .loading-overlay:not(.hidden) ~ *,
 
 .header__heading-link {
   display: inline-block;
-  padding: 0.75rem;
+  /* padding: 0.75rem; */
   text-decoration: none;
   word-break: break-word;
 }
@@ -2510,6 +2512,8 @@ product-info .loading-overlay:not(.hidden) ~ *,
 }
 
 @media screen and (max-width: 989px) {
+
+  
   .header__heading,
   .header__heading-link {
     text-align: center;
@@ -2527,6 +2531,12 @@ product-info .loading-overlay:not(.hidden) ~ *,
 }
 
 @media screen and (min-width: 990px) {
+
+  .header__heading-link {
+    padding: 0.75rem;
+  }
+
+  
   .header--middle-left .header__heading-link,
   .header--top-left .header__heading-link {
     margin-left: -0.75rem;

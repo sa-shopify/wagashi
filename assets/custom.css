@@ -212,37 +212,34 @@ body {
     }
 }
 
-.ssTweakProductPage-title h1{
-    font-size: 30px;
-    font-style: normal;
-    line-height: normal;
-  }
-  .ssTweakProductPage-price span{
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
+    .ssTweakProductPage-title h1{
+        font-size: 30px;
+        font-style: normal;
+        line-height: normal;
+    }
 
-  .ssRelatedPrice{
-    color: #020202;
-    font-size: 15px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 172%; /* 25.8px */
-    letter-spacing: 0.6px;
-  }
+
+
+
+    .ssPrice-productPage{
+        color: #020202;
+        font-size: 17px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+
 
   @media screen and (min-width: 750px) {
     .ssTweakProductPage-title h1{
       font-size: 40px;
     }
-    .ssTweakProductPage-price span{
-      font-size: 18px;
-      line-height: 116%
+  
+
+    .ssPrice-productPage{
+        background-color: green;
+        font-size: 18px;
+        line-height: 116%;
     }
-    .ssRelatedPrice{
-        font-size: 16px;
-        letter-spacing: 0.64px;
-    }
+   
   }
